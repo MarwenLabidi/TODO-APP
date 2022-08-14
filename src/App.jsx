@@ -7,7 +7,6 @@ const App = () => {
     return (
         <>
             <GlobalStyle />
-            <div>App</div>
             <Header />
             <Body />
         </>

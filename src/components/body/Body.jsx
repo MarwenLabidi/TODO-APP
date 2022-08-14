@@ -4,8 +4,8 @@ import Main from "./main/Main";
 const Body = () => {
     return (
         <>
-            <div>body</div>
             <Main />
+            <p>Drag and drop to reorder list</p>
         </>
     );
 };
