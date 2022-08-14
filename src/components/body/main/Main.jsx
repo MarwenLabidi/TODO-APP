@@ -1,6 +1,10 @@
 import React from "react";
+import { useState } from "react";
 
 const Main = () => {
+    const [Tasks, setTask] = useState([]); // [{ID,Description,Completed}]
+    //TODO create the functionality of adding a task and rendering it in the list
+    // clear all the tasks
     return (
         <>
             <div>
