@@ -4,28 +4,62 @@ const TasksList = ({ tasks, type, callBack }) => {
     const taskDone = (e) => {
         if (e.target.checked) {
             // Checkbox is checked..
-            e.target.nextSibling.style.textDecoration = "line-through";
             // send the key of the current list to the state and use it to update the state
             callBack({ completed: true, key: e.target.parentNode.id });
         } else {
             // Checkbox is not checked..
-            console.log("uncheked");
-            e.target.nextSibling.style.textDecoration = "none";
+
             callBack({ completed: false, key: e.target.parentNode.id });
         }
     };
     return (
-        // TODO make a condition to render the task with line-through or not
-        // TODO render all the complete tasks or render all the active tasks
         <ul>
             {tasks.length > 0 &&
                 type === "All" &&
                 tasks.map((task) => (
                     <li id={`task-${task.ID}`} key={task.ID}>
                         <input type='checkbox' onChange={(e) => taskDone(e)} />
-                        <span> {task.Description}</span>
+                        {task.Completed === true ? (
+                            <span style={{ textDecoration: "line-through" }}>
+                                {task.Description}
+                            </span>
+                        ) : (
+                            <span>{task.Description}</span>
+                        )}
                     </li>
                 ))}
+            {/* FIXME */}
+
+            {tasks.length > 0 &&
+                type === "Active" &&
+                tasks.map((task) => (
+                    <li id={`task-${task.ID}`} key={task.ID}>
+                        <input type='checkbox' onChange={(e) => taskDone(e)} />
+                        {task.Completed === true ? (
+                            <span style={{ textDecoration: "line-through" }}>
+                                {task.Description}
+                            </span>
+                        ) : (
+                            <span>{task.Description}</span>
+                        )}
+                    </li>
+                ))}
+            {/* FIXME stop showing empty input*/}
+            {tasks.length > 0 &&
+                type === "Completed" &&
+                tasks.map((task) => (
+                    <li id={`task-${task.ID}`} key={task.ID}>
+                        <input type='checkbox' onChange={(e) => taskDone(e)} />
+                        {task.Completed === true && (
+                            <span style={{ textDecoration: "line-through" }}>
+                                {task.Description}
+                            </span>
+                        )}
+                    </li>
+                ))}
+            {/* NOTE make the input checked when you chouse the completed tasks */}
+            {/* //-[]  look the same project in youtube and github to saw how other developer do it  */}
+            {/* TODO refactor it and make it more readable maybe use switch statemetn */}
         </ul>
     );
 };
