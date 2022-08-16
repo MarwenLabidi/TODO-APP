@@ -18,13 +18,26 @@ const TasksList = ({ tasks, type, callBack }) => {
                 type === "All" &&
                 tasks.map((task) => (
                     <li id={`task-${task.ID}`} key={task.ID}>
-                        <input type='checkbox' onChange={(e) => taskDone(e)} />
                         {task.Completed === true ? (
-                            <span style={{ textDecoration: "line-through" }}>
-                                {task.Description}
-                            </span>
+                            <>
+                                <input
+                                    checked
+                                    type='checkbox'
+                                    onChange={(e) => taskDone(e)}
+                                />
+                                <span
+                                    style={{ textDecoration: "line-through" }}>
+                                    {task.Description}
+                                </span>
+                            </>
                         ) : (
-                            <span>{task.Description}</span>
+                            <>
+                                <input
+                                    type='checkbox'
+                                    onChange={(e) => taskDone(e)}
+                                />
+                                <span>{task.Description}</span>
+                            </>
                         )}
                     </li>
                 ))}
@@ -64,7 +77,6 @@ const TasksList = ({ tasks, type, callBack }) => {
                         )}
                     </li>
                 ))}
-            {/* NOTE make the input checked when you chouse the completed tasks */}
             {/* //-[]  look the same project in youtube and github to saw how other developer do it  */}
             {/* TODO refactor it and make it more readable maybe use switch statemetn */}
         </ul>
