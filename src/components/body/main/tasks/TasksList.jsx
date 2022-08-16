@@ -28,32 +28,39 @@ const TasksList = ({ tasks, type, callBack }) => {
                         )}
                     </li>
                 ))}
-            {/* FIXME */}
 
             {tasks.length > 0 &&
                 type === "Active" &&
                 tasks.map((task) => (
                     <li id={`task-${task.ID}`} key={task.ID}>
-                        <input type='checkbox' onChange={(e) => taskDone(e)} />
-                        {task.Completed === true ? (
-                            <span style={{ textDecoration: "line-through" }}>
-                                {task.Description}
-                            </span>
-                        ) : (
-                            <span>{task.Description}</span>
+                        {task.Completed === false && (
+                            <>
+                                <input
+                                    type='checkbox'
+                                    onChange={(e) => taskDone(e)}
+                                />
+                                <span>{task.Description}</span>
+                            </>
                         )}
                     </li>
                 ))}
-            {/* FIXME stop showing empty input*/}
+
             {tasks.length > 0 &&
                 type === "Completed" &&
                 tasks.map((task) => (
                     <li id={`task-${task.ID}`} key={task.ID}>
-                        <input type='checkbox' onChange={(e) => taskDone(e)} />
                         {task.Completed === true && (
-                            <span style={{ textDecoration: "line-through" }}>
-                                {task.Description}
-                            </span>
+                            <>
+                                <input
+                                    type='checkbox'
+                                    onChange={(e) => taskDone(e)}
+                                    checked
+                                />
+                                <span
+                                    style={{ textDecoration: "line-through" }}>
+                                    {task.Description}
+                                </span>
+                            </>
                         )}
                     </li>
                 ))}

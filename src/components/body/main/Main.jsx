@@ -49,10 +49,12 @@ const Main = () => {
             </section>
 
             <footer>
+                {/* TODO show the lenght of completed item and active items whn you clck buttons */}
                 <p>{Tasks.length} items</p>
-                <button>All</button>
-                <button>Active</button>
-                <button>Completed</button>
+                <button onClick={()=>setTypeOfTask('All')}>All</button>
+                <button onClick={()=>setTypeOfTask('Active')}>Active</button>
+                <button onClick={()=>setTypeOfTask('Completed')}>Completed</button>
+                {/* TODO make the functionality of clear completed */}
                 <button>Clear completed</button>
             </footer>
         </>
