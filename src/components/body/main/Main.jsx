@@ -4,19 +4,29 @@ import TasksList from "./tasks/TasksList";
 
 const Main = () => {
     const [Tasks, setTask] = useState([]); // [{ID,Description,Completed}]
-    const [typeOfTask,setTypeOfTask]=useState('All');//All,Active,Completed
-    
+    const [typeOfTask, setTypeOfTask] = useState("All"); //All,Active,Completed
+
     const saveTask = (e) => {
-        // console.log(e.target.value);
+        let content = e.target.value || e.target.previousElementSibling.value;
         setTask([
             ...Tasks,
-            { ID: Tasks.length, Description: e.target.value, Completed: false },
+            { ID: Tasks.length, Description: content, Completed: false },
         ]);
         e.target.value = "";
     };
-    //TODO callback function to update the state of the checkbox
-    const changeTaskStatus = (position) => {}
-
+    // FIXME the state not updating when the checkbox is checked
+    const changeTaskStatus = (taskInfo) => {
+        let allTasks = [...Tasks];
+        let positionTaskToChange = taskInfo.key.split("-")[1]
+        
+        if (taskInfo.completed === true) {
+            allTasks[positionTaskToChange].Completed = true;
+            setTask(allTasks);
+        } else {
+            allTasks[positionTaskToChange].Completed = false;
+            setTask(allTasks);
+        }
+    };
 
     useEffect(() => {
         console.log(Tasks);
@@ -28,12 +38,15 @@ const Main = () => {
                     onKeyDown={(e) => e.key === "Enter" && saveTask(e)}
                     type='text'
                 />
-                //FIXME fix the saveTask to work with click event
                 <button onClick={(e) => saveTask(e)}>add</button>
             </div>
 
             <section>
-                <TasksList tasks={Tasks} type={typeOfTask} />
+                <TasksList
+                    tasks={Tasks}
+                    type={typeOfTask}
+                    callBack={changeTaskStatus}
+                />
             </section>
 
             <footer>
