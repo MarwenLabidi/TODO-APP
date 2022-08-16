@@ -1,29 +1,43 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import TasksList from "./tasks/TasksList";
 
 const Main = () => {
     const [Tasks, setTask] = useState([]); // [{ID,Description,Completed}]
-    //TODO create the functionality of adding a task and rendering it in the list
-    // clear all the tasks
+    const [typeOfTask,setTypeOfTask]=useState('All');//All,Active,Completed
+    
+    const saveTask = (e) => {
+        // console.log(e.target.value);
+        setTask([
+            ...Tasks,
+            { ID: Tasks.length, Description: e.target.value, Completed: false },
+        ]);
+        e.target.value = "";
+    };
+    //TODO callback function to update the state of the checkbox
+    const changeTaskStatus = (position) => {}
+
+
+    useEffect(() => {
+        console.log(Tasks);
+    }, [Tasks]);
     return (
         <>
             <div>
-                <input type='text' /> <button>add</button>
+                <input
+                    onKeyDown={(e) => e.key === "Enter" && saveTask(e)}
+                    type='text'
+                />
+                //FIXME fix the saveTask to work with click event
+                <button onClick={(e) => saveTask(e)}>add</button>
             </div>
 
             <section>
-                <ul>
-                    <li>
-                        <input type='checkbox' /> <span>item 1</span>
-                    </li>
-                    <li>
-                        <input type='checkbox' /> <span>item 2</span>
-                    </li>
-                </ul>
+                <TasksList tasks={Tasks} type={typeOfTask} />
             </section>
 
             <footer>
-                <p>5 items</p>
+                <p>{Tasks.length} items</p>
                 <button>All</button>
                 <button>Active</button>
                 <button>Completed</button>
