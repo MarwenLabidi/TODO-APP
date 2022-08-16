@@ -6,7 +6,7 @@ const TasksList = ({ tasks, type, callBack }) => {
             // Checkbox is checked..
             e.target.nextSibling.style.textDecoration = "line-through";
             // send the key of the current list to the state and use it to update the state
-            callBack({ add: true, key: e.target.parentNode.id });
+            callBack({ completed: true, key: e.target.parentNode.id });
         } else {
             // Checkbox is not checked..
             console.log("uncheked");

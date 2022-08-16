@@ -14,7 +14,6 @@ const Main = () => {
         ]);
         e.target.value = "";
     };
-    // FIXME the state not updating when the checkbox is checked
     const changeTaskStatus = (taskInfo) => {
         let allTasks = [...Tasks];
         let positionTaskToChange = taskInfo.key.split("-")[1]
