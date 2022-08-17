@@ -5,19 +5,21 @@ import TasksList from "./tasks/TasksList";
 const Main = () => {
     const [Tasks, setTask] = useState([]); // [{ID,Description,Completed}]
     const [typeOfTask, setTypeOfTask] = useState("All"); //All,Active,Completed
+    const [itemsNumbers, setItemsNumbers] = useState(Tasks.length);
+    const [input, setInput] = useState("");
 
     const saveTask = (e) => {
-        let content = e.target.value || e.target.previousElementSibling.value;
+        let content = input;
         setTask([
             ...Tasks,
             { ID: Tasks.length, Description: content, Completed: false },
         ]);
-        e.target.value = "";
+        setInput("");
     };
     const changeTaskStatus = (taskInfo) => {
         let allTasks = [...Tasks];
-        let positionTaskToChange = taskInfo.key.split("-")[1]
-        
+        let positionTaskToChange = taskInfo.key.split("-")[1];
+
         if (taskInfo.completed === true) {
             allTasks[positionTaskToChange].Completed = true;
             setTask(allTasks);
@@ -26,9 +28,40 @@ const Main = () => {
             setTask(allTasks);
         }
     };
+    const clearCompletedTasks = () => {
+        let allTasks = [...Tasks];
+        let newTasks = allTasks.filter((task) => task.Completed === false);
+        setTask(newTasks);
+    };
+    const getItemsNumbers = (type) => {
+        // ALL Completed Active
+        let countStatus=(completed)=>{
+            let count = 0;
+            count = Tasks.reduce((acc, task) => {
+                task.Completed === completed && acc++;
+                return acc;
+            }, 0);
+            setItemsNumbers(count);
+        }
+        if (type === "Completed") {
+            countStatus(true)
+        } else if (type === "Active") {
+            countStatus(false)
+        } else {
+            setItemsNumbers(Tasks.length);
+        }
+    };
+    const handelStateButtons = (type) => {
+        setTypeOfTask(type);
+        getItemsNumbers(type);
+    };
+    const handelinput = (e) => {
+        setInput(e.target.value);
+    };
 
     useEffect(() => {
         console.log(Tasks);
+        getItemsNumbers("All");
     }, [Tasks]);
     return (
         <>
@@ -36,6 +69,8 @@ const Main = () => {
                 <input
                     onKeyDown={(e) => e.key === "Enter" && saveTask(e)}
                     type='text'
+                    onChange={(e) => handelinput(e)}
+                    value={input}
                 />
                 <button onClick={(e) => saveTask(e)}>add</button>
             </div>
@@ -49,13 +84,17 @@ const Main = () => {
             </section>
 
             <footer>
-                {/* TODO show the lenght of completed item and active items whn you clck buttons */}
-                <p>{Tasks.length} items</p>
-                <button onClick={()=>setTypeOfTask('All')}>All</button>
-                <button onClick={()=>setTypeOfTask('Active')}>Active</button>
-                <button onClick={()=>setTypeOfTask('Completed')}>Completed</button>
-                {/* TODO make the functionality of clear completed */}
-                <button>Clear completed</button>
+                <p>{itemsNumbers} items</p>
+                <button onClick={() => handelStateButtons("All")}>All</button>
+                <button onClick={() => handelStateButtons("Active")}>
+                    Active
+                </button>
+                <button onClick={() => handelStateButtons("Completed")}>
+                    Completed
+                </button>
+                <button onClick={() => clearCompletedTasks()}>
+                    Clear completed
+                </button>
             </footer>
         </>
     );

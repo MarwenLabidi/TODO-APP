@@ -12,6 +12,7 @@ const TasksList = ({ tasks, type, callBack }) => {
             callBack({ completed: false, key: e.target.parentNode.id });
         }
     };
+    // TODO use controlled to all the input
     return (
         <ul>
             {tasks.length > 0 &&
@@ -79,6 +80,8 @@ const TasksList = ({ tasks, type, callBack }) => {
                 ))}
             {/* //-[]  look the same project in youtube and github to saw how other developer do it  */}
             {/* TODO refactor it and make it more readable maybe use switch statemetn */}
+            {/* //TODO useMemo */}
+            {/* TODO when you click span i will checked the box too */}
         </ul>
     );
 };
