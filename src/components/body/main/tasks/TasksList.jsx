@@ -1,7 +1,16 @@
-import React from "react";
+import { useState } from "react";
 
 const TasksList = ({ tasks, type, callBack }) => {
+    const [isChecked, setIsChecked] = useState(
+        new Array(tasks.length).fill(false)
+    );
+    const handleOnChange = (position) => {
+        const updatedCheckedState = checkedState.map((item, index) =>
+            index === position ? !item : item
+        );
+    };
     const taskDone = (e) => {
+        //FIXME change e to state
         if (e.target.checked) {
             // Checkbox is checked..
             // send the key of the current list to the state and use it to update the state
