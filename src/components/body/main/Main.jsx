@@ -18,11 +18,8 @@ const Main = () => {
         setInput("");
     };
     const changeTaskStatus = (taskInfo) => {
-        console.log("taskInfo: ", taskInfo);
         let allTasks = [...Tasks];
-        console.log("allTasks: ", allTasks);
         let positionTaskToChange = taskInfo.key;
-        console.log("positionTaskToChange: ", positionTaskToChange);
 
         if (taskInfo.completed === true) {
             allTasks[positionTaskToChange].Completed = true;

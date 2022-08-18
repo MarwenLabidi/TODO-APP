@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 const TasksList = ({ tasks, type, callBack }) => {
     
     const taskDone = (task) => {
-        console.log('task: ', task);
         if (task.Completed === false) {
             // Checkbox is checked..
             // send the key of the current list to the state and use it to update the state
