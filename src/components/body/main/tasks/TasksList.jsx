@@ -1,39 +1,31 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const TasksList = ({ tasks, type, callBack }) => {
-    const [isChecked, setIsChecked] = useState(
-        new Array(tasks.length).fill(false)
-    );
-    const handleOnChange = (position) => {
-        const updatedCheckedState = checkedState.map((item, index) =>
-            index === position ? !item : item
-        );
-    };
-    const taskDone = (e) => {
-        //FIXME change e to state
-        if (e.target.checked) {
+    
+    const taskDone = (task) => {
+        console.log('task: ', task);
+        if (task.Completed === false) {
             // Checkbox is checked..
             // send the key of the current list to the state and use it to update the state
-            callBack({ completed: true, key: e.target.parentNode.id });
+            callBack({ completed: true, key: task.ID });
         } else {
             // Checkbox is not checked..
 
-            callBack({ completed: false, key: e.target.parentNode.id });
+            callBack({ completed: false, key: task.ID });
         }
     };
-    // TODO use controlled to all the input
     return (
         <ul>
             {tasks.length > 0 &&
                 type === "All" &&
-                tasks.map((task) => (
-                    <li id={`task-${task.ID}`} key={task.ID}>
+                tasks.map((task, index) => (
+                    <li id={`task-${task.ID}`} key={task}>
                         {task.Completed === true ? (
                             <>
                                 <input
-                                    checked
                                     type='checkbox'
-                                    onChange={(e) => taskDone(e)}
+                                    checked={task.Completed}
+                                    onChange={() => taskDone(task)}
                                 />
                                 <span
                                     style={{ textDecoration: "line-through" }}>
@@ -44,14 +36,14 @@ const TasksList = ({ tasks, type, callBack }) => {
                             <>
                                 <input
                                     type='checkbox'
-                                    onChange={(e) => taskDone(e)}
+                                    checked={task.Completed}
+                                    onChange={() => taskDone(task)}
                                 />
                                 <span>{task.Description}</span>
                             </>
                         )}
                     </li>
                 ))}
-
             {tasks.length > 0 &&
                 type === "Active" &&
                 tasks.map((task) => (
@@ -60,14 +52,13 @@ const TasksList = ({ tasks, type, callBack }) => {
                             <>
                                 <input
                                     type='checkbox'
-                                    onChange={(e) => taskDone(e)}
+                                    onChange={(e) => taskDone(task)}
                                 />
                                 <span>{task.Description}</span>
                             </>
                         )}
                     </li>
                 ))}
-
             {tasks.length > 0 &&
                 type === "Completed" &&
                 tasks.map((task) => (
@@ -76,7 +67,7 @@ const TasksList = ({ tasks, type, callBack }) => {
                             <>
                                 <input
                                     type='checkbox'
-                                    onChange={(e) => taskDone(e)}
+                                    onChange={(e) => taskDone(task)}
                                     checked
                                 />
                                 <span

@@ -8,8 +8,9 @@ const Main = () => {
     const [itemsNumbers, setItemsNumbers] = useState(Tasks.length);
     const [input, setInput] = useState("");
 
-    const saveTask = (e) => {
+    const saveTask = () => {
         let content = input;
+        if(!content){return}
         setTask([
             ...Tasks,
             { ID: Tasks.length, Description: content, Completed: false },
@@ -17,8 +18,11 @@ const Main = () => {
         setInput("");
     };
     const changeTaskStatus = (taskInfo) => {
+        console.log("taskInfo: ", taskInfo);
         let allTasks = [...Tasks];
-        let positionTaskToChange = taskInfo.key.split("-")[1];
+        console.log("allTasks: ", allTasks);
+        let positionTaskToChange = taskInfo.key;
+        console.log("positionTaskToChange: ", positionTaskToChange);
 
         if (taskInfo.completed === true) {
             allTasks[positionTaskToChange].Completed = true;
@@ -35,18 +39,18 @@ const Main = () => {
     };
     const getItemsNumbers = (type) => {
         // ALL Completed Active
-        let countStatus=(completed)=>{
+        let countStatus = (completed) => {
             let count = 0;
             count = Tasks.reduce((acc, task) => {
                 task.Completed === completed && acc++;
                 return acc;
             }, 0);
             setItemsNumbers(count);
-        }
+        };
         if (type === "Completed") {
-            countStatus(true)
+            countStatus(true);
         } else if (type === "Active") {
-            countStatus(false)
+            countStatus(false);
         } else {
             setItemsNumbers(Tasks.length);
         }
@@ -60,7 +64,6 @@ const Main = () => {
     };
 
     useEffect(() => {
-        console.log(Tasks);
         getItemsNumbers("All");
     }, [Tasks]);
     return (

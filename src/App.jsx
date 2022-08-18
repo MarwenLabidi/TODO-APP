@@ -19,7 +19,7 @@ const App = () => {
 
 export default App;
 
-
+//TODO create new branch and test input using formikk
 // TODO save task in the firebase and in  the local storage if there is no internet and if the internet is back send data from local storage and clear local storage and get the data from fire base or local storage if there is no internet
 // TODO create a custom hook useFirebase to get the data from firebase and save it in the local storage if there is no internet
 // TODO create a custom hook useLocalStorage to get the data from local storage and save it in the firebase if there is no internet
