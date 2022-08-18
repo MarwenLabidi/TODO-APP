@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 
 const TasksList = ({ tasks, type, callBack }) => {
-    
     const taskDone = (task) => {
         if (task.Completed === false) {
             // Checkbox is checked..
@@ -22,23 +21,28 @@ const TasksList = ({ tasks, type, callBack }) => {
                         {task.Completed === true ? (
                             <>
                                 <input
+                                    id={`checkbox-${task.ID}`}
                                     type='checkbox'
                                     checked={task.Completed}
                                     onChange={() => taskDone(task)}
                                 />
-                                <span
+                                <label
+                                    htmlFor={`checkbox-${task.ID}`}
                                     style={{ textDecoration: "line-through" }}>
                                     {task.Description}
-                                </span>
+                                </label>
                             </>
                         ) : (
                             <>
                                 <input
+                                    id={`checkbox-${task.ID}`}
                                     type='checkbox'
                                     checked={task.Completed}
                                     onChange={() => taskDone(task)}
                                 />
-                                <span>{task.Description}</span>
+                                <label htmlFor={`checkbox-${task.ID}`}>
+                                    {task.Description}
+                                </label>
                             </>
                         )}
                     </li>
@@ -50,10 +54,13 @@ const TasksList = ({ tasks, type, callBack }) => {
                         {task.Completed === false && (
                             <>
                                 <input
+                                    id={`checkbox-${task.ID}`}
                                     type='checkbox'
                                     onChange={(e) => taskDone(task)}
                                 />
-                                <span>{task.Description}</span>
+                                <label htmlFor={`checkbox-${task.ID}`}>
+                                    {task.Description}
+                                </label>
                             </>
                         )}
                     </li>
@@ -65,14 +72,16 @@ const TasksList = ({ tasks, type, callBack }) => {
                         {task.Completed === true && (
                             <>
                                 <input
+                                    id={`checkbox-${task.ID}`}
                                     type='checkbox'
                                     onChange={(e) => taskDone(task)}
                                     checked
                                 />
-                                <span
+                                <label
+                                    htmlFor={`checkbox-${task.ID}`}
                                     style={{ textDecoration: "line-through" }}>
                                     {task.Description}
-                                </span>
+                                </label>
                             </>
                         )}
                     </li>
@@ -80,7 +89,6 @@ const TasksList = ({ tasks, type, callBack }) => {
             {/* //-[]  look the same project in youtube and github to saw how other developer do it  */}
             {/* TODO refactor it and make it more readable maybe use switch statemetn */}
             {/* //TODO useMemo */}
-            {/* TODO when you click span i will checked the box too */}
         </ul>
     );
 };
