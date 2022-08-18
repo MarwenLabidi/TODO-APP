@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { memo } from "react";
 
 const TasksList = ({ tasks, type, callBack }) => {
     const taskDone = (task) => {
@@ -88,9 +88,8 @@ const TasksList = ({ tasks, type, callBack }) => {
                 ))}
             {/* //-[]  look the same project in youtube and github to saw how other developer do it  */}
             {/* TODO refactor it and make it more readable maybe use switch statemetn */}
-            {/* //TODO useMemo */}
         </ul>
     );
 };
 
-export default TasksList;
+export default memo(TasksList);
