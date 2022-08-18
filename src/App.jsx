@@ -33,3 +33,5 @@ export default App;
 //TODO? make it a progressive web app
 //TODO? do unit test and component test with Playwright
 //TODO? use github action for ci cd pipeline
+//TODO? add linter and eslint
+//TODO? accesibility

@@ -86,7 +86,6 @@ const TasksList = ({ tasks, type, callBack }) => {
                         )}
                     </li>
                 ))}
-            {/* //-[]  look the same project in youtube and github to saw how other developer do it  */}
             {/* -[] refactor it and make it more readable maybe use switch statemetn */}
         </ul>
     );
