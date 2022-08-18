@@ -19,7 +19,7 @@ const TasksList = ({ tasks, type, callBack }) => {
             {tasks.length > 0 &&
                 type === "All" &&
                 tasks.map((task, index) => (
-                    <li id={`task-${task.ID}`} key={task}>
+                    <li id={`task-${task.ID}`} key={task.ID}>
                         {task.Completed === true ? (
                             <>
                                 <input
