@@ -87,6 +87,7 @@ const TasksList = ({ tasks, type, callBack }) => {
                     </li>
                 ))}
             {/* -[] refactor it and make it more readable maybe use switch statemetn */}
+            {/* TODO? CHANGE THE NAME OF FILE COMPONETS TO INDEX and move folders*/}
         </ul>
     );
 };

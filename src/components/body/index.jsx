@@ -1,5 +1,5 @@
 import React from "react";
-import Main from "./main/Main";
+import Main from "../main/index";
 
 const Body = () => {
     return (
