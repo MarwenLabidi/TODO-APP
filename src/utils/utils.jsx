@@ -1,9 +1,9 @@
 //TODO? get all the functions in one file an export them
 
-export const showTasksInTheList = (tasks, type, Component,callBack) => {
-        let f='false';
-        let t='true';
-        let taskCompleted = 'task.Completed'
+export const showTasksInTheList = (tasks, type, Component, callBack) => {
+        let f = "false";
+        let t = "true";
+        let taskCompleted = "task.Completed";
         if (tasks.length < 1) {
                 return;
         }
@@ -12,7 +12,68 @@ export const showTasksInTheList = (tasks, type, Component,callBack) => {
         } else if (type === "Completed") {
                 return <Component tasks={tasks} Type={t} callBack={callBack} />;
         } else {
-                return <Component tasks={tasks} Type={taskCompleted} callBack={callBack} />;
+                return (
+                        <Component
+                                tasks={tasks}
+                                Type={taskCompleted}
+                                callBack={callBack}
+                        />
+                );
         }
 };
 
+export const taskDone = (task, callBack) => {
+        if (task.Completed === false) {
+                // Checkbox is checked..
+                // send the key of the current list to the state and use it to update the state
+                callBack({ completed: true, key: task.ID });
+        } else {
+                // Checkbox is not checked..
+                callBack({ completed: false, key: task.ID });
+        }
+};
+
+export const saveTask = (setTask, setInput, input, Tasks) => {
+        let content = input;
+        if (!content) {
+                return;
+        }
+        setTask([
+                ...Tasks,
+                { ID: Tasks.length, Description: content, Completed: false },
+        ]);
+        setInput("");
+};
+export const clearCompletedTasks = (Tasks, setTask) => {
+        let allTasks = [...Tasks];
+        let newTasks = allTasks.filter((task) => task.Completed === false);
+        setTask(newTasks);
+};
+
+export const getItemsNumbers = (type, Tasks, setItemsNumbers) => {
+        // ALL Completed Active
+        let countStatus = (completed) => {
+                let count = 0;
+                count = Tasks.reduce((acc, task) => {
+                        task.Completed === completed && acc++;
+                        return acc;
+                }, 0);
+                setItemsNumbers(count);
+        };
+        if (type === "Completed") {
+                countStatus(true);
+        } else if (type === "Active") {
+                countStatus(false);
+        } else {
+                setItemsNumbers(Tasks.length);
+        }
+};
+
+export const handelStateButtons = (type, setTypeOfTask) => {
+        setTypeOfTask(type);
+        getItemsNumbers(type, Tasks, setItemsNumbers);
+};
+
+export const handelinput = (e, setInput) => {
+        setInput(e.target.value);
+};
