@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import TasksList from "../tasks";
+import TasksList from "../tasksList";
 
 const Main = () => {
     const [Tasks, setTask] = useState([]); // [{ID,Description,Completed}]
