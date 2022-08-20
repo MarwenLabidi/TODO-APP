@@ -117,4 +117,3 @@ const Main = () => {
 
 export default Main;
 // FIXME? WHEN YOU DELETE COMPLETE TASKS AND CREATE NEW TASK Encountered two children with the same key PROBLEM
-//TODO? MAKE THIS FILE MORE READABLE
