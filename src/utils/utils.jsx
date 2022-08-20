@@ -74,6 +74,6 @@ export const handelStateButtons = (type, setTypeOfTask) => {
         getItemsNumbers(type, Tasks, setItemsNumbers);
 };
 
-export const handelinput = (e, setInput) => {
+export const handelInput = (e, setInput) => {
         setInput(e.target.value);
 };

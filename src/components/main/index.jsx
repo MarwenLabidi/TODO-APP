@@ -6,7 +6,7 @@ import {
         clearCompletedTasks,
         getItemsNumbers,
         handelStateButtons,
-        handelinput,
+        handelInput,
 } from "../../utils/utils.jsx";
 
 const Main = () => {
@@ -47,7 +47,7 @@ const Main = () => {
                                         }
                                         type='text'
                                         onChange={(e) =>
-                                                handelinput(e, setInput)
+                                                handelInput(e, setInput)
                                         }
                                         value={input}
                                 />
