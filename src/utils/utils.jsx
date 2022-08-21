@@ -1,4 +1,5 @@
 //TODO? get all the functions in one file an export them
+import { v4 as uuidv4 } from 'uuid';
 
 export const showTasksInTheList = (tasks, type, Component, callBack) => {
         let f = "false";
@@ -40,7 +41,7 @@ export const saveTask = (setTask, setInput, input, Tasks) => {
         }
         setTask([
                 ...Tasks,
-                { ID: Tasks.length, Description: content, Completed: false },
+                { ID: uuidv4(), Description: content, Completed: false },
         ]);
         setInput("");
 };
@@ -69,7 +70,7 @@ export const getItemsNumbers = (type, Tasks, setItemsNumbers) => {
         }
 };
 
-export const handelStateButtons = (type, setTypeOfTask) => {
+export const handelStateButtons = (type, setTypeOfTask,Tasks,setItemsNumbers) => {
         setTypeOfTask(type);
         getItemsNumbers(type, Tasks, setItemsNumbers);
 };

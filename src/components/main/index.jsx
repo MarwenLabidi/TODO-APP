@@ -18,13 +18,19 @@ const Main = () => {
         // callback function to update the state of the checkbox
         const changeTaskStatus = (taskInfo) => {
                 let allTasks = [...Tasks];
-                let positionTaskToChange = taskInfo.key;
-
                 if (taskInfo.completed === true) {
-                        allTasks[positionTaskToChange].Completed = true;
+                        allTasks.forEach((task) => {
+                                if (task.ID === taskInfo.key) {
+                                        task.Completed = true;
+                                }
+                        });
                         setTask(allTasks);
                 } else {
-                        allTasks[positionTaskToChange].Completed = false;
+                        allTasks.forEach((task) => {
+                                if (task.ID === taskInfo.key) {
+                                        task.Completed = false;
+                                }
+                        });
                         setTask(allTasks);
                 }
         };
@@ -78,7 +84,9 @@ const Main = () => {
                                         onClick={() =>
                                                 handelStateButtons(
                                                         "All",
-                                                        setTypeOfTask
+                                                        setTypeOfTask,
+                                                        Tasks,
+                                                        setItemsNumbers
                                                 )
                                         }>
                                         All
@@ -87,7 +95,9 @@ const Main = () => {
                                         onClick={() =>
                                                 handelStateButtons(
                                                         "Active",
-                                                        setTypeOfTask
+                                                        setTypeOfTask,
+                                                        Tasks,
+                                                        setItemsNumbers
                                                 )
                                         }>
                                         Active
@@ -96,7 +106,9 @@ const Main = () => {
                                         onClick={() =>
                                                 handelStateButtons(
                                                         "Completed",
-                                                        setTypeOfTask
+                                                        setTypeOfTask,
+                                                        Tasks,
+                                                        setItemsNumbers
                                                 )
                                         }>
                                         Completed
@@ -116,4 +128,3 @@ const Main = () => {
 };
 
 export default Main;
-// FIXME? WHEN YOU DELETE COMPLETE TASKS AND CREATE NEW TASK Encountered two children with the same key PROBLEM

@@ -7,12 +7,14 @@ specifiers:
   react: ^18.2.0
   react-dom: ^18.2.0
   styled-components: ^5.3.5
+  uuid: ^8.3.2
   vite: ^3.0.7
 
 dependencies:
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   styled-components: 5.3.5_biqbaboplfbrettd7655fr4n2y
+  uuid: 8.3.2
 
 devDependencies:
   '@types/react': 18.0.17
@@ -955,6 +957,11 @@ packages:
       escalade: 3.1.1
       picocolors: 1.0.0
     dev: true
+
+  /uuid/8.3.2:
+    resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==}
+    hasBin: true
+    dev: false
 
   /vite/3.0.7:
     resolution: {integrity: sha512-dILhvKba1mbP1wCezVQx/qhEK7/+jVn9ciadEcyKMMhZpsuAi/eWZfJRMkmYlkSFG7Qq9NvJbgFq4XOBxugJsA==}
