@@ -1,4 +1,3 @@
-//TODO? get all the functions in one file an export them
 import { v4 as uuidv4 } from 'uuid';
 
 export const showTasksInTheList = (tasks, type, Component, callBack) => {
