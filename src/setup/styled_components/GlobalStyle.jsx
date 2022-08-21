@@ -34,7 +34,7 @@ const GlobalStyle = createGlobalStyle`
 
 body{ 
   font-size:18px;
-  background: ${({ theme }) => theme.body};
+  background-color: ${({ theme }) => theme.body};
   color: ${({ theme }) => theme.text};
 }
 /* Box sizing rules */

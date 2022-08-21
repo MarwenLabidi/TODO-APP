@@ -1,8 +1,8 @@
 //TODO? get style varriale from css global style
+//FIXME?  get the root elemet with react dom or react or any other way  // maybe use useRef : how to get  it to this file                              
 let root = document.querySelector(":root");
 let bodyLightTheme = getComputedStyle(root).getPropertyValue("--clr_Very_Light_Gray");
 let bodyDarkTheme = getComputedStyle(root).getPropertyValue("--clr_Very_Dark_Blue");
-
 export const lightTheme = {
         body: bodyLightTheme,
         text: "#363537",
