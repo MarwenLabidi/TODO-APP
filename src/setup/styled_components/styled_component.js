@@ -3,12 +3,12 @@ import styled from "styled-components";
 export const StyledHeader = styled.div`
         display: flex;
         background-color: red;
-        height: 35vh;
+        height: 32vh;
 `;
 
 export const StyledBody = styled.div`
         background-color: green;
-        height: 65vh;
+        height: 68vh;
         text-align: center;
 `;
 
