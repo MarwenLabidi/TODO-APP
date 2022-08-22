@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import TasksList from "../tasksList";
-import {StyledMain} from "../../setup/styled_components/styled_component";
+import {StyledMain,StyledMainInputSectionOne,StyledMainFooterSection,StyledMainListSection} from "../../setup/styled_components/styled_component";
 import {
         saveTask,
         clearCompletedTasks,
@@ -41,7 +41,7 @@ const Main = () => {
         }, [Tasks]);
         return (
                 <StyledMain>
-                        <div>
+                        <StyledMainInputSectionOne>
                                 <input
                                         onKeyDown={(e) =>
                                                 e.key === "Enter" &&
@@ -69,17 +69,17 @@ const Main = () => {
                                         }>
                                         add
                                 </button>
-                        </div>
+                        </StyledMainInputSectionOne>
 
-                        <section>
+                        <StyledMainListSection>
                                 <TasksList
                                         tasks={Tasks}
                                         type={typeOfTask}
                                         callBack={changeTaskStatus}
                                 />
-                        </section>
+                        </StyledMainListSection>
 
-                        <footer>
+                        <StyledMainFooterSection>
                                 <p>{itemsNumbers} items</p>
                                 <button
                                         onClick={() =>
@@ -123,7 +123,7 @@ const Main = () => {
                                         }>
                                         Clear completed
                                 </button>
-                        </footer>
+                        </StyledMainFooterSection>
                 </StyledMain>
         );
 };
