@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import TasksList from "../tasksList";
+import {StyledMain} from "../../setup/styled_components/styled_component";
 import {
         saveTask,
         clearCompletedTasks,
@@ -39,7 +40,7 @@ const Main = () => {
                 getItemsNumbers("All", Tasks, setItemsNumbers);
         }, [Tasks]);
         return (
-                <>
+                <StyledMain>
                         <div>
                                 <input
                                         onKeyDown={(e) =>
@@ -123,7 +124,7 @@ const Main = () => {
                                         Clear completed
                                 </button>
                         </footer>
-                </>
+                </StyledMain>
         );
 };
 
