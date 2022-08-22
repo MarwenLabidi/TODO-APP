@@ -27,8 +27,8 @@ const GlobalStyle = createGlobalStyle`
         --clr_Light_Grayish_Blue: hsl(234, 39%, 85%);
         --clr_Light_Grayish_Blue_hover: hsl(236, 33%, 92%);
         --clr_Dark_Grayish_Blue: hsl(234, 11%, 52%);
-        --clr_Very_Dark_Grayish_Blue: hsl(233, 14%, 35%);
-        --clr_Very_Dark_Grayish_Blue: hsl(237, 14%, 26%);
+        --clr_Very_Dark_Grayish_Blue_100: hsl(233, 14%, 35%);
+        --clr_Very_Dark_Grayish_Blue_200: hsl(237, 14%, 26%);
 
 }
 
