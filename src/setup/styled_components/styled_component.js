@@ -50,12 +50,8 @@ export const StyledBody = styled.div`
         color: ${({ theme }) => theme.text};
         height: 68vh;
         text-align: center;
-        transition: all 0.5s ease-in-out;
         p:last-child {
-                position: fixed;
-                bottom: 10%;
-                left: 50%;
-                transform: translate(-50%, -50%);
+                margin-top: 6vh;
         }
 `;
 
