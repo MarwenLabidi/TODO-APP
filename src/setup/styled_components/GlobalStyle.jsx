@@ -33,7 +33,10 @@ const GlobalStyle = createGlobalStyle`
 }
 
 body{ 
-  font-size:18px;
+  background-color: ${({ theme }) => theme.body};
+    font-size:18px;
+  height:100vh;
+  overflow:hidden;
   };
 }
 /* Box sizing rules */
@@ -70,7 +73,6 @@ html:focus-within {
 
 /* Set core body defaults */
 body {
-  min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
 }
