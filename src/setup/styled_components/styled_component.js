@@ -51,6 +51,12 @@ export const StyledBody = styled.div`
         height: 68vh;
         text-align: center;
         transition: all 0.5s ease-in-out;
+        p:last-child {
+                position: fixed;
+                bottom: 10%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+        }
 `;
 
 export const StyledMain = styled.div`
@@ -67,6 +73,10 @@ export const StyledMainInputSectionOne = styled.div`
 `;
 export const StyledMainListSection = styled.div`
         background-color: pink;
+        max-height: 40vh;
+        overflow-y: scroll;
+        scroll-behavior: smooth;
+        transition: all 0.5s ease-in-out;
 `;
 export const StyledMainFooterSection = styled.div`
         background-color: yellow;
@@ -82,15 +92,15 @@ export const StyledMainFooterSection = styled.div`
         .allActiveComplete {
                 display: flex;
                 gap: 20px;
-                *{&:hover {
-                        cursor: pointer;
-                }}
+                * {
+                        &:hover {
+                                cursor: pointer;
+                        }
+                }
         }
-        .allActiveComplete+button{
+        .allActiveComplete + button {
                 &:hover {
                         cursor: pointer;
                 }
         }
 `;
-// FIXME? make the list scrollable when hit bottom of list
-// FIXME? make the message at the end of the page always stick in the end of the page 
