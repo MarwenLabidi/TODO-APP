@@ -5,9 +5,10 @@ export const StyledHeader = styled.div`
         /* justify-content:center; */
         /* align-items: start; */
         background: ${({ theme }) => theme.backgroundImageHeader};
+        backface-visibility: hidden;
         background-size: cover;
         height: 32vh;
-        /* transition: all 0.5s ease-in-out; */
+        transition: all 0.5s ease-in-out;
         header {
                 * {
                         margin-top: 5vh;
@@ -15,6 +16,11 @@ export const StyledHeader = styled.div`
                 h1{
                         font-family:var(--ff_Josefin);
                         letter-spacing: 8px;
+                        font-size: 3rem;
+                        font-weight:var(--ff_regular);
+                        @media (max-width: 900px) {
+                                font-size: 2rem;
+        }
                 }
                 display: flex;
                 justify-content: space-between;
@@ -26,9 +32,10 @@ export const StyledHeader = styled.div`
         }
         button {
                 outline: none;
-                background:${({ theme }) => theme.iconDarkMode} no-repeat center;
-                background-size:constain;
-                padding: 30px;
+                background: ${({ theme }) => theme.iconDarkMode} no-repeat center;
+                background-size:cover;
+                height: 2.5rem;
+                width: 2.5rem;
                 border: none;
                 &:hover {
                         cursor: pointer;
