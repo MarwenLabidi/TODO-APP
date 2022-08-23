@@ -5,6 +5,7 @@ export const StyledHeader = styled.div`
         /* justify-content:center; */
         /* align-items: start; */
         background: ${({ theme }) => theme.backgroundImageHeader};
+        color: var(--clr_Very_Light_Gray);
         backface-visibility: hidden;
         background-size: cover;
         height: 32vh;
@@ -13,14 +14,14 @@ export const StyledHeader = styled.div`
                 * {
                         margin-top: 5vh;
                 }
-                h1{
-                        font-family:var(--ff_Josefin);
+                h1 {
+                        font-family: var(--ff_Josefin);
                         letter-spacing: 8px;
                         font-size: 3rem;
-                        font-weight:var(--ff_regular);
+                        /* font-weight: var(--ff_bold); */
                         @media (max-width: 900px) {
                                 font-size: 2rem;
-        }
+                        }
                 }
                 display: flex;
                 justify-content: space-between;
@@ -32,8 +33,9 @@ export const StyledHeader = styled.div`
         }
         button {
                 outline: none;
-                background: ${({ theme }) => theme.iconDarkMode} no-repeat center;
-                background-size:cover;
+                background: ${({ theme }) => theme.iconDarkMode} no-repeat
+                        center;
+                background-size: cover;
                 height: 2.5rem;
                 width: 2.5rem;
                 border: none;
@@ -44,9 +46,11 @@ export const StyledHeader = styled.div`
 `;
 
 export const StyledBody = styled.div`
-        background-color: green;
+        background-color: ${({ theme }) => theme.body};
+        color: ${({ theme }) => theme.text};
         height: 68vh;
         text-align: center;
+        transition: all 0.5s ease-in-out;
 `;
 
 export const StyledMain = styled.div`
@@ -66,4 +70,25 @@ export const StyledMainListSection = styled.div`
 `;
 export const StyledMainFooterSection = styled.div`
         background-color: yellow;
+        display: flex;
+        justify-content: space-between;
+        margin: 20px;
+        * {
+                color: ${({ theme }) => theme.text};
+                outline: none;
+                border: none;
+                background: none;
+        }
+        .allActiveComplete {
+                display: flex;
+                gap: 20px;
+                *{&:hover {
+                        cursor: pointer;
+                }}
+        }
+        .allActiveComplete+button{
+                &:hover {
+                        cursor: pointer;
+                }
+        }
 `;

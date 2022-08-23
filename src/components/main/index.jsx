@@ -81,39 +81,41 @@ const Main = () => {
 
                         <StyledMainFooterSection>
                                 <p>{itemsNumbers} items</p>
-                                <button
-                                        onClick={() =>
-                                                handelStateButtons(
-                                                        "All",
-                                                        setTypeOfTask,
-                                                        Tasks,
-                                                        setItemsNumbers
-                                                )
-                                        }>
-                                        All
-                                </button>
-                                <button
-                                        onClick={() =>
-                                                handelStateButtons(
-                                                        "Active",
-                                                        setTypeOfTask,
-                                                        Tasks,
-                                                        setItemsNumbers
-                                                )
-                                        }>
-                                        Active
-                                </button>
-                                <button
-                                        onClick={() =>
-                                                handelStateButtons(
-                                                        "Completed",
-                                                        setTypeOfTask,
-                                                        Tasks,
-                                                        setItemsNumbers
-                                                )
-                                        }>
-                                        Completed
-                                </button>
+                                <div className="allActiveComplete">
+                                        <button
+                                                onClick={() =>
+                                                        handelStateButtons(
+                                                                "All",
+                                                                setTypeOfTask,
+                                                                Tasks,
+                                                                setItemsNumbers
+                                                        )
+                                                }>
+                                                All
+                                        </button>
+                                        <button
+                                                onClick={() =>
+                                                        handelStateButtons(
+                                                                "Active",
+                                                                setTypeOfTask,
+                                                                Tasks,
+                                                                setItemsNumbers
+                                                        )
+                                                }>
+                                                Active
+                                        </button>
+                                        <button
+                                                onClick={() =>
+                                                        handelStateButtons(
+                                                                "Completed",
+                                                                setTypeOfTask,
+                                                                Tasks,
+                                                                setItemsNumbers
+                                                        )
+                                                }>
+                                                Completed
+                                        </button>
+                                </div>
                                 <button
                                         onClick={() =>
                                                 clearCompletedTasks(
