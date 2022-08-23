@@ -34,7 +34,7 @@ export const StyledHeader = styled.div`
         button {
                 outline: none;
                 background: ${({ theme }) => theme.iconDarkMode} no-repeat
-                        center;
+                        center bottom;
                 background-size: cover;
                 height: 2.5rem;
                 width: 2.5rem;
@@ -92,3 +92,5 @@ export const StyledMainFooterSection = styled.div`
                 }
         }
 `;
+// FIXME? make the list scrollable when hit bottom of list
+// FIXME? make the message at the end of the page always stick in the end of the page 
