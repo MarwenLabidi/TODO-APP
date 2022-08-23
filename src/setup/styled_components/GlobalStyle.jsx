@@ -38,7 +38,6 @@ body{
   height:100vh;
   overflow:hidden;
   };
-}
 /* Box sizing rules */
 *,
 *::before,
