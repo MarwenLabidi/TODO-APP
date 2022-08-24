@@ -67,7 +67,7 @@ const Main = () => {
                                                         Tasks
                                                 )
                                         }>
-                                        add
+                                        ADD
                                 </button>
                         </StyledMainInputSectionOne>
 

@@ -1,9 +1,6 @@
 import styled from "styled-components";
 
 export const StyledHeader = styled.div`
-        /* display: flex; */
-        /* justify-content:center; */
-        /* align-items: start; */
         background: ${({ theme }) => theme.backgroundImageHeader};
         color: var(--clr_Very_Light_Gray);
         backface-visibility: hidden;
@@ -18,7 +15,6 @@ export const StyledHeader = styled.div`
                         font-family: var(--ff_Josefin);
                         letter-spacing: 8px;
                         font-size: 3rem;
-                        /* font-weight: var(--ff_bold); */
                         @media (max-width: 900px) {
                                 font-size: 2rem;
                         }
@@ -51,12 +47,11 @@ export const StyledBody = styled.div`
         height: 68vh;
         text-align: center;
         p:last-child {
-                margin-top: 6vh;
+                margin-top: -10vh;
         }
 `;
 
 export const StyledMain = styled.div`
-        background-color: blue;
         width: 60vw;
         margin: 0 auto;
         @media (max-width: 900px) {
@@ -65,17 +60,50 @@ export const StyledMain = styled.div`
 `;
 
 export const StyledMainInputSectionOne = styled.div`
-        background-color: black;
+        transform: translateY(-12vh);
+        input {
+                width: 100%;
+                height: 8vh;
+                border-radius: 10px;
+                font-size: 1.5rem;
+                font-family: var(--ff_Josefin);
+                border: none;
+                outline: none;
+                text-indent: 30px;
+
+        }
+        button {
+                position: absolute;
+                right: 0;
+                height: 100%;
+                width: 3.3rem;
+                min-width: 3.3rem;
+                border-radius: 10px;
+                background: ${({ theme }) => theme.gradiant};
+                width: 8vh;
+                &:hover {
+                        cursor: pointer;
+                }
+                font-weight: bold;
+        }
 `;
 export const StyledMainListSection = styled.div`
-        background-color: pink;
+        transform: translateY(-12vh);
         max-height: 40vh;
-        overflow-y: scroll;
+        overflow-y: auto;
         scroll-behavior: smooth;
         transition: all 0.5s ease-in-out;
+        ul {
+                padding: 0;
+        }
+        li {
+                padding: 1rem;
+                border-bottom: 1px solid ${({ theme }) => theme.text};
+        }
 `;
 export const StyledMainFooterSection = styled.div`
-        background-color: yellow;
+        transform: translateY(-12vh);
+        padding: 1rem;
         display: flex;
         justify-content: space-between;
         margin: 20px;
