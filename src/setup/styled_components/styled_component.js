@@ -102,14 +102,18 @@ export const StyledMainListSection = styled.div`
                 padding: 1rem;
                 border-bottom: 1px solid ${({ theme }) => theme.text};
                 background-color: ${({ theme }) => theme.input};
+                display: flex;
+                gap:20px;
         }
-        li input{
+        li>input[type="checkbox"]{
                 /* FIXME? */
                 background-color:red;
-                /* height:100px; */
-                /* width:100px; */
+                border-radius:50%;
+                height:2vw;
+                width:2vw;
+                cursor: pointer;
         }
-        li label {
+        li>label {
                 background-color:green;
         }
 `;
