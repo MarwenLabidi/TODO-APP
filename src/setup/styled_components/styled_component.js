@@ -70,7 +70,8 @@ export const StyledMainInputSectionOne = styled.div`
                 border: none;
                 outline: none;
                 text-indent: 30px;
-
+                background-color: ${({ theme }) => theme.input};
+                color: ${({ theme }) => theme.text};
         }
         button {
                 position: absolute;
@@ -95,18 +96,31 @@ export const StyledMainListSection = styled.div`
         transition: all 0.5s ease-in-out;
         ul {
                 padding: 0;
+                border-radius: 10px;
         }
         li {
                 padding: 1rem;
                 border-bottom: 1px solid ${({ theme }) => theme.text};
+                background-color: ${({ theme }) => theme.input};
+        }
+        li input{
+                /* FIXME? */
+                background-color:red;
+                /* height:100px; */
+                /* width:100px; */
+        }
+        li label {
+                background-color:green;
         }
 `;
 export const StyledMainFooterSection = styled.div`
+        background-color: ${({ theme }) => theme.input};
+        border-radius: 10px;
         transform: translateY(-12vh);
         padding: 1rem;
         display: flex;
         justify-content: space-between;
-        margin: 20px;
+        /* margin-top: 20px; */
         * {
                 color: ${({ theme }) => theme.text};
                 outline: none;
