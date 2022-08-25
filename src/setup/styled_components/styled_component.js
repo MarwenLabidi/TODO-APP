@@ -106,15 +106,33 @@ export const StyledMainListSection = styled.div`
                 gap: 20px;
         }
         li > input[type="checkbox"] {
-                /* FIXME? */
-                height: 2.9vw;
-                width: 2.9vw;
-                min-width:30px;
-                min-height:30px;
+                appearance: none;
+                position: relative;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                background: #f8f7f7;
+                border: 2px solid #fff;
                 cursor: pointer;
-                accent-color: hsl(280, 87%, 65%);
-                clip-path: circle(48%);
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+                &:after {
+                        content: "";
+                        position: absolute;
+                        top: 55%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        width: 100%;
+                        height: 100%;
+                        pointer-events: none;
+                        background-image: url(/images/icon-check.svg);
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                }
         }
+        li > input[type="checkbox"]:checked {
+                background: ${({ theme }) => theme.gradiant};
+        }
+
         li > label {
                 background-color: green;
         }
