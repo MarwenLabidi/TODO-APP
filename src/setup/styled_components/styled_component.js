@@ -103,18 +103,20 @@ export const StyledMainListSection = styled.div`
                 border-bottom: 1px solid ${({ theme }) => theme.text};
                 background-color: ${({ theme }) => theme.input};
                 display: flex;
-                gap:20px;
+                gap: 20px;
         }
-        li>input[type="checkbox"]{
+        li > input[type="checkbox"] {
                 /* FIXME? */
-                background-color:red;
-                border-radius:50%;
-                height:2vw;
-                width:2vw;
+                height: 2.9vw;
+                width: 2.9vw;
+                min-width:30px;
+                min-height:30px;
                 cursor: pointer;
+                accent-color: hsl(280, 87%, 65%);
+                clip-path: circle(48%);
         }
-        li>label {
-                background-color:green;
+        li > label {
+                background-color: green;
         }
 `;
 export const StyledMainFooterSection = styled.div`
