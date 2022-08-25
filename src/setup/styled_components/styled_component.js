@@ -127,10 +127,12 @@ export const StyledMainListSection = styled.div`
                         background-image: url(/images/icon-check.svg);
                         background-size: contain;
                         background-repeat: no-repeat;
+                        opacity: 0;
                 }
         }
         li > input[type="checkbox"]:checked {
                 background: ${({ theme }) => theme.gradiant};
+                &:after {opacity:1;}
         }
 
         li > label {
