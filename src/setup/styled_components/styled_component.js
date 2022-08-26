@@ -136,7 +136,9 @@ export const StyledMainListSection = styled.div`
         }
 
         li > label {
-                background-color: green;
+                font-size: 1.5rem;
+                font-family: var(--ff_Josefin);
+                align-self: center;
         }
 `;
 export const StyledMainFooterSection = styled.div`
