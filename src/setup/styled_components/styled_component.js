@@ -6,6 +6,7 @@ export const StyledHeader = styled.div`
         backface-visibility: hidden;
         background-size: cover;
         height: 32vh;
+        min-height: 200px;
         transition: all 0.5s ease-in-out;
         header {
                 * {
@@ -48,6 +49,11 @@ export const StyledBody = styled.div`
         text-align: center;
         p:last-child {
                 margin-top: -10vh;
+        }
+        @media (max-width: 650px) {
+                p:last-child {
+                        margin-top: 15px;
+                }
         }
 `;
 
@@ -132,7 +138,9 @@ export const StyledMainListSection = styled.div`
         }
         li > input[type="checkbox"]:checked {
                 background: ${({ theme }) => theme.gradiant};
-                &:after {opacity:1;}
+                &:after {
+                        opacity: 1;
+                }
         }
 
         li > label {
@@ -152,6 +160,7 @@ export const StyledMainFooterSection = styled.div`
         display: flex;
         justify-content: space-between;
         /* margin-top: 20px; */
+        position: relative;
         * {
                 color: ${({ theme }) => theme.text};
                 outline: none;
@@ -165,6 +174,16 @@ export const StyledMainFooterSection = styled.div`
                         &:hover {
                                 cursor: pointer;
                         }
+                }
+                @media (max-width: 650px) {
+                        background-color: ${({ theme }) => theme.input};;
+                        position: absolute;
+                        bottom: -70px;
+                        left:0;
+                        width: 100%;
+                        height: 8vh;
+                        border-radius: 10px;
+                        justify-content: center;
                 }
         }
         .allActiveComplete + button {
