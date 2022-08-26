@@ -139,6 +139,9 @@ export const StyledMainListSection = styled.div`
                 font-size: 1.5rem;
                 font-family: var(--ff_Josefin);
                 align-self: center;
+                &:hover {
+                        cursor: pointer;
+                }
         }
 `;
 export const StyledMainFooterSection = styled.div`
