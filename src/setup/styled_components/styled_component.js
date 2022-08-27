@@ -6,7 +6,6 @@ export const StyledHeader = styled.div`
         backface-visibility: hidden;
         background-size: cover;
         height: 32vh;
-        min-height: 200px;
         transition: all 0.5s ease-in-out;
         header {
                 * {
@@ -78,6 +77,13 @@ export const StyledMainInputSectionOne = styled.div`
                 text-indent: 30px;
                 background-color: ${({ theme }) => theme.input};
                 color: ${({ theme }) => theme.text};
+                &:focus {
+                        height: 100vh;
+                        /* FIXME?? ADD 20 VH TO THE HEIGHT OF HEADER FROM THIS STYLED COMPONENTS */
+                        /* change the height of StyledHeader styled component to 100vh */
+
+
+                }
         }
         button {
                 position: absolute;
@@ -176,10 +182,10 @@ export const StyledMainFooterSection = styled.div`
                         }
                 }
                 @media (max-width: 650px) {
-                        background-color: ${({ theme }) => theme.input};;
+                        background-color: ${({ theme }) => theme.input};
                         position: absolute;
                         bottom: -70px;
-                        left:0;
+                        left: 0;
                         width: 100%;
                         height: 8vh;
                         border-radius: 10px;
