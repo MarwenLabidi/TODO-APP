@@ -5,6 +5,7 @@ export const StyledHeader = styled.div`
         color: var(--clr_Very_Light_Gray);
         backface-visibility: hidden;
         background-size: cover;
+        /* FIXME? 32 to 50 */
         height: 32vh;
         transition: all 0.5s ease-in-out;
         header {
@@ -68,6 +69,7 @@ export const StyledMainInputSectionOne = styled.div`
         transform: translateY(-12vh);
         input {
                 width: 100%;
+                /* FIXME? FROM 8 TO 11 */
                 height: 8vh;
                 border-radius: 10px;
                 font-size: 1.5rem;
@@ -77,13 +79,6 @@ export const StyledMainInputSectionOne = styled.div`
                 text-indent: 30px;
                 background-color: ${({ theme }) => theme.input};
                 color: ${({ theme }) => theme.text};
-                &:focus {
-                        height: 100vh;
-                        /* FIXME?? ADD 20 VH TO THE HEIGHT OF HEADER FROM THIS STYLED COMPONENTS */
-                        /* change the height of StyledHeader styled component to 100vh */
-
-
-                }
         }
         button {
                 position: absolute;
@@ -120,8 +115,9 @@ export const StyledMainListSection = styled.div`
         li > input[type="checkbox"] {
                 appearance: none;
                 position: relative;
-                width: 50px;
-                height: 50px;
+                /* //FIXME?  fron 6 to 8*/
+                width:6vh;
+                height:6vh;
                 border-radius: 50%;
                 background: #f8f7f7;
                 border: 2px solid #fff;
@@ -150,7 +146,9 @@ export const StyledMainListSection = styled.div`
         }
 
         li > label {
-                font-size: 1.5rem;
+                /* FIXME? when its a long para the font decrease */
+                /* FIXME? long of font doesn't chage the widht of checkbox */
+                font-size: clamp(1.5rem, 2vh, 2.5rem);
                 font-family: var(--ff_Josefin);
                 align-self: center;
                 &:hover {
@@ -165,6 +163,7 @@ export const StyledMainFooterSection = styled.div`
         padding: 1rem;
         display: flex;
         justify-content: space-between;
+        align-items: center;
         /* margin-top: 20px; */
         position: relative;
         * {
@@ -174,6 +173,8 @@ export const StyledMainFooterSection = styled.div`
                 background: none;
         }
         .allActiveComplete {
+                padding:1rem;
+                
                 display: flex;
                 gap: 20px;
                 * {
@@ -187,7 +188,9 @@ export const StyledMainFooterSection = styled.div`
                         bottom: -70px;
                         left: 0;
                         width: 100%;
+                        /* FIXME? from 8 to 11*/
                         height: 8vh;
+                        /* min-height: 8vh; */
                         border-radius: 10px;
                         justify-content: center;
                 }
