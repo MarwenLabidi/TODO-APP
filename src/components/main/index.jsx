@@ -1,7 +1,13 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import TasksList from "../tasksList";
-import {StyledMain,StyledMainInputSectionOne,StyledMainFooterSection,StyledMainListSection} from "../../setup/styled_components/styled_component";
+import {
+        StyledMain,
+        StyledMainInputSectionOne,
+        StyledMainFooterSection,
+        StyledMainListSection,
+} from "../../setup/styled_components/styled_component";
+import { handelBlurInput, handelFocusedInput } from "../../utils/utils";
 import {
         saveTask,
         clearCompletedTasks,
@@ -9,12 +15,14 @@ import {
         handelStateButtons,
         handelInput,
 } from "../../utils/utils.jsx";
+import { FocusedInputContext } from "../../setup/context/focusedInputContext.jsx";
 
 const Main = () => {
         const [Tasks, setTask] = useState([]); // [{ID,Description,Completed}]
         const [typeOfTask, setTypeOfTask] = useState("All"); //All,Active,Completed
         const [itemsNumbers, setItemsNumbers] = useState(Tasks.length);
         const [input, setInput] = useState("");
+        const [focusedInput, setFocusedInput] = useContext(FocusedInputContext);
 
         // callback function to update the state of the checkbox
         const changeTaskStatus = (taskInfo) => {
@@ -41,7 +49,8 @@ const Main = () => {
         }, [Tasks]);
         return (
                 <StyledMain>
-                        <StyledMainInputSectionOne>
+                        <StyledMainInputSectionOne
+                                width={focusedInput === false ? 8 : 11}>
                                 <input
                                         onKeyDown={(e) =>
                                                 e.key === "Enter" &&
@@ -57,6 +66,12 @@ const Main = () => {
                                                 handelInput(e, setInput)
                                         }
                                         value={input}
+                                        onFocus={handelFocusedInput(
+                                                setFocusedInput
+                                        )}
+                                        onBlur={handelBlurInput(
+                                                setFocusedInput
+                                        )}
                                 />
                                 <button
                                         onClick={(e) =>
@@ -71,7 +86,8 @@ const Main = () => {
                                 </button>
                         </StyledMainInputSectionOne>
 
-                        <StyledMainListSection>
+                        <StyledMainListSection
+                                width={focusedInput === false ? 6 : 8}>
                                 <TasksList
                                         tasks={Tasks}
                                         type={typeOfTask}
@@ -79,9 +95,10 @@ const Main = () => {
                                 />
                         </StyledMainListSection>
 
-                        <StyledMainFooterSection>
+                        <StyledMainFooterSection
+                                width={focusedInput === false ? 8 : 11}>
                                 <p>{itemsNumbers} items</p>
-                                <div className="allActiveComplete">
+                                <div className='allActiveComplete'>
                                         <button
                                                 onClick={() =>
                                                         handelStateButtons(

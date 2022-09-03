@@ -5,18 +5,21 @@ import GlobalStyle from "./setup/styled_components/GlobalStyle";
 import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "./setup/styled_components/theme.js";
 import { useDarkMode } from "./setup/Hooks/useDarkMode.js";
+import { FocusedInputContextProvider } from "./setup/context/focusedInputContext";
 
 const App = () => {
         const [theme, toggleTheme] = useDarkMode();
         const themeMode = theme === "light" ? lightTheme() : darkTheme();
         return (
-                <ThemeProvider theme={themeMode}>
-                        <>
-                                <GlobalStyle />
-                                <Header toggleTheme={toggleTheme} />
-                                <Body />
-                        </>
-                </ThemeProvider>
+                <FocusedInputContextProvider>
+                        <ThemeProvider theme={themeMode}>
+                                <>
+                                        <GlobalStyle />
+                                        <Header toggleTheme={toggleTheme} />
+                                        <Body />
+                                </>
+                        </ThemeProvider>
+                </FocusedInputContextProvider>
         );
 };
 

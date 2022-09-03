@@ -77,3 +77,14 @@ export const handelStateButtons = (type, setTypeOfTask,Tasks,setItemsNumbers) =>
 export const handelInput = (e, setInput) => {
         setInput(e.target.value);
 };
+
+export const handelFocusedInput=(setFocusedInput)=>{
+        return ()=>{
+                setFocusedInput(true)
+        }
+}
+export const handelBlurInput=(setFocusedInput)=>{
+        return ()=>{
+                setFocusedInput(false)
+        }
+}
