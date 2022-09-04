@@ -24,6 +24,7 @@ const Tasks = ({ tasks, Type, callBack }) => {
                                                         style={{
                                                                 textDecoration:
                                                                         "line-through",
+                                                                opacity: 0.6,
                                                         }}
                                                         htmlFor={`checkbox-${task.ID}`}>
                                                         {task.Description}
