@@ -14,16 +14,26 @@ const Tasks = ({ tasks, Type, callBack }) => {
                                                         taskDone(task, callBack)
                                                 }
                                         />
-                                        <label
-                                                {...(task.Completed
-                                                        ? {
-                                                                  textDecoration:
-                                                                          "line-through",
-                                                          }
-                                                        : {})}
+                                        {/* <label
+                                                style={{textDecoration:"line-through"}}
                                                 htmlFor={`checkbox-${task.ID}`}>
                                                 {task.Description}
-                                        </label>
+                                        </label> */}
+                                        {task.Completed ? (
+                                                <label
+                                                        style={{
+                                                                textDecoration:
+                                                                        "line-through",
+                                                        }}
+                                                        htmlFor={`checkbox-${task.ID}`}>
+                                                        {task.Description}
+                                                </label>
+                                        ) : (
+                                                <label
+                                                        htmlFor={`checkbox-${task.ID}`}>
+                                                        {task.Description}
+                                                </label>
+                                        )}
                                 </li>
                         )
         );
