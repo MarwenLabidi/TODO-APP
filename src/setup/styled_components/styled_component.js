@@ -112,7 +112,7 @@ export const StyledMainListSection = styled.div`
         }
         li {
                 padding: 1rem;
-                border-bottom: 1px solid ${({ theme }) => theme.text};
+                border-top: 1px solid ${({ theme }) => theme.text};
                 background-color: ${({ theme }) => theme.input};
                 display: flex;
                 gap: 20px;
