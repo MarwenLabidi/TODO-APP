@@ -9,7 +9,7 @@ export const lightTheme = () => {
         return {
                 body: clr_Very_Light_Gray,
                 text: clr_Very_Dark_Blue,
-                toggleBorder: "#FFF",
+                toggleBorder: "white",
                 gradient: "linear-gradient(#39598A, #79D7ED)",
                 backgroundImageHeader: "url(/images/bg-desktop-light.jpg)",
                 iconDarkMode: "url(/images/icon-sun.svg)",
@@ -30,7 +30,7 @@ export const darkTheme = () => {
         return {
                 body: clr_Very_Dark_Blue,
                 text: clr_Very_Light_Gray,
-                toggleBorder: "#6B8096",
+                toggleBorder: "black",
                 gradient: "linear-gradient(#091236, #1E215D)",
                 backgroundImageHeader: "url(/images/bg-desktop-dark.jpg)",
                 iconDarkMode: "url(/images/icon-moon.svg)",

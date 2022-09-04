@@ -195,7 +195,14 @@ export const StyledMainFooterSection = styled.div`
                 * {
                         &:hover {
                                 cursor: pointer;
+                                background-color:${({ theme }) => theme.toggleBorder};
+                                border-radius:10px;
                         }
+                        &:focus {
+                        cursor: pointer;
+                        background-color:${({ theme }) => theme.toggleBorder};
+                                border-radius:10px;
+                }
                 }
                 @media (max-width: 650px) {
                         background-color: ${({ theme }) => theme.input};
@@ -214,6 +221,13 @@ export const StyledMainFooterSection = styled.div`
         .allActiveComplete + button {
                 &:hover {
                         cursor: pointer;
+                        background-color:${({ theme }) => theme.toggleBorder};
+                                border-radius:10px;
+                }
+                &:focus {
+                        cursor: pointer;
+                        background-color:${({ theme }) => theme.toggleBorder};
+                                border-radius:10px;
                 }
         }
 `;
