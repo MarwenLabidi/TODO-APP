@@ -170,6 +170,20 @@ export const StyledMainListSection = styled.div`
                         font-size: 5vw;
                 }
         }
+
+        /* costomize scrollbar */
+        &::-webkit-scrollbar {
+                width: 15px; /* width of the entire scrollbar */
+                margin:10px;
+        }
+        &::-webkit-scrollbar-track {
+                background: none; /* color of the tracking area */
+        }
+        &::-webkit-scrollbar-thumb {
+                background: ${({ theme }) => theme.gradiant}; /* color of the scroll thumb */
+                border-radius: 20px; /* roundness of the scroll thumb */
+                border: 3px solid yellow; /* creates padding around scroll thumb */
+        }
 `;
 export const StyledMainFooterSection = styled.div`
         background-color: ${({ theme }) => theme.input};
@@ -195,14 +209,16 @@ export const StyledMainFooterSection = styled.div`
                 * {
                         &:hover {
                                 cursor: pointer;
-                                background-color:${({ theme }) => theme.toggleBorder};
-                                border-radius:10px;
+                                background-color: ${({ theme }) =>
+                                        theme.toggleBorder};
+                                border-radius: 10px;
                         }
                         &:focus {
-                        cursor: pointer;
-                        background-color:${({ theme }) => theme.toggleBorder};
-                                border-radius:10px;
-                }
+                                cursor: pointer;
+                                background-color: ${({ theme }) =>
+                                        theme.toggleBorder};
+                                border-radius: 10px;
+                        }
                 }
                 @media (max-width: 650px) {
                         background-color: ${({ theme }) => theme.input};
@@ -221,13 +237,13 @@ export const StyledMainFooterSection = styled.div`
         .allActiveComplete + button {
                 &:hover {
                         cursor: pointer;
-                        background-color:${({ theme }) => theme.toggleBorder};
-                                border-radius:10px;
+                        background-color: ${({ theme }) => theme.toggleBorder};
+                        border-radius: 10px;
                 }
                 &:focus {
                         cursor: pointer;
-                        background-color:${({ theme }) => theme.toggleBorder};
-                                border-radius:10px;
+                        background-color: ${({ theme }) => theme.toggleBorder};
+                        border-radius: 10px;
                 }
         }
 `;

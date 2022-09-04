@@ -2,7 +2,6 @@
 ### Progressive Web  APP
 ### - Fast ⚡️ 
 ### - controled by voice
-### - controled by hand gesture
 ### - work offline
 
 
@@ -12,11 +11,6 @@
 # [APP link]()
 
 ## Tech Stack:
-- Vite , React , React Query , Styled component
+- Vite , React , Styled component
 - Git , Github , Github Actions
-- tensorflow
 - Playwright
-
-
-## API:
-- unsplash
