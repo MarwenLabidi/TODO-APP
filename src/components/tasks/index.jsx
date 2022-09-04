@@ -14,11 +14,6 @@ const Tasks = ({ tasks, Type, callBack }) => {
                                                         taskDone(task, callBack)
                                                 }
                                         />
-                                        {/* <label
-                                                style={{textDecoration:"line-through"}}
-                                                htmlFor={`checkbox-${task.ID}`}>
-                                                {task.Description}
-                                        </label> */}
                                         {task.Completed ? (
                                                 <label
                                                         style={{
