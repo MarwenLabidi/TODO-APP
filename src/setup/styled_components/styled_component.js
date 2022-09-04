@@ -103,6 +103,7 @@ export const StyledMainListSection = styled.div`
         transform: translateY(-12vh);
         max-height: 40vh;
         overflow-y: auto;
+        overflow-x: hidden;
         scroll-behavior: smooth;
         transition: all 0.5s ease-in-out;
         ul {
@@ -115,11 +116,14 @@ export const StyledMainListSection = styled.div`
                 background-color: ${({ theme }) => theme.input};
                 display: flex;
                 gap: 20px;
+                align-items: center;
         }
         li > input[type="checkbox"] {
                 appearance: none;
                 position: relative;
                 width: 6vh;
+                min-width: 45px;
+                min-height: 45px;
                 height: 6vh;
                 @media (max-width: 900px) {
                         height: ${(props) => props.width + "vh"};
@@ -152,13 +156,18 @@ export const StyledMainListSection = styled.div`
         }
 
         li > label {
-                /* FIXME? when its a long para the font decrease */
-                /* FIXME? long of font doesn't chage the widht of checkbox */
-                font-size: clamp(1.5rem, 2vh, 2.5rem);
+                font-size: 3vw;
                 font-family: var(--ff_Josefin);
+                display: block;
+                width: 90%;
+                overflow-wrap: break-word;
                 align-self: center;
                 &:hover {
                         cursor: pointer;
+                }
+                @media (max-width: 700px) {
+                        width: 70%;
+                        font-size: 5vw;
                 }
         }
 `;
