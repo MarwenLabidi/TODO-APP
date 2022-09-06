@@ -33,4 +33,4 @@ export default App;
 //TODO? add linter and eslint
 //TODO? use github action for ci cd pipeline
 //TODO? accesibility
-//TODO? make it a progressive web app
+//TODO? make it a progressive web apppp
