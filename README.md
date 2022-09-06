@@ -11,6 +11,6 @@
 # [APP link]()
 
 ## Tech Stack:
-- Vite , React , Styled component
+- Vite , React , Styled component,FireBbase
 - Git , Github , Github Actions
 - Playwright

@@ -46,7 +46,9 @@ const Main = () => {
 
         useEffect(() => {
                 getItemsNumbers("All", Tasks, setItemsNumbers);
+                // TODO? create custom hook to same in the index db storage and check the internet and save in the firebase
         }, [Tasks]);
+        //TODO? load the date from indexDb storage or firebase at the mount phasse
         return (
                 <StyledMain>
                         <StyledMainInputSectionOne
