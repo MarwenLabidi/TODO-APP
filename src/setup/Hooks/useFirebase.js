@@ -16,17 +16,13 @@ export const useFirebase = () => {
                         "TASKS"
                 );
                 const qSnap = await getDocs(subColRef);
-                // docSnap.then((data) => {
                 docSnap.forEach((doc) => {
                         result.push(doc.data());
                 });
-                // });
-                // qSnap.then((data) => {
                 qSnap.forEach((doc) => {
                         result.push(Object.values(doc.data()));
                 });
-                // });
-                return result;
+                setData(result)
         };
         const setTasksData = async (tasks) => {
                 // Add a new document in collection "cities"
@@ -52,4 +48,13 @@ export const useFirebase = () => {
                         }
                 );
         };
+        const setDataToFirebase = async (tasks, value) => {
+                await setTasksData(tasks);
+                await setThemeData(value);
+        };
+        useEffect(() => {
+                getDataFromFirebase();
+        },[]);
+
+        return [ Data, setDataToFirebase ];
 };
