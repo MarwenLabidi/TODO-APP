@@ -24,7 +24,6 @@ const App = () => {
 
 export default App;
 
-//TODO? make the font decrease if its long
 //TODO? use auto animate library
 //TODO? animate of shaking and sound and practical effect when  you type in the input
 //TODO? add a custom hook useSound to play the sound when the task is completed or when  you add new task or chage theme

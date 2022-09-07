@@ -14,6 +14,7 @@ const Tasks = ({ tasks, Type, callBack }) => {
                                                         taskDone(task, callBack)
                                                 }
                                         />
+                                        {/* TODO? ADD CONDITION IF TASK SO LONG ADD INLINE STYLE SMALL FONT SIZE  AMD THATS ONLY WORK FOR LARGE SCREEN*/}
                                         {task.Completed ? (
                                                 <label
                                                         style={{
