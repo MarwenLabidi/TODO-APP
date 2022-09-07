@@ -16,6 +16,8 @@ import {
         handelInput,
 } from "../../utils/utils.jsx";
 import { FocusedInputContext } from "../../setup/context/focusedInputContext.jsx";
+import {useFirebase} from "../../setup/Hooks/useFirebase.js";
+
 
 const Main = () => {
         const [Tasks, setTask] = useState([]); // [{ID,Description,Completed}]
@@ -23,6 +25,8 @@ const Main = () => {
         const [itemsNumbers, setItemsNumbers] = useState(Tasks.length);
         const [input, setInput] = useState("");
         const [focusedInput, setFocusedInput] = useContext(FocusedInputContext);
+        const [Data,setDataToFirebase] = useFirebase();
+
 
         // callback function to update the state of the checkbox
         const changeTaskStatus = (taskInfo) => {
@@ -46,9 +50,12 @@ const Main = () => {
 
         useEffect(() => {
                 getItemsNumbers("All", Tasks, setItemsNumbers);
-                // TODO? create custom hook to same in the index db storage and check the internet and save in the firebase
+                // setDataToFirebase(Tasks,true);
         }, [Tasks]);
-        //TODO? load the date from indexDb storage or firebase at the mount phasse
+        // FIXME?
+        useEffect(() => {
+                // console.log(Data);
+        }, []);
         return (
                 <StyledMain>
                         <StyledMainInputSectionOne
