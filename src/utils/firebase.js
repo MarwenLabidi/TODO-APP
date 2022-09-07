@@ -1,4 +1,6 @@
 import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
+
 
 // TODO? USE VITE ENV VARIABLE
 const firebaseConfig = {
@@ -11,4 +13,6 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-export const app = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
+// Initialize Cloud Firestore and get a reference to the service
+export const db = getFirestore(app);
