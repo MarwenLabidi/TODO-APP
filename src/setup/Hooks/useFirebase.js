@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import { db } from "../../utils/firebase";
-import { collection, getDocs, doc, setDoc} from "firebase/firestore";
+import { collection, getDocs, doc, setDoc } from "firebase/firestore";
 
 export const useFirebase = () => {
-        const [Data, setData] = useState({});
 
         const getDataFromFirebase = async () => {
                 const result = [];
@@ -22,7 +21,7 @@ export const useFirebase = () => {
                 qSnap.forEach((doc) => {
                         result.push(Object.values(doc.data()));
                 });
-                setData(result)
+                return result;
         };
         const setTasksData = async (tasks) => {
                 // Add a new document in collection "cities"
@@ -52,9 +51,6 @@ export const useFirebase = () => {
                 await setTasksData(tasks);
                 await setThemeData(value);
         };
-        useEffect(() => {
-                getDataFromFirebase();
-        },[]);
 
-        return [ Data, setDataToFirebase ];
+        return [getDataFromFirebase, setDataToFirebase];
 };

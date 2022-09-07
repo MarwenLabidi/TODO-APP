@@ -15,7 +15,7 @@ const App = () => {
                                 <>
                                         <GlobalStyle />
                                         <Header toggleTheme={toggleTheme} />
-                                        <Body />
+                                        <Body theme={theme} />
                                 </>
                         </ThemeProvider>
                 </FocusedInputContextProvider>

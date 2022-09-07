@@ -16,17 +16,15 @@ import {
         handelInput,
 } from "../../utils/utils.jsx";
 import { FocusedInputContext } from "../../setup/context/focusedInputContext.jsx";
-import {useFirebase} from "../../setup/Hooks/useFirebase.js";
+import { useFirebase } from "../../setup/Hooks/useFirebase.js";
 
-
-const Main = () => {
+const Main = ({ theme }) => {
         const [Tasks, setTask] = useState([]); // [{ID,Description,Completed}]
         const [typeOfTask, setTypeOfTask] = useState("All"); //All,Active,Completed
         const [itemsNumbers, setItemsNumbers] = useState(Tasks.length);
         const [input, setInput] = useState("");
         const [focusedInput, setFocusedInput] = useContext(FocusedInputContext);
-        const [Data,setDataToFirebase] = useFirebase();
-
+        const [getDataFromFirebase, setDataToFirebase] = useFirebase();
 
         // callback function to update the state of the checkbox
         const changeTaskStatus = (taskInfo) => {
@@ -47,14 +45,14 @@ const Main = () => {
                         setTask(allTasks);
                 }
         };
-
         useEffect(() => {
                 getItemsNumbers("All", Tasks, setItemsNumbers);
-                // setDataToFirebase(Tasks,true);
+                (Tasks.length>1)&&setDataToFirebase(Tasks,theme);
         }, [Tasks]);
-        // FIXME?
         useEffect(() => {
-                // console.log(Data);
+                getDataFromFirebase().then((data) => {
+                        setTask(data[1][0]);
+                });
         }, []);
         return (
                 <StyledMain>
