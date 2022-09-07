@@ -33,3 +33,4 @@ export default App;
 //TODO? use github action for ci cd pipeline
 //TODO? accesibility
 //TODO? make it a progressive web apppp
+//TODO? enable offline cache firestore : https://cloud.google.com/firestore/docs/manage-data/enable-offline#:~:text=Firestore%20supports%20offline%20data%20persistence,and%20query%20the%20cached%20data.
