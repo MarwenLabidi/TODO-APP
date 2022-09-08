@@ -2,6 +2,10 @@ import React from "react";
 import { taskDone } from "../../utils/utils.jsx";
 
 const Tasks = ({ tasks, Type, callBack }) => {
+        // window.innerWidth>900;
+        //task.Description.split('').length > 30
+        // fontSize:33,
+
         return [...tasks].map(
                 (task) =>
                         task.Completed === eval(Type) && (
@@ -14,13 +18,41 @@ const Tasks = ({ tasks, Type, callBack }) => {
                                                         taskDone(task, callBack)
                                                 }
                                         />
-                                        {/* TODO? ADD CONDITION IF TASK SO LONG ADD INLINE STYLE SMALL FONT SIZE  AMD THATS ONLY WORK FOR LARGE SCREEN*/}
                                         {task.Completed ? (
+                                                window.innerWidth > 900 &&
+                                                task.Description.split("")
+                                                        .length > 30 ? (
+                                                        <label
+                                                                style={{
+                                                                        textDecoration:
+                                                                                "line-through",
+                                                                        opacity: 0.6,
+                                                                        fontSize: 33,
+                                                                }}
+                                                                htmlFor={`checkbox-${task.ID}`}>
+                                                                {
+                                                                        task.Description
+                                                                }
+                                                        </label>
+                                                ) : (
+                                                        <label
+                                                                style={{
+                                                                        textDecoration:
+                                                                                "line-through",
+                                                                        opacity: 0.6,
+                                                                }}
+                                                                htmlFor={`checkbox-${task.ID}`}>
+                                                                {
+                                                                        task.Description
+                                                                }
+                                                        </label>
+                                                )
+                                        ) : window.innerWidth > 900 &&
+                                          task.Description.split("").length >
+                                                  30 ? (
                                                 <label
                                                         style={{
-                                                                textDecoration:
-                                                                        "line-through",
-                                                                opacity: 0.6,
+                                                                fontSize: 33,
                                                         }}
                                                         htmlFor={`checkbox-${task.ID}`}>
                                                         {task.Description}
