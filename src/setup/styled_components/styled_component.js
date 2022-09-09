@@ -117,6 +117,8 @@ export const StyledMainListSection = styled.div`
                 display: flex;
                 gap: 20px;
                 align-items: center;
+                margin-bottom: 5px;
+                border-radius: 10px;
         }
         li > input[type="checkbox"] {
                 appearance: none;
