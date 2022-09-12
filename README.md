@@ -11,6 +11,8 @@
 # [APP link]()
 
 ## Tech Stack:
-- Vite , React , Styled component,FireBbase
+- Vite , React , Styled component,FramerMotion,
+- Tensorflow.JS(speech commande recognitio model)
+- FireBase
 - Git , Github , Github Actions
 - Playwright
