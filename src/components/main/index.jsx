@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, useRef } from "react";
 import TasksList from "../tasksList";
 import {
         StyledMain,
@@ -17,6 +17,7 @@ import {
 } from "../../utils/utils.jsx";
 import { FocusedInputContext } from "../../setup/context/focusedInputContext.jsx";
 import { useFirebase } from "../../setup/Hooks/useFirebase.js";
+import { useUpdateEffect } from "react-use";
 
 const Main = ({ theme }) => {
         const [Tasks, setTask] = useState([]); // [{ID,Description,Completed}]
@@ -25,6 +26,8 @@ const Main = ({ theme }) => {
         const [input, setInput] = useState("");
         const [focusedInput, setFocusedInput] = useContext(FocusedInputContext);
         const [getDataFromFirebase, setDataToFirebase] = useFirebase();
+        const StyledMainListSectionRef = useRef();
+        const previousTasks = useRef(Tasks);
 
         // callback function to update the state of the checkbox
         const changeTaskStatus = (taskInfo) => {
@@ -45,9 +48,14 @@ const Main = ({ theme }) => {
                         setTask(allTasks);
                 }
         };
-        useEffect(() => {
+        useUpdateEffect(() => {
                 getItemsNumbers("All", Tasks, setItemsNumbers);
-                (Tasks.length>1)&&setDataToFirebase(Tasks,theme);
+                setDataToFirebase(Tasks, theme);
+                if (Tasks.length > previousTasks.current.length) {
+                        StyledMainListSectionRef.current.scrollTop =
+                                StyledMainListSectionRef.current.scrollHeight;
+                }
+                previousTasks.current = Tasks;
         }, [Tasks]);
         useEffect(() => {
                 getDataFromFirebase().then((data) => {
@@ -55,7 +63,7 @@ const Main = ({ theme }) => {
                 });
         }, []);
         return (
-                <StyledMain>
+                <StyledMain >
                         <StyledMainInputSectionOne
                                 width={focusedInput === false ? 8 : 11}>
                                 <input
@@ -92,8 +100,12 @@ const Main = ({ theme }) => {
                                         ADD
                                 </button>
                         </StyledMainInputSectionOne>
+                        {/* FIXME? modify duration to work with children*/}
 
                         <StyledMainListSection
+                               layout
+                               transition={{ ease: "easeOut", duration: 2 }}
+                                ref={StyledMainListSectionRef}
                                 width={focusedInput === false ? 6 : 8}>
                                 <TasksList
                                         tasks={Tasks}

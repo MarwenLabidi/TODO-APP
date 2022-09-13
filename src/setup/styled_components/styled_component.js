@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
+
 
 export const StyledHeader = styled.div`
         background: ${({ theme }) => theme.backgroundImageHeader};
@@ -99,13 +101,13 @@ export const StyledMainInputSectionOne = styled.div`
                 font-weight: bold;
         }
 `;
-export const StyledMainListSection = styled.div`
+// FIXME? the position of the main it should be more higher
+export const StyledMainListSection = styled(motion.div)`
         transform: translateY(-12vh);
         max-height: 40vh;
         overflow-y: auto;
         overflow-x: hidden;
         scroll-behavior: smooth;
-        transition: all 0.5s ease-in-out;
         ul {
                 padding: 0;
                 border-radius: 10px;

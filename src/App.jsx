@@ -23,11 +23,12 @@ const App = () => {
 };
 
 export default App;
-//TODO? use auto animate library
-//TODO? animate of shaking and sound and practical effect when  you type in the input
+//TODO? use framer motion for animations: a nimate ad delete task shake input when you write
+//TODO? costum cursor
+//TODO? word comming animation 
 //TODO? add a custom hook useSound to play the sound when the task is completed or when  you add new task or chage theme
 //TODO? drag and drop funtionality
-//TODO? add sound control buttom to the app
+//TODO? add sound control buttom to the app https://www.youtube.com/watch?v=wzWcaLkCy1w
 //TODO? do unit test and component test with Playwright
 //TODO? add linter and eslint
 //TODO? use github action for ci cd pipeline
