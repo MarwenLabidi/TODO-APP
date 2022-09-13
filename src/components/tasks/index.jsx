@@ -16,15 +16,15 @@ const Tasks = ({ tasks, Type, callBack }) => {
         return [...tasks].map(
                 (task) =>
                         task.Completed === eval(Type) && (
-                                <AnimatePresence key={task.ID}>
+                                // FIXME? EXIT ANIMATION DONT WORK
+                                // <AnimatePresence key={task.ID}>
                                         <motion.li
                                                 variants={list}
                                                 initial='hidden'
                                                 animate='visible'
-                                                // FIXME? EXIT ANIMATION DONT WORK
-                                                exit='hidden'
-                                                // exit={{ x: -300, opacity: 0 }}
-                                                // transition={{ ease: "easeOut", duration: 6.5 }}
+                                                // exit='hidden'
+                                                exit={{ x: -300, opacity: 0 }}
+                                                transition={{ ease: "easeOut", duration: 6.5 }}
 
                                                 id={`task-${task.ID}`}
                                                 key={task.ID}>
@@ -91,7 +91,7 @@ const Tasks = ({ tasks, Type, callBack }) => {
                                                         </label>
                                                 )}
                                         </motion.li>
-                                </AnimatePresence>
+                                // </AnimatePresence>
                         )
         );
 };
