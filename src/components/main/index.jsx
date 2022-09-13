@@ -100,11 +100,12 @@ const Main = ({ theme }) => {
                                         ADD
                                 </button>
                         </StyledMainInputSectionOne>
-                        {/* FIXME? modify duration to work with children*/}
 
                         <StyledMainListSection
                                layout
-                               transition={{ ease: "easeOut", duration: 2 }}
+                        //        initial={{ y:- 100 }}
+                               transition={{ ease: "easeOut", duration: 1 }}
+
                                 ref={StyledMainListSectionRef}
                                 width={focusedInput === false ? 6 : 8}>
                                 <TasksList

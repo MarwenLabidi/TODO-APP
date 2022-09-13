@@ -67,10 +67,11 @@ export const StyledMain = styled.div`
         @media (max-width: 900px) {
                 width: 85vw;
         }
+        /* z-index:5; */
 `;
-
+// FIXME? WAIT FOR CHILDRE TO FINISHA ANIMATION
 export const StyledMainInputSectionOne = styled.div`
-        transform: translateY(-12vh);
+        position: relative;
         input {
                 width: 100%;
                 height: 8vh;
@@ -90,7 +91,6 @@ export const StyledMainInputSectionOne = styled.div`
                 position: absolute;
                 right: 0;
                 height: 100%;
-                width: 3.3rem;
                 min-width: 3.3rem;
                 border-radius: 10px;
                 background: ${({ theme }) => theme.gradiant};
@@ -101,16 +101,16 @@ export const StyledMainInputSectionOne = styled.div`
                 font-weight: bold;
         }
 `;
-// FIXME? the position of the main it should be more higher
 export const StyledMainListSection = styled(motion.div)`
-        transform: translateY(-12vh);
         max-height: 40vh;
         overflow-y: auto;
         overflow-x: hidden;
         scroll-behavior: smooth;
+
         ul {
                 padding: 0;
                 border-radius: 10px;
+
         }
         li {
                 padding: 1rem;
@@ -177,8 +177,7 @@ export const StyledMainListSection = styled(motion.div)`
 
         /* costomize scrollbar */
         &::-webkit-scrollbar {
-                width: 15px; /* width of the entire scrollbar */
-                margin:10px;
+                width: 12px; /* width of the entire scrollbar */
         }
         &::-webkit-scrollbar-track {
                 background: none; /* color of the tracking area */
@@ -192,12 +191,10 @@ export const StyledMainListSection = styled(motion.div)`
 export const StyledMainFooterSection = styled.div`
         background-color: ${({ theme }) => theme.input};
         border-radius: 10px;
-        transform: translateY(-12vh);
         padding: 1rem;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        /* margin-top: 20px; */
         position: relative;
         * {
                 color: ${({ theme }) => theme.text};
