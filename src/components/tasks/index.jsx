@@ -3,7 +3,7 @@ import { taskDone } from "../../utils/utils.jsx";
 import { motion, AnimatePresence } from "framer-motion";
 const list = {
         hidden: { opacity: 0 },
-        visible: { opacity: 1 },
+        visible: { opacity: 1, transition: { ease: "easeOut", duration: 1.5 } },
 };
 {
 }
@@ -18,14 +18,13 @@ const Tasks = ({ tasks, Type, callBack }) => {
                         task.Completed === eval(Type) && (
                                 <AnimatePresence key={task.ID}>
                                         <motion.li
+                                                variants={list}
                                                 initial='hidden'
                                                 animate='visible'
                                                 // FIXME? EXIT ANIMATION DONT WORK
-                                                // exit={{ opacity: 0 }} 
-                                                exit={{ x: -300, opacity: 0 }}
-
-                                                variants={list}
-                                                transition={{ ease: "easeOut", duration: 1.5 }}
+                                                exit='hidden'
+                                                // exit={{ x: -300, opacity: 0 }}
+                                                // transition={{ ease: "easeOut", duration: 6.5 }}
 
                                                 id={`task-${task.ID}`}
                                                 key={task.ID}>

@@ -102,10 +102,6 @@ const Main = ({ theme }) => {
                         </StyledMainInputSectionOne>
 
                         <StyledMainListSection
-                               layout
-                        //        initial={{ y:- 100 }}
-                               transition={{ ease: "easeOut", duration: 1 }}
-
                                 ref={StyledMainListSectionRef}
                                 width={focusedInput === false ? 6 : 8}>
                                 <TasksList

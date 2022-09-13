@@ -69,7 +69,6 @@ export const StyledMain = styled.div`
         }
         /* z-index:5; */
 `;
-// FIXME? WAIT FOR CHILDRE TO FINISHA ANIMATION
 export const StyledMainInputSectionOne = styled.div`
         position: relative;
         input {
@@ -101,7 +100,7 @@ export const StyledMainInputSectionOne = styled.div`
                 font-weight: bold;
         }
 `;
-export const StyledMainListSection = styled(motion.div)`
+export const StyledMainListSection = styled.div`
         max-height: 40vh;
         overflow-y: auto;
         overflow-x: hidden;
