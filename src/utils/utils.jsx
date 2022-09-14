@@ -1,6 +1,12 @@
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 
-export const showTasksInTheList = (tasks, type, Component, callBack) => {
+export const showTasksInTheList = (
+        tasks,
+        type,
+        Component,
+        callBack,
+        motion
+) => {
         let f = "false";
         let t = "true";
         let taskCompleted = "task.Completed";
@@ -8,16 +14,58 @@ export const showTasksInTheList = (tasks, type, Component, callBack) => {
                 return;
         }
         if (type === "Active") {
-                return <Component tasks={tasks} Type={f} callBack={callBack} />;
+                return (
+                        <motion.div
+                                exit={{
+                                        x: -300,
+                                        opacity: 0,
+                                }}
+                                transition={{
+                                        ease: "easeOut",
+                                        duration: 1.5,
+                                }}>
+                                <Component
+                                        tasks={tasks}
+                                        Type={f}
+                                        callBack={callBack}
+                                />
+                        </motion.div>
+                );
         } else if (type === "Completed") {
-                return <Component tasks={tasks} Type={t} callBack={callBack} />;
+                return (
+                        <motion.div
+                                exit={{
+                                        x: -300,
+                                        opacity: 0,
+                                }}
+                                transition={{
+                                        ease: "easeOut",
+                                        duration: 1.5,
+                                }}>
+                                <Component
+                                        tasks={tasks}
+                                        Type={t}
+                                        callBack={callBack}
+                                />
+                        </motion.div>
+                );
         } else {
                 return (
-                        <Component
-                                tasks={tasks}
-                                Type={taskCompleted}
-                                callBack={callBack}
-                        />
+                        <motion.div
+                                exit={{
+                                        x: -300,
+                                        opacity: 0,
+                                }}
+                                transition={{
+                                        ease: "easeOut",
+                                        duration: 1.5,
+                                }}>
+                                <Component
+                                        tasks={tasks}
+                                        Type={taskCompleted}
+                                        callBack={callBack}
+                                />
+                        </motion.div>
                 );
         }
 };
@@ -69,7 +117,12 @@ export const getItemsNumbers = (type, Tasks, setItemsNumbers) => {
         }
 };
 
-export const handelStateButtons = (type, setTypeOfTask,Tasks,setItemsNumbers) => {
+export const handelStateButtons = (
+        type,
+        setTypeOfTask,
+        Tasks,
+        setItemsNumbers
+) => {
         setTypeOfTask(type);
         getItemsNumbers(type, Tasks, setItemsNumbers);
 };
@@ -78,13 +131,13 @@ export const handelInput = (e, setInput) => {
         setInput(e.target.value);
 };
 
-export const handelFocusedInput=(setFocusedInput)=>{
-        return ()=>{
-                setFocusedInput(true)
-        }
-}
-export const handelBlurInput=(setFocusedInput)=>{
-        return ()=>{
-                setFocusedInput(false)
-        }
-}
+export const handelFocusedInput = (setFocusedInput) => {
+        return () => {
+                setFocusedInput(true);
+        };
+};
+export const handelBlurInput = (setFocusedInput) => {
+        return () => {
+                setFocusedInput(false);
+        };
+};
