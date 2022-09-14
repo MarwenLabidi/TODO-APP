@@ -8,10 +8,9 @@ const list = {
 {
 }
 
-// TODO? add transition inside to list and add transition to the parrent ul
-//TODO? add delete animation first to the list and then to the parrent ul
-//TODO? add transion inside exit animation and find away to add exit to the list variiant
-// FIXME? EXIT ANIMATION DONT WORK
+// FIXME? add animation get from me to the screen and make half flip on an out a animation
+//FIXME? make the animation exit better flip on and out and than tetnater out of the screen to my face
+
 
 const Tasks = ({ tasks, Type, callBack }) => {
         return (

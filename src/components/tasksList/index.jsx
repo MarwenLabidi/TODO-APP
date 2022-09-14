@@ -6,7 +6,6 @@ import Tasks from "../tasks/index.jsx";
 const TasksList = ({ tasks, type, callBack }) => {
         return (
                 <ul>
-                        {/* FIXME? */}
                         <AnimatePresence >
                                 {showTasksInTheList(
                                         tasks,

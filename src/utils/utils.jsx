@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from "uuid";
+//FIXME? make the animation exit better flip on and out and than tetnater out of the screen to my face
 
 export const showTasksInTheList = (
         tasks,
