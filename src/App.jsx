@@ -25,6 +25,7 @@ const App = () => {
 export default App;
 //TODO? use framer motion for animations: a nimate ad delete task shake input when you write
 //TODO? input shaking  animation
+//TODO? MOVE MAIN SECTION A LITLE BIT TO THE TOP
 // TODO? DARK MODE ANIMATION SUN GO DOWN moon come from the top 
 //TODO? costum cursor
 //TODO? drag and drop funtionality fom one place
