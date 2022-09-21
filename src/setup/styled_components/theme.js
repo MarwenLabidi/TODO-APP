@@ -14,7 +14,7 @@ export const lightTheme = () => {
                 backgroundImageHeader: "url(/images/bg-desktop-light.jpg)",
                 iconDarkMode: "url(/images/icon-sun.svg)",
                 gradiant: "linear-gradient(#39598A, #79D7ED)",
-                input:Very_Light_Grayish_Blue
+                input: Very_Light_Grayish_Blue,
         };
 };
 export const darkTheme = () => {
@@ -34,7 +34,7 @@ export const darkTheme = () => {
                 gradient: "linear-gradient(#091236, #1E215D)",
                 backgroundImageHeader: "url(/images/bg-desktop-dark.jpg)",
                 iconDarkMode: "url(/images/icon-moon.svg)",
-                gradiant:"linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%))",
-                input:clr_Very_Dark_Grayish_Blue_100
+                gradiant: "linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%))",
+                input: clr_Very_Dark_Grayish_Blue_100,
         };
 };

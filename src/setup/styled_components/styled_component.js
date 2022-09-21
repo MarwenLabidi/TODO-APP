@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
-
 export const StyledHeader = styled.div`
         background: ${({ theme }) => theme.backgroundImageHeader};
         color: var(--clr_Very_Light_Gray);
@@ -61,7 +60,7 @@ export const StyledBody = styled.div`
         }
 `;
 
-export const StyledMain = styled.div`
+export const StyledMain = styled(motion.div)`
         width: 60vw;
         margin: 0 auto;
         @media (max-width: 900px) {
@@ -109,7 +108,6 @@ export const StyledMainListSection = styled.div`
         ul {
                 padding: 0;
                 border-radius: 10px;
-
         }
         li {
                 padding: 1rem;
@@ -182,12 +180,13 @@ export const StyledMainListSection = styled.div`
                 background: none; /* color of the tracking area */
         }
         &::-webkit-scrollbar-thumb {
-                background: ${({ theme }) => theme.gradiant}; /* color of the scroll thumb */
+                background: ${({ theme }) =>
+                        theme.gradiant}; /* color of the scroll thumb */
                 border-radius: 20px; /* roundness of the scroll thumb */
                 border: 3px solid yellow; /* creates padding around scroll thumb */
         }
 `;
-export const StyledMainFooterSection = styled.div`
+export const StyledMainFooterSection = styled(motion.div)`
         background-color: ${({ theme }) => theme.input};
         border-radius: 10px;
         padding: 1rem;

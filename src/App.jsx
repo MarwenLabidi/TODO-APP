@@ -23,6 +23,7 @@ const App = () => {
 };
 
 export default App;
+//FIXME? hide the task when it go under the input opacity 0 fadeout
 //TODO? use framer motion for animations: a nimate ad delete task shake input when you write
 //TODO? input shaking  animation
 //TODO? MOVE MAIN SECTION A LITLE BIT TO THE TOP

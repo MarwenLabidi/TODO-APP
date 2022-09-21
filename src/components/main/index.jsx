@@ -62,8 +62,12 @@ const Main = ({ theme }) => {
                         setTask(data[1][0]);
                 });
         }, []);
+        // FIXME? figue out how to add perspective and trandform on the z axis
         return (
-                <StyledMain >
+                <StyledMain  initial={{ y: -100 }}
+                transition={ { duration: 2 }}
+
+                >
                         <StyledMainInputSectionOne
                                 width={focusedInput === false ? 8 : 11}>
                                 <input
@@ -112,7 +116,8 @@ const Main = ({ theme }) => {
                         </StyledMainListSection>
 
                         <StyledMainFooterSection
-                                width={focusedInput === false ? 8 : 11}>
+                                width={focusedInput === false ? 8 : 11}
+                                >
                                 <p>{itemsNumbers} items</p>
                                 <div className='allActiveComplete'>
                                         <button
