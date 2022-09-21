@@ -62,7 +62,6 @@ const Main = ({ theme }) => {
                         setTask(data[1][0]);
                 });
         }, []);
-        // FIXME? figue out how to add perspective and trandform on the z axis
         return (
                 <StyledMain  initial={{ y: -100 }}
                 transition={ { duration: 2 }}

@@ -4,7 +4,7 @@ import { StyledBody } from "../../setup/styled_components/styled_component";
 
 const Body = ({ theme }) => {
     return (
-        <StyledBody>
+        <StyledBody >
             <Main
                 theme={theme}
             />

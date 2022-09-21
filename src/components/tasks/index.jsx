@@ -1,12 +1,15 @@
 import React from "react";
 import { taskDone } from "../../utils/utils.jsx";
 import { motion, AnimatePresence } from "framer-motion";
+
 const list = {
-        hidden: { opacity: 0 },
+        hidden: { opacity: 0 ,x:300 },
         visible: { opacity: 1, transition: { ease: "easeOut", duration: 1.5 } },
 };
 {
 }
+//FIXME? share element between multiple component
+
 
 // FIXME? add animation get from me to the screen and make half flip on an out a animation
 //FIXME? make the animation exit better flip on and out and than tetnater out of the screen to my face

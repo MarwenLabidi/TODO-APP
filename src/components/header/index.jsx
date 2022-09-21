@@ -5,7 +5,7 @@ import { FocusedInputContext } from "../../setup/context/focusedInputContext.jsx
 const Header = ({ toggleTheme }) => {
         const [focusedInput, setFocusedInput] = useContext(FocusedInputContext);
         return (
-                <StyledHeader width={ (focusedInput===false) ? 32 : 50 }
+                <StyledHeader   width={ (focusedInput===false) ? 32 : 50 }
                 >
                         <header>
                                 <h1>TODO</h1>

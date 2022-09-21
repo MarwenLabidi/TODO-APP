@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
-export const StyledHeader = styled.div`
+export const StyledHeader = styled(motion.div)`
         background: ${({ theme }) => theme.backgroundImageHeader};
         color: var(--clr_Very_Light_Gray);
         backface-visibility: hidden;
@@ -45,7 +45,7 @@ export const StyledHeader = styled.div`
         }
 `;
 
-export const StyledBody = styled.div`
+export const StyledBody = styled(motion.div)`
         background-color: ${({ theme }) => theme.body};
         color: ${({ theme }) => theme.text};
         height: 68vh;
@@ -68,7 +68,7 @@ export const StyledMain = styled(motion.div)`
         }
         /* z-index:5; */
 `;
-export const StyledMainInputSectionOne = styled.div`
+export const StyledMainInputSectionOne = styled(motion.div)`
         position: relative;
         input {
                 width: 100%;
@@ -99,7 +99,7 @@ export const StyledMainInputSectionOne = styled.div`
                 font-weight: bold;
         }
 `;
-export const StyledMainListSection = styled.div`
+export const StyledMainListSection = styled(motion.div)`
         max-height: 40vh;
         overflow-y: auto;
         overflow-x: hidden;
@@ -108,6 +108,10 @@ export const StyledMainListSection = styled.div`
         ul {
                 padding: 0;
                 border-radius: 10px;
+                div{
+                        perspective: 500;
+                }
+
         }
         li {
                 padding: 1rem;
