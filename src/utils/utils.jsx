@@ -17,13 +17,15 @@ export const showTasksInTheList = (
         if (type === "Active") {
                 return (
                         <motion.div
+                        layout
                                 exit={{
-                                        x: -300,
+                                       
                                         opacity: 0,
                                 }}
                                 transition={{
                                         ease: "easeOut",
                                         duration: 1.5,
+                                        layout: { type: "spring", stiffness: 500 },
                                 }}>
                                 <Component
                                         tasks={tasks}
@@ -35,13 +37,15 @@ export const showTasksInTheList = (
         } else if (type === "Completed") {
                 return (
                         <motion.div
+                        layout
                                 exit={{
-                                        x: -300,
+                                       
                                         opacity: 0,
                                 }}
                                 transition={{
                                         ease: "easeOut",
                                         duration: 1.5,
+                                        layout:{ type: "spring", stiffness: 500 },
                                 }}>
                                 <Component
                                         tasks={tasks}
@@ -53,13 +57,15 @@ export const showTasksInTheList = (
         } else {
                 return (
                         <motion.div
+                        layout
                                 exit={{
-                                        x: -300,
+                                       
                                         opacity: 0,
                                 }}
                                 transition={{
                                         ease: "easeOut",
                                         duration: 1.5,
+                                        layout:{ type: "spring", stiffness: 500 },
                                 }}>
                                 <Component
                                         tasks={tasks}

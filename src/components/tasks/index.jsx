@@ -3,7 +3,7 @@ import { taskDone } from "../../utils/utils.jsx";
 import { motion, AnimatePresence } from "framer-motion";
 
 const list = {
-        hidden: { opacity: 0 ,x:300 },
+        hidden: { opacity: 0 },
         visible: { opacity: 1, transition: { ease: "easeOut", duration: 1.5 } },
 };
 {
@@ -21,18 +21,18 @@ const Tasks = ({ tasks, Type, callBack }) => {
                         {[...tasks].map(
                                 (task) =>
                                         task.Completed === eval(Type) && (
-                                                <motion.li
+                                                <motion.li layout
                                                         variants={list}
                                                         initial='hidden'
                                                         animate='visible'
                                                         // exit='hidden'
                                                         exit={{
-                                                                x: -300,
                                                                 opacity: 0,
                                                         }}
                                                         transition={{
                                                                 ease: "easeOut",
                                                                 duration: 1.5,
+                                                                layout:{type:'spring',stiffness:500},
                                                         }}
                                                         id={`task-${task.ID}`}
                                                         key={task.ID}>
