@@ -17,12 +17,11 @@ const list = {
 
 const Tasks = ({ tasks, Type, callBack }) => {
         return (
-                <AnimatePresence>
+                <AnimatePresence  >
                         {[...tasks].map(
                                 (task) =>
                                         task.Completed === eval(Type) && (
-                                                <motion.li layout
-                                                        variants={list}
+                                                <motion.li layout                                                     variants={list}
                                                         initial='hidden'
                                                         animate='visible'
                                                         // exit='hidden'

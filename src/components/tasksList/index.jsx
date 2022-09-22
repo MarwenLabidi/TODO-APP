@@ -5,7 +5,11 @@ import Tasks from "../tasks/index.jsx";
 
 const TasksList = ({ tasks, type, callBack }) => {
         return (
-                <ul >
+                <motion.ul layout    transition={{
+                        ease: "easeOut",
+                        duration: 1.5,
+                        layout:{type:'spring',stiffness:500},
+                }} >
                         <AnimatePresence >
                                 {showTasksInTheList(
                                         tasks,
@@ -15,7 +19,7 @@ const TasksList = ({ tasks, type, callBack }) => {
                                         motion
                                 )}
                         </AnimatePresence>
-                </ul>
+                </motion.ul>
         );
 };
 
