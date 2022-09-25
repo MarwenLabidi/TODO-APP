@@ -25,16 +25,15 @@ const App = () => {
 export default App;
 
 //TODO? Add grow and shrink animation when you check or uncheck the check box and animation to the task
-//TODO? use framer motion for animations: a nimate ad delete task shake input when you write
 //TODO? DARK MODE ANIMATION SUN GO DOWN moon come from the top 
-//TODO? costum cursor
 //TODO? drag and drop funtionality fom one place
+//TODO? costum cursor an change when it hover change dark mode with animation and when you drag  and wehn you hover tasks and input and button
 //TODO? add a custom hook useSound to play the sound when the task is completed or when  you add new task or chage theme
 //TODO? add sound control buttom to the app https://www.youtube.com/watch?v=wzWcaLkCy1w
-//TODO? accesibility 
-//TODO? Add hiden Link to go to the tasks 
-//TODO? add linter and eslint
 //TODO? do unit test and component test with Playwright
 //TODO? use github action for ci cd pipeline
 //TODO? make it a progressive web apppp and add instal button
 //TODO? enable offline cache firestore : https://cloud.google.com/firestore/docs/manage-data/enable-offline#:~:text=Firestore%20supports%20offline%20data%20persistence,and%20query%20the%20cached%20data.
+//TODO? accesibility 
+//TODO? Add hiden Link to go to the tasks 
+//TODO? add linter and eslint
