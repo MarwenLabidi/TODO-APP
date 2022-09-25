@@ -51,7 +51,7 @@ export const StyledBody = styled(motion.div)`
         height: 68vh;
         text-align: center;
         p:last-child {
-                margin-top: -10vh;
+                margin-top:-75px;
         }
         @media (max-width: 650px) {
                 p:last-child {
@@ -72,7 +72,7 @@ export const StyledMainInputSectionOne = styled(motion.div)`
         position: relative;
         input {
                 width: 100%;
-                height: 8vh;
+                height: 63px;
                 border-radius: 10px;
                 font-size: 1.5rem;
                 font-family: var(--ff_Josefin);
@@ -81,18 +81,14 @@ export const StyledMainInputSectionOne = styled(motion.div)`
                 text-indent: 30px;
                 background-color: ${({ theme }) => theme.input};
                 color: ${({ theme }) => theme.text};
-                @media (max-width: 900px) {
-                        height: ${(props) => props.width + "vh"};
-                }
         }
         button {
                 position: absolute;
                 right: 0;
                 height: 100%;
-                min-width: 3.3rem;
                 border-radius: 10px;
                 background: ${({ theme }) => theme.gradiant};
-                width: 8vh;
+                width: 80px;
                 &:hover {
                         cursor: pointer;
                 }
@@ -230,10 +226,7 @@ export const StyledMainFooterSection = styled(motion.div)`
                         bottom: -70px;
                         left: 0;
                         width: 100%;
-                        height: 8vh;
-                        @media (max-width: 900px) {
-                                height: ${(props) => props.width + "vh"};
-                        }
+                        height:63 px ;
                         border-radius: 10px;
                         justify-content: center;
                 }

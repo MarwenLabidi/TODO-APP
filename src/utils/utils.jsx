@@ -1,5 +1,4 @@
 import { v4 as uuidv4 } from "uuid";
-// FIXME? fix the animation duration and make it better
 
 export const showTasksInTheList = (
         tasks,
@@ -23,8 +22,6 @@ export const showTasksInTheList = (
                                         opacity: 0,
                                 }}
                                 transition={{
-                                        ease: "easeOut",
-                                        duration: 1.5,
                                         layout: { type: "spring", stiffness: 500 },
                                 }}>
                                 <Component

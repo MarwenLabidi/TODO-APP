@@ -9,8 +9,6 @@ const list = {
 {
 }
 
-// FIXME? fix the animation duration and make it better
-
 
 const Tasks = ({ tasks, Type, callBack }) => {
         return (
@@ -22,13 +20,10 @@ const Tasks = ({ tasks, Type, callBack }) => {
                                                         variants={list}
                                                         initial='hidden'
                                                         animate='visible'
-                                                        // exit='hidden'
                                                         exit={{
                                                                 opacity: 0,
                                                         }}
                                                         transition={{
-                                                                ease: "easeOut",
-                                                                duration: 1.5,
                                                                 layout:{type:'spring',stiffness:500},
                                                         }}
                                                         id={`task-${task.ID}`}
