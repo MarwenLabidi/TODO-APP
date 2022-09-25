@@ -23,7 +23,7 @@ const App = () => {
 };
 
 export default App;
-
+//FIXME?Make the height of header fixed
 //TODO? Add grow and shrink animation when you check or uncheck the check box and animation to the task
 //TODO? use framer motion for animations: a nimate ad delete task shake input when you write
 //TODO? input shaking  animation
@@ -32,7 +32,8 @@ export default App;
 //TODO? drag and drop funtionality fom one place
 //TODO? add a custom hook useSound to play the sound when the task is completed or when  you add new task or chage theme
 //TODO? add sound control buttom to the app https://www.youtube.com/watch?v=wzWcaLkCy1w
-//TODO? accesibility
+//TODO? accesibility 
+//TODO? Add hiden Link to go to the tasks 
 //TODO? add linter and eslint
 //TODO? do unit test and component test with Playwright
 //TODO? use github action for ci cd pipeline

@@ -8,23 +8,36 @@ const list = {
 };
 {
 }
-
+const handelClick = (task,e) => {
+        e.stopPropagation(); //FIXME?   fix the event from going to the children
+        console.log(`clicked ${task}`);
+};
 
 const Tasks = ({ tasks, Type, callBack }) => {
         return (
-                <AnimatePresence >
+                <AnimatePresence>
                         {[...tasks].map(
                                 (task) =>
                                         task.Completed === eval(Type) && (
-                                                <motion.li layout     
+                                                <motion.li
+                                                        layout
                                                         variants={list}
                                                         initial='hidden'
                                                         animate='visible'
+                                                        onClick={(e) => {
+                                                                e.stopPropagation();
+                                                                handelClick(
+                                                                        task.Description,e
+                                                                );
+                                                        }}
                                                         exit={{
                                                                 opacity: 0,
                                                         }}
                                                         transition={{
-                                                                layout:{type:'spring',stiffness:500},
+                                                                layout: {
+                                                                        type: "spring",
+                                                                        stiffness: 500,
+                                                                },
                                                         }}
                                                         id={`task-${task.ID}`}
                                                         key={task.ID}>
