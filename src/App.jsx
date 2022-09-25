@@ -23,13 +23,11 @@ const App = () => {
 };
 
 export default App;
-//FIXME? make the scrol snap and evry scrol with spesific amount of pixels to hide all the task and fix the scroll when you add task too
-//FIXME? change the opacity of the task if its not fully display
-//FIXME?add grow and shrink animation when you check or uncheck the check box and animation to the task
+
+//TODO? Add grow and shrink animation when you check or uncheck the check box and animation to the task
 //TODO? use framer motion for animations: a nimate ad delete task shake input when you write
 //TODO? input shaking  animation
-//TODO? MOVE MAIN SECTION A LITLE BIT TO THE TOP
-// TODO? DARK MODE ANIMATION SUN GO DOWN moon come from the top 
+//TODO? DARK MODE ANIMATION SUN GO DOWN moon come from the top 
 //TODO? costum cursor
 //TODO? drag and drop funtionality fom one place
 //TODO? add a custom hook useSound to play the sound when the task is completed or when  you add new task or chage theme

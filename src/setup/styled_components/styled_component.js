@@ -101,6 +101,8 @@ export const StyledMainListSection = styled(motion.div)`
         overflow-x: hidden;
         scroll-behavior: smooth;
         margin:10px 0;
+        scroll-snap-type: y mandatory;
+
 
         ul {
                 padding: 0;
@@ -111,6 +113,8 @@ export const StyledMainListSection = styled(motion.div)`
 
         }
         li {
+                scroll-snap-align: start;
+
                 padding: 1rem;
                 border-top: 1px solid ${({ theme }) => theme.text};
                 background-color: ${({ theme }) => theme.input};
