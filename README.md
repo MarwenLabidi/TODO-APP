@@ -11,7 +11,7 @@
 # [APP link]()
 
 ## Tech Stack:
-- Vite , React , Styled component,FramerMotion,
+- Vite , React , Styled component,FramerMotion,React Aria
 - Tensorflow.JS(speech commande recognitio model),Web Speech API
 - FireBase
 - Git , Github , Github Actions

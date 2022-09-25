@@ -8,20 +8,18 @@ const list = {
 };
 {
 }
-//FIXME? share element between multiple component
 
-
-// FIXME? add animation get from me to the screen and make half flip on an out a animation
-//FIXME? make the animation exit better flip on and out and than tetnater out of the screen to my face
+// FIXME? fix the animation duration and make it better
 
 
 const Tasks = ({ tasks, Type, callBack }) => {
         return (
-                <AnimatePresence  >
+                <AnimatePresence >
                         {[...tasks].map(
                                 (task) =>
                                         task.Completed === eval(Type) && (
-                                                <motion.li layout                                                     variants={list}
+                                                <motion.li layout     
+                                                        variants={list}
                                                         initial='hidden'
                                                         animate='visible'
                                                         // exit='hidden'

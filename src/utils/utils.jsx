@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from "uuid";
-//FIXME? make the animation exit better flip on and out and than tetnater out of the screen to my face
+// FIXME? fix the animation duration and make it better
 
 export const showTasksInTheList = (
         tasks,
@@ -17,7 +17,7 @@ export const showTasksInTheList = (
         if (type === "Active") {
                 return (
                         <motion.div
-                        layout
+                        layout 
                                 exit={{
                                        
                                         opacity: 0,

@@ -100,10 +100,11 @@ export const StyledMainInputSectionOne = styled(motion.div)`
         }
 `;
 export const StyledMainListSection = styled(motion.div)`
-        max-height: 40vh;
+        max-height: 45vh;
         overflow-y: auto;
         overflow-x: hidden;
         scroll-behavior: smooth;
+        margin:10px 0;
 
         ul {
                 padding: 0;

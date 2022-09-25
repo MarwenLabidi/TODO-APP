@@ -23,9 +23,11 @@ const App = () => {
 };
 
 export default App;
-//FIXME?add grow and shrink animation when you check or uncheck the check box
+//FIXME? make the scrol snap and evry scrol with spesific amount of pixels to hide all the task and fix the scroll when you add task too
+//FIXME? change the opacity of the task if its not fully display
+//FIXME? fix the height of the input and the buton when you click on it
+//FIXME?add grow and shrink animation when you check or uncheck the check box and animation to the task
 //FIXME fix the size of the check box and make it responsive
-//FIXME? hide the task when it go under the input opacity 0 fadeout
 //TODO? use framer motion for animations: a nimate ad delete task shake input when you write
 //TODO? input shaking  animation
 //TODO? MOVE MAIN SECTION A LITLE BIT TO THE TOP
