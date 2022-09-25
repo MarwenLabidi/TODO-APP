@@ -8,8 +8,7 @@ const list = {
 };
 {
 }
-const handelClick = (task,e) => {
-        e.stopPropagation(); //FIXME?   fix the event from going to the children
+const handelClick = (task) => {
         console.log(`clicked ${task}`);
 };
 
@@ -24,12 +23,6 @@ const Tasks = ({ tasks, Type, callBack }) => {
                                                         variants={list}
                                                         initial='hidden'
                                                         animate='visible'
-                                                        onClick={(e) => {
-                                                                e.stopPropagation();
-                                                                handelClick(
-                                                                        task.Description,e
-                                                                );
-                                                        }}
                                                         exit={{
                                                                 opacity: 0,
                                                         }}
@@ -42,6 +35,13 @@ const Tasks = ({ tasks, Type, callBack }) => {
                                                         id={`task-${task.ID}`}
                                                         key={task.ID}>
                                                         <input
+                                                                onClick={(
+                                                                        e
+                                                                ) => {
+                                                                        handelClick(
+                                                                                task.Description
+                                                                        );
+                                                                }}
                                                                 id={`checkbox-${task.ID}`}
                                                                 type='checkbox'
                                                                 checked={

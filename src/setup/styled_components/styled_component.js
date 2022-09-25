@@ -6,14 +6,14 @@ export const StyledHeader = styled(motion.div)`
         color: var(--clr_Very_Light_Gray);
         backface-visibility: hidden;
         background-size: cover;
-        height: 32vh;
+        height: 250px;
         transition: all 0.5s ease-in-out;
-        @media (max-width: 900px) {
+        /* @media (max-width: 900px) {
                 height: ${(props) => props.width + "vh"};
-        }
+        } */
         header {
                 * {
-                        margin-top: 5vh;
+                        margin-top: 30px;
                 }
                 h1 {
                         font-family: var(--ff_Josefin);
@@ -227,7 +227,7 @@ export const StyledMainFooterSection = styled(motion.div)`
                         bottom: -70px;
                         left: 0;
                         width: 100%;
-                        height:63 px ;
+                        height:60px ;
                         border-radius: 10px;
                         justify-content: center;
                 }
