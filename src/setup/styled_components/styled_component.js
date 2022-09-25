@@ -123,13 +123,10 @@ export const StyledMainListSection = styled(motion.div)`
         li > input[type="checkbox"] {
                 appearance: none;
                 position: relative;
-                width: 6vh;
+                width: 10px;
+                height: 10px;
                 min-width: 45px;
                 min-height: 45px;
-                height: 6vh;
-                @media (max-width: 900px) {
-                        height: ${(props) => props.width + "vh"};
-                }
                 border-radius: 50%;
                 background: #f8f7f7;
                 border: 2px solid #fff;
