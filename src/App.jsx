@@ -24,7 +24,6 @@ const App = () => {
 
 export default App;
 
-//TODO? Add grow and shrink animation when you check or uncheck the check box and animation to the task
 //TODO? DARK MODE ANIMATION SUN GO DOWN moon come from the top 
 //TODO? drag and drop funtionality fom one place
 //TODO? costum cursor an change when it hover change dark mode with animation and when you drag  and wehn you hover tasks and input and button
@@ -37,3 +36,8 @@ export default App;
 //TODO? accesibility 
 //TODO? Add hiden Link to go to the tasks 
 //TODO? add linter and eslint
+//TODO? use lihthosuse to make it faster
+//TODO? use mesure Measure page quality tools to make it faster too
+//TODO? add gif  mobile version and laptop version to README
+//TODO? add screenshot from light house and mesure page to README
+

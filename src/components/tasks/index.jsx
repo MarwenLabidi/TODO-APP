@@ -1,6 +1,6 @@
 import React from "react";
 import { taskDone } from "../../utils/utils.jsx";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence,useAnimationControls } from "framer-motion";
 
 const list = {
         hidden: { opacity: 0 },
@@ -8,15 +8,18 @@ const list = {
 };
 {
 }
-const handelClick = (task) => {
-        console.log(`clicked ${task}`);
-};
 
 const Tasks = ({ tasks, Type, callBack }) => {
+
+        const controls = [...tasks].map(
+                (task) => useAnimationControls()
+        );
+                
+        
         return (
                 <AnimatePresence>
                         {[...tasks].map(
-                                (task) =>
+                                (task,index) =>
                                         task.Completed === eval(Type) && (
                                                 <motion.li
                                                         layout
@@ -34,13 +37,12 @@ const Tasks = ({ tasks, Type, callBack }) => {
                                                         }}
                                                         id={`task-${task.ID}`}
                                                         key={task.ID}>
-                                                        <input
+                                                        <motion.input
+                                                        animate={controls[index]}
                                                                 onClick={(
                                                                         e
                                                                 ) => {
-                                                                        handelClick(
-                                                                                task.Description
-                                                                        );
+                                                                        controls[index].start({ scale: [0.2,1.3,1] })
                                                                 }}
                                                                 id={`checkbox-${task.ID}`}
                                                                 type='checkbox'
