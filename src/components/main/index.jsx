@@ -18,6 +18,7 @@ import {
 import { FocusedInputContext } from "../../setup/context/focusedInputContext.jsx";
 import { useFirebase } from "../../setup/Hooks/useFirebase.js";
 import { useUpdateEffect } from "react-use";
+import {motion} from 'framer-motion';
 
 const Main = ({ theme }) => {
         const [Tasks, setTask] = useState([]); // [{ID,Description,Completed}]
@@ -91,7 +92,10 @@ const Main = ({ theme }) => {
                                                 setFocusedInput
                                         )}
                                 />
-                                <button
+                                <motion.button
+                                //  whileHover={{ scale: 1.2 }}
+                                 whileTap={{ scale: 0.9 }}
+                                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
                                         onClick={(e) =>
                                                 saveTask(
                                                         setTask,
@@ -101,7 +105,7 @@ const Main = ({ theme }) => {
                                                 )
                                         }>
                                         ADD
-                                </button>
+                                </motion.button>
                         </StyledMainInputSectionOne>
 
                         <StyledMainListSection

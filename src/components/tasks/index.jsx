@@ -10,6 +10,7 @@ const list = {
 }
 
 const Tasks = ({ tasks, Type, callBack }) => {
+        //FIXME? make the li in the list to be a component and import it 
 
         const controls = [...tasks].map(
                 (task) => useAnimationControls()
@@ -26,6 +27,8 @@ const Tasks = ({ tasks, Type, callBack }) => {
                                                         variants={list}
                                                         initial='hidden'
                                                         animate='visible'
+                                                        whileTap={{ scale: 0.9 }}
+
                                                         exit={{
                                                                 opacity: 0,
                                                         }}
