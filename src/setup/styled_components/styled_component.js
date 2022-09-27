@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled,{css} from "styled-components";
 import { motion } from "framer-motion";
 
 export const StyledHeader = styled(motion.div)`
@@ -31,17 +31,40 @@ export const StyledHeader = styled(motion.div)`
                         width: 85vw;
                 }
         }
+        div {
+                display: grid;
+                position: relative;
+        }
         button {
                 outline: none;
-                background: ${({ theme }) => theme.iconDarkMode} no-repeat
-                        center bottom;
-                background-size: cover;
                 height: 2.5rem;
                 width: 2.5rem;
                 border: none;
+                position: absolute;
                 &:hover {
                         cursor: pointer;
                 }
+        }
+        //TODO? get props if its dark add z -index and opacity to zero and no clikkabal
+        .Moon {
+                background: url("/images/icon-moon.svg") no-repeat;
+                background-size: cover;
+                ${props =>( props.icon=="light") && css`
+                                background-color: red;
+                                pointer-events: none;
+                                display:none;
+
+                        `}
+        }
+        .Sun {
+                background: url("/images/icon-sun.svg") no-repeat;
+                background-size: cover;
+                ${props =>( props.icon=="dark") && css`
+                                background-color: green;
+                                pointer-events: none;
+                                display:none;
+
+                        `}
         }
 `;
 
@@ -51,7 +74,7 @@ export const StyledBody = styled(motion.div)`
         height: 68vh;
         text-align: center;
         p:last-child {
-                margin-top:-75px;
+                margin-top: -75px;
         }
         @media (max-width: 650px) {
                 p:last-child {
@@ -100,17 +123,15 @@ export const StyledMainListSection = styled(motion.div)`
         overflow-y: auto;
         overflow-x: hidden;
         scroll-behavior: smooth;
-        margin:10px 0;
+        margin: 10px 0;
         scroll-snap-type: y mandatory;
-
 
         ul {
                 padding: 0;
                 border-radius: 10px;
-                div{
+                div {
                         perspective: 500;
                 }
-
         }
         li {
                 scroll-snap-align: start;
@@ -227,7 +248,7 @@ export const StyledMainFooterSection = styled(motion.div)`
                         bottom: -70px;
                         left: 0;
                         width: 100%;
-                        height:60px ;
+                        height: 60px;
                         border-radius: 10px;
                         justify-content: center;
                 }

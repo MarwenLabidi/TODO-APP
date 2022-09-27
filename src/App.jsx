@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import Header from "./components/header";
 import Body from "./components/body";
 import GlobalStyle from "./setup/styled_components/GlobalStyle";
@@ -9,12 +9,14 @@ import { FocusedInputContextProvider } from "./setup/context/focusedInputContext
 const App = () => {
         const [theme, toggleTheme] = useDarkMode();
         const themeMode = theme === "light" ? lightTheme() : darkTheme();
+
+        
         return (
                 <FocusedInputContextProvider>
                         <ThemeProvider theme={themeMode}>
                                 <>
                                         <GlobalStyle />
-                                        <Header toggleTheme={toggleTheme} />
+                                        <Header icon={theme} toggleTheme={toggleTheme} />
                                         <Body theme={theme} />
                                 </>
                         </ThemeProvider>
