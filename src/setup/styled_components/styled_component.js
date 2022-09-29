@@ -1,4 +1,29 @@
-import styled, { css } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
+
+const sunAnimation = keyframes`
+        0% {
+                transform: rotate(0deg);
+        }
+        50% {
+                transform: rotate(360deg);
+        }
+        100% {
+                transform: rotate(0deg);
+        }
+`;
+
+const moonAnimation = keyframes`
+        0% {
+                transform: rotate(0deg);
+        }
+        50% {
+                transform: rotate(-30deg);
+        }
+        100% {
+                transform: rotate(0deg);
+        }
+`;
+
 import { motion } from "framer-motion";
 
 export const StyledHeader = styled(motion.div)`
@@ -8,44 +33,46 @@ export const StyledHeader = styled(motion.div)`
         background-size: cover;
         height: 250px;
         transition: all 0.5s ease-in-out;
-        /* @media (max-width: 900px) {
-                height: ${(props) => props.width + "vh"};
-        } */
         header {
-                * {
-                        margin-top: 30px;
-                }
+                padding-top:25px;
                 h1 {
                         font-family: var(--ff_Josefin);
                         letter-spacing: 8px;
                         font-size: 3rem;
+                        margin:0;
+
                         @media (max-width: 900px) {
                                 font-size: 2rem;
                         }
                 }
                 display: flex;
-                justify-content: space-between;
-                width: 60vw;
                 margin: 0 auto;
+                width: 60vw;
+                justify-content: space-between;
+                align-items: center;
                 @media (max-width: 900px) {
                         width: 85vw;
                 }
         }
         div {
-                display: grid;
                 position: relative;
-                /* justify-content: center; */
-                align-items: center;
-                align-self: center;
+                height:60px;
+                width:60px;
+                margin:0;
         }
         button {
                 transition: all 0.5s ease-in-out;
                 outline: none;
-                height: 2.5rem;
-                width: 2.5rem;
+                height: 40px;
+                width: 40px;
+                @media (max-width: 900px) {
+                        height: 30px;
+                width: 30px;
+                        }
                 border: none;
                 position: absolute;
-                transform: translate(-70%, -50%);
+                top:10px;
+                right: 0;
                 &:hover {
                         cursor: pointer;
                 }
@@ -53,21 +80,33 @@ export const StyledHeader = styled(motion.div)`
         .Moon {
                 background: url("/images/icon-moon.svg") no-repeat;
                 background-size: cover;
+
                 ${(props) =>
                         props.icon == "light" &&
                         css`
                                 pointer-events: none;
-                                transform: translate(-70%,200px);
+                                top: 250px;
+                        `}
+                ${(props) =>
+                        props.icon == "dark" &&
+                        css`
+                                animation: ${moonAnimation} 5s infinite both linear;
                         `}
         }
         .Sun {
                 background: url("/images/icon-sun.svg") no-repeat;
                 background-size: cover;
+
                 ${(props) =>
                         props.icon == "dark" &&
                         css`
                                 pointer-events: none;
-                                transform: translate(-70%,-200px);
+                                top: -250px;
+                        `}
+                ${(props) =>
+                        props.icon == "light" &&
+                        css`
+                                animation: ${sunAnimation} 9s both infinite ease-in-out;
                         `}
         }
 `;
