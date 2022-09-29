@@ -112,6 +112,7 @@ export const StyledHeader = styled(motion.div)`
 `;
 
 export const StyledBody = styled(motion.div)`
+        transition: all 0.5s ease-in-out;
         background-color: ${({ theme }) => theme.body};
         color: ${({ theme }) => theme.text};
         height: 68vh;

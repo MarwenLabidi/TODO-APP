@@ -26,7 +26,6 @@ const App = () => {
 
 export default App;
 
-//TODO? DARK MODE ANIMATION SUN GO DOWN moon come from the top 
 //TODO? drag and drop funtionality fom one place
 //TODO? costum cursor an change when it hover change dark mode with animation and when you drag  and wehn you hover tasks and input and button
 //TODO? add a custom hook useSound to play the sound when the task is completed or when  you add new task or chage theme
