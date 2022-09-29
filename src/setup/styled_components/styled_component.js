@@ -1,4 +1,4 @@
-import styled,{css} from "styled-components";
+import styled, { css } from "styled-components";
 import { motion } from "framer-motion";
 
 export const StyledHeader = styled(motion.div)`
@@ -34,36 +34,40 @@ export const StyledHeader = styled(motion.div)`
         div {
                 display: grid;
                 position: relative;
+                /* justify-content: center; */
+                align-items: center;
+                align-self: center;
         }
         button {
+                transition: all 0.5s ease-in-out;
                 outline: none;
                 height: 2.5rem;
                 width: 2.5rem;
                 border: none;
                 position: absolute;
+                transform: translate(-70%, -50%);
                 &:hover {
                         cursor: pointer;
                 }
         }
-        //TODO? get props if its dark add z -index and opacity to zero and no clikkabal
         .Moon {
                 background: url("/images/icon-moon.svg") no-repeat;
                 background-size: cover;
-                ${props =>( props.icon=="light") && css`
-                                background-color: red;
+                ${(props) =>
+                        props.icon == "light" &&
+                        css`
                                 pointer-events: none;
-                                display:none;
-
+                                transform: translate(-70%,200px);
                         `}
         }
         .Sun {
                 background: url("/images/icon-sun.svg") no-repeat;
                 background-size: cover;
-                ${props =>( props.icon=="dark") && css`
-                                background-color: green;
+                ${(props) =>
+                        props.icon == "dark" &&
+                        css`
                                 pointer-events: none;
-                                display:none;
-
+                                transform: translate(-70%,-200px);
                         `}
         }
 `;
