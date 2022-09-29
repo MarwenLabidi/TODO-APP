@@ -189,6 +189,7 @@ export const StyledMainListSection = styled(motion.div)`
                 margin-bottom: 5px;
                 border-radius: 10px;
         }
+        //on drag css selector
         li > input[type="checkbox"] {
                 appearance: none;
                 position: relative;
@@ -233,6 +234,9 @@ export const StyledMainListSection = styled(motion.div)`
                 &:hover {
                         cursor: pointer;
                 }
+                &:active {
+                cursor: grabbing;
+        }
                 @media (max-width: 700px) {
                         width: 70%;
                         font-size: 5vw;
