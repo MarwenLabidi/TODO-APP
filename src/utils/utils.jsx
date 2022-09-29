@@ -5,7 +5,8 @@ export const showTasksInTheList = (
         type,
         Component,
         callBack,
-        motion
+        motion,
+        setTask
 ) => {
         let f = "false";
         let t = "true";
@@ -28,6 +29,7 @@ export const showTasksInTheList = (
                                         tasks={tasks}
                                         Type={f}
                                         callBack={callBack}
+                                        setTask={setTask}
                                 />
                         </motion.div>
                 );
@@ -48,6 +50,7 @@ export const showTasksInTheList = (
                                         tasks={tasks}
                                         Type={t}
                                         callBack={callBack}
+                                        setTask={setTask}
                                 />
                         </motion.div>
                 );
@@ -68,6 +71,7 @@ export const showTasksInTheList = (
                                         tasks={tasks}
                                         Type={taskCompleted}
                                         callBack={callBack}
+                                        setTask={setTask}
                                 />
                         </motion.div>
                 );

@@ -1,6 +1,11 @@
 import React from "react";
 import { taskDone } from "../../utils/utils.jsx";
-import { motion, AnimatePresence, useAnimationControls } from "framer-motion";
+import {
+        motion,
+        AnimatePresence,
+        useAnimationControls,
+        Reorder,
+} from "framer-motion";
 
 const list = {
         hidden: { opacity: 0 },
@@ -9,17 +14,19 @@ const list = {
 {
 }
 
-const Tndex = ({ task,Type,index,callBack  }) => {
+const Tndex = ({ task, Type, index, callBack }) => {
         const controls = useAnimationControls();
 
         return (
                 task.Completed === eval(Type) && (
-                        <motion.li
+                        <Reorder.Item as={motion.li}
                                 layout
                                 variants={list}
                                 initial='hidden'
                                 animate='visible'
                                 whileTap={{ scale: 0.9 }}
+                                value={task}
+
                                 exit={{
                                         opacity: 0,
                                 }}
@@ -84,17 +91,23 @@ const Tndex = ({ task,Type,index,callBack  }) => {
                                                 {task.Description}
                                         </label>
                                 )}
-                        </motion.li>
+                        </Reorder.Item>
                 )
         );
 };
 
-const Tasks = ({ tasks, Type, callBack }) => {
+const Tasks = ({ tasks, Type, callBack, setTask }) => {
         return (
                 <AnimatePresence>
-                        {[...tasks].map((task, index) => (
-                                <Tndex callBack={callBack} task={task} Type={Type} index={index} key={task.ID} />
-                        ))}
+                                {[...tasks].map((task, index) => (
+                                                <Tndex
+                                                        callBack={callBack}
+                                                        task={task}
+                                                        Type={Type}
+                                                        index={index}
+                                                        key={task.ID}
+                                                />
+                                ))}
                 </AnimatePresence>
         );
 };

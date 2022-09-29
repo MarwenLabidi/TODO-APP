@@ -115,6 +115,7 @@ const Main = ({ theme }) => {
                                         tasks={Tasks}
                                         type={typeOfTask}
                                         callBack={changeTaskStatus}
+                                        setTask={setTask}
                                 />
                         </StyledMainListSection>
 
