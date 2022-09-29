@@ -14,19 +14,29 @@ const list = {
 {
 }
 
+let dragableElement=null
+
 const Tndex = ({ task, Type, index, callBack }) => {
         const controls = useAnimationControls();
 
         return (
                 task.Completed === eval(Type) && (
-                        <Reorder.Item as={motion.li}
+                        <Reorder.Item
+                                as={motion.li}
                                 layout
                                 variants={list}
                                 initial='hidden'
                                 animate='visible'
                                 whileTap={{ scale: 0.9 }}
                                 value={task}
+                                onDragStart={(event, info) =>{
+                                        dragableElement=event.target
+                                        dragableElement.style.pointerEvents = "none";
+                                }}
+                                onDragEnd={(event, info) =>{
+                                        dragableElement.style.removeProperty("pointer-events");     
 
+                                }}
                                 exit={{
                                         opacity: 0,
                                 }}
@@ -99,15 +109,15 @@ const Tndex = ({ task, Type, index, callBack }) => {
 const Tasks = ({ tasks, Type, callBack, setTask }) => {
         return (
                 <AnimatePresence>
-                                {[...tasks].map((task, index) => (
-                                                <Tndex
-                                                        callBack={callBack}
-                                                        task={task}
-                                                        Type={Type}
-                                                        index={index}
-                                                        key={task.ID}
-                                                />
-                                ))}
+                        {[...tasks].map((task, index) => (
+                                <Tndex
+                                        callBack={callBack}
+                                        task={task}
+                                        Type={Type}
+                                        index={index}
+                                        key={task.ID}
+                                />
+                        ))}
                 </AnimatePresence>
         );
 };
