@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 import { StyledCursor } from "../../setup/styled_components/styled_component";
 
@@ -10,7 +10,7 @@ const Cursor = () => {
                 cursorRef.current.style.top = `${clientY-10}px`;
         };
 
-        useState(() => {
+        useEffect(() => {
                 document.addEventListener("mousemove", onMouseMove);
                 return () => {
                         document.removeEventListener("mousemove", onMouseMove);
