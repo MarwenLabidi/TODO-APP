@@ -109,6 +109,7 @@ export const StyledHeader = styled(motion.div)`
                                 animation: ${sunAnimation} 9s both infinite ease-in-out;
                         `}
         }
+        cursor:none;
 `;
 
 export const StyledBody = styled(motion.div)`
@@ -125,6 +126,7 @@ export const StyledBody = styled(motion.div)`
                         margin-top: 15px;
                 }
         }
+        cursor:none;
 `;
 
 export const StyledMain = styled(motion.div)`

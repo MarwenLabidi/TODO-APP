@@ -29,7 +29,9 @@ const App = () => {
 };
 
 export default App;
-//TODO? costum cursor an change when it hover change dark mode with animation and when you drag  and wehn you hover tasks and input and button
+
+
+//FIXME? when you are above input button and tasks and the three button below hide custom cursor
 //TODO? custom input slash cursor the animation like  vscode
 //TODO? add a custom hook useSound to play the sound when the task is completed or when  you add new task or chage theme
 //TODO? add sound control buttom to the app https://www.youtube.com/watch?v=wzWcaLkCy1w
