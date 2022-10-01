@@ -1,4 +1,5 @@
 import styled, { css, keyframes } from "styled-components";
+import { motion } from "framer-motion";
 
 const sunAnimation = keyframes`
         0% {
@@ -24,7 +25,6 @@ const moonAnimation = keyframes`
         }
 `;
 
-import { motion } from "framer-motion";
 
 export const StyledHeader = styled(motion.div)`
         background: ${({ theme }) => theme.backgroundImageHeader};
@@ -313,4 +313,18 @@ export const StyledMainFooterSection = styled(motion.div)`
                         border-radius: 10px;
                 }
         }
+`;
+
+export const StyledCursor = styled(motion.div)`
+        position: absolute;
+        left:0;
+        top:0;
+        width: 40px;
+        height:40px;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9999;
+        transform: translate(-50%, -50%);
+        background-color: ${({ theme }) => theme.text};
+        opacity:0.7;
 `;
