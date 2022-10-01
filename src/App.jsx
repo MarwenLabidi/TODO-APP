@@ -32,6 +32,7 @@ export default App;
 
 
 //FIXME? when you are above input button and tasks and the three button below hide custom cursor
+//FIXME? make the custom cursor only work in laptop or desktops 
 //TODO? custom input slash cursor the animation like  vscode
 //TODO? add a custom hook useSound to play the sound when the task is completed or when  you add new task or chage theme
 //TODO? add sound control buttom to the app https://www.youtube.com/watch?v=wzWcaLkCy1w
