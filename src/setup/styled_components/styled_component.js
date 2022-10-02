@@ -25,7 +25,6 @@ const moonAnimation = keyframes`
         }
 `;
 
-
 export const StyledHeader = styled(motion.div)`
         background: ${({ theme }) => theme.backgroundImageHeader};
         color: var(--clr_Very_Light_Gray);
@@ -34,12 +33,12 @@ export const StyledHeader = styled(motion.div)`
         height: 250px;
         transition: all 0.5s ease-in-out;
         header {
-                padding-top:25px;
+                padding-top: 25px;
                 h1 {
                         font-family: var(--ff_Josefin);
                         letter-spacing: 8px;
                         font-size: 3rem;
-                        margin:0;
+                        margin: 0;
 
                         @media (max-width: 900px) {
                                 font-size: 2rem;
@@ -56,9 +55,9 @@ export const StyledHeader = styled(motion.div)`
         }
         div {
                 position: relative;
-                height:60px;
-                width:60px;
-                margin:0;
+                height: 60px;
+                width: 60px;
+                margin: 0;
         }
         button {
                 transition: all 0.5s ease-in-out;
@@ -67,15 +66,15 @@ export const StyledHeader = styled(motion.div)`
                 width: 40px;
                 @media (max-width: 900px) {
                         height: 30px;
-                width: 30px;
-                        }
+                        width: 30px;
+                }
                 border: none;
                 position: absolute;
-                top:10px;
+                top: 10px;
                 right: 0;
                 &:hover {
                         cursor: pointer;
-                }
+                }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
         }
         .Moon {
                 background: url("/images/icon-moon.svg") no-repeat;
@@ -90,7 +89,8 @@ export const StyledHeader = styled(motion.div)`
                 ${(props) =>
                         props.icon == "dark" &&
                         css`
-                                animation: ${moonAnimation} 5s infinite both linear;
+                                animation: ${moonAnimation} 5s infinite both
+                                        linear;
                         `}
         }
         .Sun {
@@ -106,10 +106,11 @@ export const StyledHeader = styled(motion.div)`
                 ${(props) =>
                         props.icon == "light" &&
                         css`
-                                animation: ${sunAnimation} 9s both infinite ease-in-out;
+                                animation: ${sunAnimation} 9s both infinite
+                                        ease-in-out;
                         `}
         }
-        cursor:none;
+        /* cursor:none; */
 `;
 
 export const StyledBody = styled(motion.div)`
@@ -126,7 +127,7 @@ export const StyledBody = styled(motion.div)`
                         margin-top: 15px;
                 }
         }
-        cursor:none;
+        /* cursor: none; */
 `;
 
 export const StyledMain = styled(motion.div)`
@@ -237,8 +238,8 @@ export const StyledMainListSection = styled(motion.div)`
                         cursor: pointer;
                 }
                 &:active {
-                cursor: grabbing;
-        }
+                        cursor: grabbing;
+                }
                 @media (max-width: 700px) {
                         width: 70%;
                         font-size: 5vw;
@@ -317,16 +318,18 @@ export const StyledMainFooterSection = styled(motion.div)`
         }
 `;
 
-export const StyledCursor = styled(motion.div)`
+export const StyledCursor = styled(motion.div).attrs({
+        className: "cursorCustom",
+})`
         position: absolute;
-        left:0;
-        top:0;
+        left: 0;
+        top: 0;
         width: 40px;
-        height:40px;
+        height: 40px;
         border-radius: 50%;
         pointer-events: none;
         z-index: 9999;
         transform: translate(-50%, -50%);
         background-color: ${({ theme }) => theme.text};
-        opacity:0.7;
+        opacity: 0.7;
 `;
