@@ -6,11 +6,15 @@ import { lightTheme, darkTheme } from "./setup/styled_components/theme.js";
 import { useDarkMode } from "./setup/Hooks/useDarkMode.js";
 import { FocusedInputContextProvider } from "./setup/context/focusedInputContext";
 import Cursor from "./components/cursor/index";
+import { useRef } from "react";
 
 const App = () => {
         const [theme, toggleTheme] = useDarkMode();
         const themeMode = theme === "light" ? lightTheme() : darkTheme();
-      
+        const refMain = useRef();
+        const refDarkModeButton = useRef();
+        
+
         return (
                 <FocusedInputContextProvider>
                         <ThemeProvider theme={themeMode}>
@@ -20,8 +24,9 @@ const App = () => {
                                         <Header
                                                 icon={theme}
                                                 toggleTheme={toggleTheme}
+                                                ref={refDarkModeButton}
                                         />
-                                        <Body theme={theme} />
+                                        <Body theme={theme} ref={refMain} />
                                 </>
                         </ThemeProvider>
                 </FocusedInputContextProvider>

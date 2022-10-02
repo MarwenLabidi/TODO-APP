@@ -6,8 +6,8 @@ const Cursor = () => {
         const cursorRef = useRef(null);
         const onMouseMove = (event) => {
                 const { clientX, clientY } = event;
-                cursorRef.current.style.left = `${clientX-15}px`;
-                cursorRef.current.style.top = `${clientY-10}px`;
+                cursorRef.current.style.left = `${clientX}px`;
+                cursorRef.current.style.top = `${clientY}px`;
         };
 
         useEffect(() => {
@@ -15,7 +15,7 @@ const Cursor = () => {
                 return () => {
                         document.removeEventListener("mousemove", onMouseMove);
                 };
-        },[]);
+        }, []);
         return (
                 <StyledCursor
                         ref={cursorRef}

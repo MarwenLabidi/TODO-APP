@@ -1,4 +1,4 @@
-import React from "react";
+import {forwardRef} from "react";
 import { useState, useEffect, useContext, useRef } from "react";
 import TasksList from "../tasksList";
 import {
@@ -20,7 +20,7 @@ import { useFirebase } from "../../setup/Hooks/useFirebase.js";
 import { useUpdateEffect } from "react-use";
 import {motion} from 'framer-motion';
 
-const Main = ({ theme }) => {
+const Main = ({ theme },ref) => {
         const [Tasks, setTask] = useState([]); // [{ID,Description,Completed}]
         const [typeOfTask, setTypeOfTask] = useState("All"); //All,Active,Completed
         const [itemsNumbers, setItemsNumbers] = useState(Tasks.length);
@@ -66,6 +66,7 @@ const Main = ({ theme }) => {
         return (
                 <StyledMain  initial={{ y: -100 }}
                 transition={ { duration: 2 }}
+                ref={ref}
 
                 >
                         <StyledMainInputSectionOne
@@ -172,4 +173,4 @@ const Main = ({ theme }) => {
         );
 };
 
-export default Main;
+export default forwardRef(Main);
