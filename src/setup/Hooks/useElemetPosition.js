@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useLayoutEffect } from "react";
 
 export default function useElementPosition(el) {
         function getElement(x, y,bottom,right) {
@@ -12,7 +12,7 @@ export default function useElementPosition(el) {
 
         const [elementPosition, setElementPosition] = useState(getElement);
 
-        useEffect(() => {
+        useLayoutEffect(() => {
                 function handlePosition() {
                         let element = el.current;
                         let x = element.getBoundingClientRect().left
