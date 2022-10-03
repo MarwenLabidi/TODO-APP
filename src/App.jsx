@@ -8,22 +8,31 @@ import { FocusedInputContextProvider } from "./setup/context/focusedInputContext
 import Cursor from "./components/cursor/index";
 import { useRef } from "react";
 import useElementPosition from "./setup/Hooks/useElemetPosition";
+import { isBrowser } from "react-device-detect";
 
 const App = () => {
         const [theme, toggleTheme] = useDarkMode();
         const themeMode = theme === "light" ? lightTheme() : darkTheme();
         const refMain = useRef();
         const refDarkModeButton = useRef();
-        const mainPostion=useElementPosition(refMain)
-        const darkModeButtonPosition=useElementPosition(refDarkModeButton)
-        
+        const mainPostion = useElementPosition(refMain);
+        const darkModeButtonPosition = useElementPosition(refDarkModeButton);
 
         return (
                 <FocusedInputContextProvider>
                         <ThemeProvider theme={themeMode}>
                                 <>
                                         <GlobalStyle />
-                                        <Cursor mainPostion={mainPostion} darkModeButtonPosition={darkModeButtonPosition} />
+                                        {isBrowser && (
+                                                <Cursor
+                                                        mainPostion={
+                                                                mainPostion
+                                                        }
+                                                        darkModeButtonPosition={
+                                                                darkModeButtonPosition
+                                                        }
+                                                />
+                                        )}
                                         <Header
                                                 icon={theme}
                                                 toggleTheme={toggleTheme}
@@ -38,8 +47,6 @@ const App = () => {
 
 export default App;
 
-
-//FIXME? make the custom cursor only work in laptop or desktops 
 //TODO? custom input slash cursor the animation like  vscode
 //TODO? add a custom hook useSound to play the sound when the task is completed or when  you add new task or chage theme
 //TODO? add sound control buttom to the app https://www.youtube.com/watch?v=wzWcaLkCy1w
