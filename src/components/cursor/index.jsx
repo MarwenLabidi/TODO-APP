@@ -5,29 +5,22 @@ const Cursor = ({darkModeButtonPosition,mainPostion}) => {
         const cursorRef = useRef(null);
         const onMouseMove = (event) => {
                 const { clientX, clientY } = event;
-                cursorRef.current.style.left = `${clientX-15}px`;
-                cursorRef.current.style.top = `${clientY-15}px`;
-                // console.log('mainPostion: ', mainPostion);
-                // console.log('clientX: ', clientX);
-                // console.log('clientY: ', clientY);
-                // if (clientX > mainPostion.x&&clientY > mainPostion.y&&clientX<mainPostion.right&&clientY<mainPostion.bottom) {
-                //         cursorRef.current.style.opacity = 0;
-                //         console.log(`enter`);
-                // }else{
-                //         cursorRef.current.style.opacity = 1;
-                //         console.log('out');
-                // }
+                cursorRef.current.style.left = `${clientX}px`;
+                cursorRef.current.style.top = `${clientY}px`;
+                if ((clientX > mainPostion.x&&clientY > mainPostion.y&&clientX<mainPostion.right&&clientY<mainPostion.bottom*2)||(clientX>darkModeButtonPosition.x&&clientY>darkModeButtonPosition.y&&clientX<darkModeButtonPosition.right&&clientY<darkModeButtonPosition.bottom)) {
+                        cursorRef.current.style.opacity = 0;
+                }else{
+                        cursorRef.current.style.opacity = 1;
+                }
                 
         };
 
         useLayoutEffect(() => {
-                //FIXME? wheny mainPostion inside is undefind and outside is declared
-                console.log('mainPostion: ', mainPostion);
                 document.addEventListener("mousemove", onMouseMove);
                 return () => {
                         document.removeEventListener("mousemove", onMouseMove);
                 };
-        }, []);
+        }, [mainPostion]);
         return (
                 <StyledCursor
                         ref={cursorRef}
