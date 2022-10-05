@@ -335,7 +335,7 @@ export const StyledCursor = styled(motion.div).attrs({
 `;
 
 export const StyledMenuButton = styled(motion.button)`
-        position: relative;
+        position: absolute;
         bottom: 0;
         right: 0;
         width: 100px;

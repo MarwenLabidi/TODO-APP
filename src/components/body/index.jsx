@@ -10,8 +10,8 @@ const Body = ({ theme },ref) => {
                 ref={ref}
             />
             <p className='note'>Drag and drop to reorder list</p>
-            {/* <StyledMenuButton>
-            </StyledMenuButton> */}
+            <StyledMenuButton>
+            </StyledMenuButton>
         </StyledBody>
     );
 };
