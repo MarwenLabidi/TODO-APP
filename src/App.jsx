@@ -46,6 +46,9 @@ const App = () => {
 };
 
 export default App;
+
+//TODO? style install button and sound control button
+//TODO? animate the 3 new buttons while hover and while click
 //TODO? add sound control buttom to the app https://www.youtube.com/watch?v=wzWcaLkCy1w
 //TODO? add a custom hook useSound to play the sound when the task is completed or when  you add new task or chage theme
 //TODO? do unit test and component test with Playwright
