@@ -74,7 +74,7 @@ export const StyledHeader = styled(motion.div)`
                 right: 0;
                 &:hover {
                         cursor: pointer;
-                }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+                }
         }
         .Moon {
                 background: url("/images/icon-moon.svg") no-repeat;
@@ -119,11 +119,11 @@ export const StyledBody = styled(motion.div)`
         color: ${({ theme }) => theme.text};
         height: 68vh;
         text-align: center;
-       .note {
+        .note {
                 margin-top: -75px;
         }
         @media (max-width: 650px) {
-               .note {
+                .note {
                         margin-top: -65px;
                 }
         }
@@ -334,35 +334,64 @@ export const StyledCursor = styled(motion.div).attrs({
         opacity: 0.7;
 `;
 
-export const StyledMenuButton = styled(motion.button)`
+export const StyledContainerMenuButtonSectionbuttons = styled(motion.div)`
+        display: flex;
         position: absolute;
-        bottom:30px;
-        right: 0px;
+        bottom: 30px;
+        right:0px;
+        width: 200px;
+        height: 100px;
+        border-radius: 10px 0 0 10px;
+        background-color: ${({ theme }) => theme.text}; 
+        z-index: 9999;
+        padding-right:10px;
+        @media (max-width: 650px) {
+                padding-left:10px;
+        }
+       
+`;
+
+export const StyledMenuButton = styled(motion.button)`
         width: 30px;
         height: 100px;
         background-color: ${({ theme }) => theme.text};
         border: none;
         outline: none;
-        z-index: 9999;
-        border-radius:10px 0 0 10px;
+        border-radius: 10px 0 0 10px;
         &:hover {
                 cursor: pointer;
-                border: 2px solid ${({ theme }) => theme.text};
-        }
-        &:focus {
-                border: 2px solid ${({ theme }) => theme.text};
         }
         @media (max-width: 650px) {
-                width:20px;
+                width: 20px;
         }
-        .menuIcon{
-                rotate:90deg;
+        .menuIcon {
+                rotate: 90deg;
                 color: ${({ theme }) => theme.invertText};
-                width:38px;
-                height:30px;
-                margin-left:-13px;
+                width: 38px;
+                height: 30px;
+                margin-left: -13px;
                 @media (max-width: 650px) {
-                        margin-left:-14px;
+                        margin-left: -14px;
+                }
         }
+`;
+export const StyledMenuButtonSection = styled(motion.div)`
+        display: flex;
+        align-items: center;
+        height: 100px;
+        width: 100%;
+        button {
+                background-color: ${({ theme }) => theme.invertText};
+                color: ${({ theme }) => theme.text};
+                border-radius: 10px;
+                height: 60px;
+                font-family: var(--ff_Josefin);
+                outine: none;
+                border:none;
+                &:hover {
+                        cursor: pointer;
+                }
+                margin-left:10px;
+        
         }
 `;
