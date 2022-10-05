@@ -1,6 +1,6 @@
 import {forwardRef} from "react";
 import Main from "../main/index";
-import { StyledBody } from "../../setup/styled_components/styled_component";
+import { StyledBody, StyledMenuButton } from "../../setup/styled_components/styled_component";
 
 const Body = ({ theme },ref) => {
     return (
@@ -9,7 +9,9 @@ const Body = ({ theme },ref) => {
                 theme={theme}
                 ref={ref}
             />
-            <p>Drag and drop to reorder list</p>
+            <p className='note'>Drag and drop to reorder list</p>
+            {/* <StyledMenuButton>
+            </StyledMenuButton> */}
         </StyledBody>
     );
 };

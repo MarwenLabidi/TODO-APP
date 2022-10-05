@@ -1,4 +1,4 @@
-import {forwardRef} from "react";
+import { forwardRef } from "react";
 import { useState, useEffect, useContext, useRef } from "react";
 import TasksList from "../tasksList";
 import {
@@ -18,9 +18,14 @@ import {
 import { FocusedInputContext } from "../../setup/context/focusedInputContext.jsx";
 import { useFirebase } from "../../setup/Hooks/useFirebase.js";
 import { useUpdateEffect } from "react-use";
-import {motion} from 'framer-motion';
+import { motion } from "framer-motion";
+import { isMobile } from "react-device-detect";
+const variants = {
+        desktop: { y: -100 },
+        mobile: { y:-150 },
+};
 
-const Main = ({ theme },ref) => {
+const Main = ({ theme }, ref) => {
         const [Tasks, setTask] = useState([]); // [{ID,Description,Completed}]
         const [typeOfTask, setTypeOfTask] = useState("All"); //All,Active,Completed
         const [itemsNumbers, setItemsNumbers] = useState(Tasks.length);
@@ -64,11 +69,11 @@ const Main = ({ theme },ref) => {
                 });
         }, []);
         return (
-                <StyledMain  initial={{ y: -100 }}
-                transition={ { duration: 2 }}
-                ref={ref}
-
-                >
+                <StyledMain
+                variants={variants}
+                        initial={isMobile?"mobile":"desktop" }
+                        transition={{ duration: 2 }}
+                        ref={ref}>
                         <StyledMainInputSectionOne
                                 width={focusedInput === false ? 8 : 11}>
                                 <input
@@ -94,9 +99,13 @@ const Main = ({ theme },ref) => {
                                         )}
                                 />
                                 <motion.button
-                                //  whileHover={{ scale: 1.2 }}
-                                 whileTap={{ scale: 0.9 }}
-                                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                                        //  whileHover={{ scale: 1.2 }}
+                                        whileTap={{ scale: 0.9 }}
+                                        transition={{
+                                                type: "spring",
+                                                stiffness: 400,
+                                                damping: 17,
+                                        }}
                                         onClick={(e) =>
                                                 saveTask(
                                                         setTask,
@@ -121,8 +130,7 @@ const Main = ({ theme },ref) => {
                         </StyledMainListSection>
 
                         <StyledMainFooterSection
-                                width={focusedInput === false ? 8 : 11}
-                                >
+                                width={focusedInput === false ? 8 : 11}>
                                 <p>{itemsNumbers} items</p>
                                 <div className='allActiveComplete'>
                                         <button

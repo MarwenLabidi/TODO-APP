@@ -119,12 +119,12 @@ export const StyledBody = styled(motion.div)`
         color: ${({ theme }) => theme.text};
         height: 68vh;
         text-align: center;
-        p:last-child {
+       .note {
                 margin-top: -75px;
         }
         @media (max-width: 650px) {
-                p:last-child {
-                        margin-top: 15px;
+               .note {
+                        margin-top: -65px;
                 }
         }
         /* cursor: none; */
@@ -257,7 +257,7 @@ export const StyledMainListSection = styled(motion.div)`
                 background: ${({ theme }) =>
                         theme.gradiant}; /* color of the scroll thumb */
                 border-radius: 20px; /* roundness of the scroll thumb */
-                border: 3px solid yellow; /* creates padding around scroll thumb */
+                border: 3px solid white; /* creates padding around scroll thumb */
         }
 `;
 export const StyledMainFooterSection = styled(motion.div)`
@@ -332,4 +332,23 @@ export const StyledCursor = styled(motion.div).attrs({
         transform: translate(-50%, -50%);
         background-color: ${({ theme }) => theme.text};
         opacity: 0.7;
+`;
+
+export const StyledMenuButton = styled(motion.button)`
+        position: relative;
+        bottom: 0;
+        right: 0;
+        width: 100px;
+        height: 100px;
+        background: red;
+        border: none;
+        outline: none;
+        z-index: 9999;
+        &:hover {
+                cursor: pointer;
+                border: 2px solid ${({ theme }) => theme.text};
+        }
+        &:focus {
+                border: 2px solid ${({ theme }) => theme.text};
+        }
 `;
