@@ -47,7 +47,6 @@ const App = () => {
 
 export default App;
 
-// TODO? USE VITE ENV VARIABLE
 //TODO? add a custom hook useSound to play the sound when the task is completed or when  you add new task or chage theme
 //TODO? add sound control buttom to the app https://www.youtube.com/watch?v=wzWcaLkCy1w
 //TODO? do unit test and component test with Playwright
