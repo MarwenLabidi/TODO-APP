@@ -2,7 +2,6 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 
-// TODO? USE VITE ENV VARIABLE
 const firebaseConfig = {
         apiKey: "AIzaSyDt_CUl1JWxzr1jrg3p1oMKKAj11hSzqiE",
         authDomain: "todo-app-97ae2.firebaseapp.com",
