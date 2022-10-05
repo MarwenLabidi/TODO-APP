@@ -336,19 +336,33 @@ export const StyledCursor = styled(motion.div).attrs({
 
 export const StyledMenuButton = styled(motion.button)`
         position: absolute;
-        bottom: 0;
-        right: 0;
-        width: 100px;
+        bottom:30px;
+        right: 0px;
+        width: 30px;
         height: 100px;
-        background: red;
+        background-color: ${({ theme }) => theme.text};
         border: none;
         outline: none;
         z-index: 9999;
+        border-radius:10px 0 0 10px;
         &:hover {
                 cursor: pointer;
                 border: 2px solid ${({ theme }) => theme.text};
         }
         &:focus {
                 border: 2px solid ${({ theme }) => theme.text};
+        }
+        @media (max-width: 650px) {
+                width:20px;
+        }
+        .menuIcon{
+                rotate:90deg;
+                color: ${({ theme }) => theme.invertText};
+                width:38px;
+                height:30px;
+                margin-left:-13px;
+                @media (max-width: 650px) {
+                        margin-left:-14px;
+        }
         }
 `;
