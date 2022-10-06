@@ -7,6 +7,7 @@ import {
         StyledMenuButtonSection,
 } from "../../setup/styled_components/styled_component";
 import {motion, useAnimationControls } from "framer-motion";
+import { playSound } from "../../utils/utils";
 
 const Body = ({ theme }, ref) => {
         const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -22,10 +23,8 @@ const Body = ({ theme }, ref) => {
                         <Main theme={theme} ref={ref} />
                         <p className='note'>Drag and drop to reorder list</p>
                         <StyledContainerMenuButtonSectionbuttons
-                                initial={{ x: 200 }}
                                 animate={controls}
-                                onClick={(e) =>(e.target.textContent!="install"&&e.target.textContent!=" voice controll")&&setIsMenuOpen(!isMenuOpen)}
-
+                                onClick={(e) =>{if(e.target.textContent!="install"&&e.target.textContent!=" voice controll"){setIsMenuOpen(!isMenuOpen);playSound('/sounds/menu.mp3');}}}
                                 >
                                 <StyledMenuButton>
                                         <svg
@@ -43,8 +42,8 @@ const Body = ({ theme }, ref) => {
                                         </svg>
                                 </StyledMenuButton>
                                 <StyledMenuButtonSection>
-                                        <motion.button whileTap={{ scale: 0.9 }}> voice controll</motion.button>
-                                        <motion.button whileTap={{ scale: 0.9 }}>install</motion.button>
+                                        <motion.button onClick={()=>playSound('/sounds/buttons.mp3')} whileTap={{ scale: 0.9 }}> voice controll</motion.button>
+                                        <motion.button onClick={()=>playSound('/sounds/buttons.mp3')} whileTap={{ scale: 0.9 }}>install</motion.button>
                                 </StyledMenuButtonSection>
                         </StyledContainerMenuButtonSectionbuttons>
                 </StyledBody>

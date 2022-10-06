@@ -7,7 +7,7 @@ import {
         StyledMainFooterSection,
         StyledMainListSection,
 } from "../../setup/styled_components/styled_component";
-import { handelBlurInput, handelFocusedInput } from "../../utils/utils";
+import { handelBlurInput, handelFocusedInput, playSound } from "../../utils/utils";
 import {
         saveTask,
         clearCompletedTasks,
@@ -106,13 +106,14 @@ const Main = ({ theme }, ref) => {
                                                 stiffness: 400,
                                                 damping: 17,
                                         }}
-                                        onClick={(e) =>
+                                        onClick={(e) =>{
                                                 saveTask(
                                                         setTask,
                                                         setInput,
                                                         input,
                                                         Tasks
-                                                )
+                                                );
+                                                playSound('/sounds/buttons.mp3')}
                                         }>
                                         ADD
                                 </motion.button>
@@ -134,45 +135,49 @@ const Main = ({ theme }, ref) => {
                                 <p>{itemsNumbers} items</p>
                                 <div className='allActiveComplete'>
                                         <button
-                                                onClick={() =>
+                                                onClick={() =>{
                                                         handelStateButtons(
                                                                 "All",
                                                                 setTypeOfTask,
                                                                 Tasks,
                                                                 setItemsNumbers
-                                                        )
+                                                        );
+                                                        playSound('/sounds/buttons.mp3');}
                                                 }>
                                                 All
                                         </button>
                                         <button
-                                                onClick={() =>
+                                                onClick={() =>{
                                                         handelStateButtons(
                                                                 "Active",
                                                                 setTypeOfTask,
                                                                 Tasks,
                                                                 setItemsNumbers
-                                                        )
+                                                        );
+                                                        playSound('/sounds/buttons.mp3');}
                                                 }>
                                                 Active
                                         </button>
                                         <button
-                                                onClick={() =>
+                                                onClick={() =>{
                                                         handelStateButtons(
                                                                 "Completed",
                                                                 setTypeOfTask,
                                                                 Tasks,
                                                                 setItemsNumbers
-                                                        )
+                                                        );
+                                                        playSound('/sounds/buttons.mp3');}
                                                 }>
                                                 Completed
                                         </button>
                                 </div>
                                 <button
-                                        onClick={() =>
+                                        onClick={() =>{
                                                 clearCompletedTasks(
                                                         Tasks,
                                                         setTask
-                                                )
+                                                );
+                                                playSound('/sounds/buttons.mp3');}
                                         }>
                                         Clear completed
                                 </button>

@@ -1,5 +1,5 @@
 import React from "react";
-import { taskDone } from "../../utils/utils.jsx";
+import { playSound, taskDone } from "../../utils/utils.jsx";
 import {
         motion,
         AnimatePresence,
@@ -32,9 +32,11 @@ const Tndex = ({ task, Type, index, callBack }) => {
                                 onDragStart={(event, info) =>{
                                         dragableElement=event.target
                                         dragableElement.style.pointerEvents = "none";
+                                        playSound('/sounds/deleteTask.mp3')
                                 }}
                                 onDragEnd={(event, info) =>{
-                                        dragableElement.style.removeProperty("pointer-events");     
+                                        dragableElement.style.removeProperty("pointer-events");  
+                                        playSound('/sounds/addTask.mp3')   
 
                                 }}
                                 exit={{
@@ -54,12 +56,16 @@ const Tndex = ({ task, Type, index, callBack }) => {
                                                 controls.start({
                                                         scale: [0.2, 1.3, 1],
                                                 });
+
                                         }}
                                         id={`checkbox-${task.ID}`}
                                         type='checkbox'
                                         checked={task.Completed}
-                                        onChange={(e) =>
-                                                taskDone(task, callBack)
+                                        onChange={(e) =>{
+
+                                                taskDone(task, callBack);
+                                                playSound('/sounds/checkMark.mp3') 
+                                        }
                                         }
                                 />
                                 {task.Completed ? (
