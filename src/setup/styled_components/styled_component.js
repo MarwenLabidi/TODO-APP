@@ -348,6 +348,7 @@ export const StyledContainerMenuButtonSectionbuttons = styled(motion.div)`
         @media (max-width: 650px) {
                 padding-left:10px;
         }
+        box-shadow: 0 4px 20px blue;
 `;
 
 export const StyledMenuButton = styled(motion.button)`
