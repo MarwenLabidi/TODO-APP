@@ -38,6 +38,9 @@ body{
   height:100vh;
   overflow:hidden;
   };
+  #root{
+    overflow:hidden;
+  }
 /* Box sizing rules */
 *,
 *::before,

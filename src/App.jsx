@@ -48,13 +48,14 @@ const App = () => {
 export default App;
 
 //TODO? add sound control buttom to the app https://www.youtube.com/watch?v=wzWcaLkCy1w
-//TODO? add a custom hook useSound to play the sound when the task is completed or when  you add new task or chage theme
 //TODO? do unit test and component test with Playwright
 //TODO? use github action for ci cd pipeline
 //TODO? make it a progressive web apppp and add instal button
 //TODO? enable offline cache firestore : https://cloud.google.com/firestore/docs/manage-data/enable-offline#:~:text=Firestore%20supports%20offline%20data%20persistence,and%20query%20the%20cached%20data.
 //TODO? accesibility
 //TODO? Add hiden Link to go to the tasks
+
+
 //TODO? add linter and eslint
 //TODO? use lihthosuse to make it faster
 //TODO? use mesure Measure page quality tools to make it faster too

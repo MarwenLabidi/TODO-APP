@@ -149,3 +149,15 @@ export const handelBlurInput = (setFocusedInput) => {
                 setFocusedInput(false);
         };
 };
+
+//function to play sound with the click of the button
+export const playSound = (sound,sound2=null) => {
+        let audio = new Audio(sound);
+        audio.play();
+        if(sound2){
+                setTimeout(()=>{
+                        let audio2 = new Audio(sound2);
+                        audio2.play();
+                },1000)
+        }
+}
