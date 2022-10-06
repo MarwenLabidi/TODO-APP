@@ -6,7 +6,7 @@ import {
         StyledMenuButton,
         StyledMenuButtonSection,
 } from "../../setup/styled_components/styled_component";
-import { useAnimationControls } from "framer-motion";
+import {motion, useAnimationControls } from "framer-motion";
 
 const Body = ({ theme }, ref) => {
         const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -24,7 +24,9 @@ const Body = ({ theme }, ref) => {
                         <StyledContainerMenuButtonSectionbuttons
                                 initial={{ x: 200 }}
                                 animate={controls}
-                                onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                                onClick={(e) =>(e.target.textContent!="install"&&e.target.textContent!=" voice controll")&&setIsMenuOpen(!isMenuOpen)}
+
+                                >
                                 <StyledMenuButton>
                                         <svg
                                                 xmlns='http://www.w3.org/2000/svg'
@@ -41,8 +43,8 @@ const Body = ({ theme }, ref) => {
                                         </svg>
                                 </StyledMenuButton>
                                 <StyledMenuButtonSection>
-                                        <button> voice controll</button>
-                                        <button>install</button>
+                                        <motion.button whileTap={{ scale: 0.9 }}> voice controll</motion.button>
+                                        <motion.button whileTap={{ scale: 0.9 }}>install</motion.button>
                                 </StyledMenuButtonSection>
                         </StyledContainerMenuButtonSectionbuttons>
                 </StyledBody>

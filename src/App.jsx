@@ -46,9 +46,8 @@ const App = () => {
 };
 
 export default App;
-//FIXME? stop propagation when you click install or soud controll button
+
 //TODO? make all the app have a fade box shasow when you open the menu
-//TODO? animate the 3 new buttons while hover and while click
 //TODO? add sound control buttom to the app https://www.youtube.com/watch?v=wzWcaLkCy1w
 //TODO? add a custom hook useSound to play the sound when the task is completed or when  you add new task or chage theme
 //TODO? do unit test and component test with Playwright
