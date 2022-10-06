@@ -335,8 +335,8 @@ export const StyledCursor = styled(motion.div).attrs({
 `;
 
 export const StyledContainerMenuButtonSectionbuttons = styled(motion.div)`
-        display: flex;
         position: absolute;
+        display: flex;
         bottom: 30px;
         right:0px;
         width: 200px;
@@ -344,11 +344,10 @@ export const StyledContainerMenuButtonSectionbuttons = styled(motion.div)`
         border-radius: 10px 0 0 10px;
         background-color: ${({ theme }) => theme.text}; 
         z-index: 9999;
-        padding-right:10px;
+        padding-right:230px;
         @media (max-width: 650px) {
                 padding-left:10px;
         }
-       
 `;
 
 export const StyledMenuButton = styled(motion.button)`
@@ -386,7 +385,7 @@ export const StyledMenuButtonSection = styled(motion.div)`
                 border-radius: 10px;
                 height: 60px;
                 font-family: var(--ff_Josefin);
-                outine: none;
+                outline: none;
                 border:none;
                 &:hover {
                         cursor: pointer;
