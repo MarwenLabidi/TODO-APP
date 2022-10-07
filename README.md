@@ -12,7 +12,7 @@
 
 ## Tech Stack:
 - Vite , React , Styled component,FramerMotion,React Aria
-- Tensorflow.JS(speech commande recognitio model),Web Speech API
+- Web Speech API
 - FireBase
 - Git , Github , Github Actions
 - Playwright

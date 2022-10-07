@@ -119,6 +119,7 @@ export const StyledBody = styled(motion.div)`
         color: ${({ theme }) => theme.text};
         height: 68vh;
         text-align: center;
+        width:100%;
         .note {
                 margin-top: -75px;
         }

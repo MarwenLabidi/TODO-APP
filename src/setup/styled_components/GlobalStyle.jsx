@@ -37,9 +37,11 @@ body{
     font-size:18px;
   height:100vh;
   overflow:hidden;
+  width:100%;
   };
   #root{
     overflow:hidden;
+    width:100%;
   }
 /* Box sizing rules */
 *,

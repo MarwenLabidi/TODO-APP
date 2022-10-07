@@ -18,7 +18,7 @@ let dragableElement=null
 
 const Tndex = ({ task, Type, index, callBack }) => {
         const controls = useAnimationControls();
-
+//TODO? useeffect on tasks and create function to know everytime the task change the order play a sound
         return (
                 task.Completed === eval(Type) && (
                         <Reorder.Item
@@ -32,11 +32,11 @@ const Tndex = ({ task, Type, index, callBack }) => {
                                 onDragStart={(event, info) =>{
                                         dragableElement=event.target
                                         dragableElement.style.pointerEvents = "none";
-                                        playSound('/sounds/deleteTask.mp3')
+                                        playSound('/sounds/dragStart.mp3')
                                 }}
                                 onDragEnd={(event, info) =>{
                                         dragableElement.style.removeProperty("pointer-events");  
-                                        playSound('/sounds/addTask.mp3')   
+                                        playSound('/sounds/dragEnd.mp3')   
 
                                 }}
                                 exit={{

@@ -178,6 +178,7 @@ const Main = ({ theme }, ref) => {
                                                         setTask
                                                 );
                                                 playSound('/sounds/buttons.mp3');}
+                                                //TODO? loop over a tasks and make a condition and add a sound effect of deleting
                                         }>
                                         Clear completed
                                 </button>

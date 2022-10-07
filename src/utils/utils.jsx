@@ -99,6 +99,7 @@ export const saveTask = (setTask, setInput, input, Tasks) => {
                 { ID: uuidv4(), Description: content, Completed: false },
         ]);
         setInput("");
+        // TODO? add a sound effect of adding a task
 };
 export const clearCompletedTasks = (Tasks, setTask) => {
         let allTasks = [...Tasks];

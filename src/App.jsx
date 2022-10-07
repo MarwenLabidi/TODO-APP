@@ -17,7 +17,7 @@ const App = () => {
         const refDarkModeButton = useRef();
         const mainPostion = useElementPosition(refMain);
         const darkModeButtonPosition = useElementPosition(refDarkModeButton);
-
+// TODO? Get the footer position  and use it as condition for hiding the cursor 
         return (
                 <FocusedInputContextProvider>
                         <ThemeProvider theme={themeMode}>
@@ -47,7 +47,6 @@ const App = () => {
 
 export default App;
 
-//TODO? add sound control buttom to the app https://www.youtube.com/watch?v=wzWcaLkCy1w
 //TODO? do unit test and component test with Playwright
 //TODO? use github action for ci cd pipeline
 //TODO? make it a progressive web apppp and add instal button
@@ -56,7 +55,7 @@ export default App;
 //TODO? Add hiden Link to go to the tasks
 
 
-//TODO? add linter and eslint
+//TODO? add linter and eslint by using the extention vscode
 //TODO? use lihthosuse to make it faster
 //TODO? use mesure Measure page quality tools to make it faster too
 //TODO? add gif  mobile version and laptop version to README
