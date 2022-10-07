@@ -46,7 +46,8 @@ const App = () => {
 };
 
 export default App;
-
+//FIXME? make the input the add button and the chechbox a little bit smaler in th mobile devices specially the android ones
+//FIXME? create a drag area in the items
 
 //TODO? login firebase
 //-[]when you first enter a pop up showed to you tell you to log in and the benifits or using local storage
