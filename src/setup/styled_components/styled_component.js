@@ -33,7 +33,10 @@ export const StyledHeader = styled(motion.div)`
         height: 250px;
         transition: all 0.5s ease-in-out;
         header {
-                padding-top: 20px;
+                /* padding-top: -30px; */
+                @media (max-width: 650px) {
+                        padding-top: 5px;
+                }
                 h1 {
                         font-family: var(--ff_Josefin);
                         letter-spacing: 8px;
@@ -121,11 +124,11 @@ export const StyledBody = styled(motion.div)`
         text-align: center;
         width: 100%;
         .note {
-                margin-top: -50px;
+                margin-top: -100px;
         }
         @media (max-width: 650px) {
                 .note {
-                        margin-top: 0px;
+                        margin-top:-45px;
                 }
         }
         /* cursor: none; */
@@ -167,9 +170,9 @@ export const StyledMainInputSectionOne = styled(motion.div)`
         }
 `;
 export const StyledMainListSection = styled(motion.div)`
-        max-height: 45vh;
+        max-height: 55vh;
         @media (max-width: 700px) {
-                max-height: 35vh;
+                max-height: 45vh;
         }
         overflow-y: auto;
         overflow-x: hidden;
