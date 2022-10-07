@@ -33,7 +33,7 @@ export const StyledHeader = styled(motion.div)`
         height: 250px;
         transition: all 0.5s ease-in-out;
         header {
-                padding-top: 25px;
+                padding-top: 20px;
                 h1 {
                         font-family: var(--ff_Josefin);
                         letter-spacing: 8px;
@@ -119,13 +119,13 @@ export const StyledBody = styled(motion.div)`
         color: ${({ theme }) => theme.text};
         height: 68vh;
         text-align: center;
-        width:100%;
+        width: 100%;
         .note {
-                margin-top: -75px;
+                margin-top: -50px;
         }
         @media (max-width: 650px) {
                 .note {
-                        margin-top: -65px;
+                        margin-top: 0px;
                 }
         }
         /* cursor: none; */
@@ -168,6 +168,9 @@ export const StyledMainInputSectionOne = styled(motion.div)`
 `;
 export const StyledMainListSection = styled(motion.div)`
         max-height: 45vh;
+        @media (max-width: 700px) {
+                max-height: 35vh;
+        }
         overflow-y: auto;
         overflow-x: hidden;
         scroll-behavior: smooth;
@@ -184,7 +187,7 @@ export const StyledMainListSection = styled(motion.div)`
         li {
                 scroll-snap-align: start;
 
-                padding: 1rem;
+                padding: 10px;
                 border-top: 1px solid ${({ theme }) => theme.text};
                 background-color: ${({ theme }) => theme.input};
                 display: flex;
@@ -244,6 +247,7 @@ export const StyledMainListSection = styled(motion.div)`
                 @media (max-width: 700px) {
                         width: 70%;
                         font-size: 5vw;
+                        padding: 10px;
                 }
         }
 
@@ -264,7 +268,7 @@ export const StyledMainListSection = styled(motion.div)`
 export const StyledMainFooterSection = styled(motion.div)`
         background-color: ${({ theme }) => theme.input};
         border-radius: 10px;
-        padding: 1rem;
+        padding: 10px;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -276,7 +280,7 @@ export const StyledMainFooterSection = styled(motion.div)`
                 background: none;
         }
         .allActiveComplete {
-                padding: 1rem;
+                padding: 10px;
 
                 display: flex;
                 gap: 20px;
@@ -339,15 +343,15 @@ export const StyledContainerMenuButtonSectionbuttons = styled(motion.div)`
         position: absolute;
         display: flex;
         bottom: 30px;
-        right:0px;
+        right: 0px;
         width: 200px;
         height: 100px;
         border-radius: 10px 0 0 10px;
-        background-color: ${({ theme }) => theme.text}; 
+        background-color: ${({ theme }) => theme.text};
         z-index: 9999;
-        padding-right:230px;
+        padding-right: 230px;
         @media (max-width: 650px) {
-                padding-left:10px;
+                padding-left: 10px;
         }
         box-shadow: 0 4px 20px blue;
 `;
@@ -364,6 +368,7 @@ export const StyledMenuButton = styled(motion.button)`
         }
         @media (max-width: 650px) {
                 width: 20px;
+                translate: -10px;
         }
         .menuIcon {
                 rotate: 90deg;
@@ -388,11 +393,34 @@ export const StyledMenuButtonSection = styled(motion.div)`
                 height: 60px;
                 font-family: var(--ff_Josefin);
                 outline: none;
-                border:none;
+                border: none;
                 &:hover {
                         cursor: pointer;
                 }
-                margin-left:10px;
-        
+                margin-left: 10px;
         }
+`;
+
+export const StyledLoginButton = styled(motion.button)`
+        background-color: ${({ theme }) => theme.invertText};
+        position: relative;
+        right: 0;
+        color: ${({ theme }) => theme.text};
+        border-radius: 10px;
+        width: 70px !important;
+        height: 50px !important;
+        font-family: var(--ff_Josefin);
+        outline: none;
+        border: none;
+        &:hover {
+                cursor: pointer;
+        }
+        margin-right: 30px;
+        @media (max-width: 650px) {
+                margin-right: 10px;
+                width: 64px !important;
+                height: 40px !important;
+        }
+        z-index: 9999;
+        transition: none !important;
 `;

@@ -17,7 +17,7 @@ const App = () => {
         const refDarkModeButton = useRef();
         const mainPostion = useElementPosition(refMain);
         const darkModeButtonPosition = useElementPosition(refDarkModeButton);
-// TODO? Get the footer position  and use it as condition for hiding the cursor 
+// TODO? Get the footer position  and use it as condition for hiding the cursor  and login button and main button
         return (
                 <FocusedInputContextProvider>
                         <ThemeProvider theme={themeMode}>

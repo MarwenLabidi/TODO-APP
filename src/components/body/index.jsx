@@ -8,6 +8,13 @@ import {
 } from "../../setup/styled_components/styled_component";
 import {motion, useAnimationControls } from "framer-motion";
 import { playSound } from "../../utils/utils";
+import { isMobile } from "react-device-detect";
+const variants = {
+        desktopfirst: { x:30 },
+        mobilefirst: { x:40 },
+        desktop: { x: 200 },
+        mobile: { x:220 },
+};
 
 const Body = ({ theme }, ref) => {
         const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,14 +22,15 @@ const Body = ({ theme }, ref) => {
 
         useEffect(() => {
                 (isMenuOpen === true)
-                        ? controls.start({ x: 30 })
-                        : controls.start({ x: 200 });
+                        ? controls.start(isMobile?"mobilefirst":"desktopfirst" )
+                        : controls.start(isMobile?"mobile":"desktop" );
         }, [isMenuOpen]);
         return (
                 <StyledBody>
                         <Main theme={theme} ref={ref} />
                         <p className='note'>Drag and drop to reorder list</p>
                         <StyledContainerMenuButtonSectionbuttons
+                                        variants={variants}
                                 animate={controls}
                                 onClick={(e) =>{if(e.target.textContent!="install"&&e.target.textContent!=" voice controll"){setIsMenuOpen(!isMenuOpen);playSound('/sounds/menu.mp3');}}}
                                 >
