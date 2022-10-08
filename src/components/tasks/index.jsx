@@ -35,15 +35,9 @@ const Tndex = ({ task, Type, index, callBack }) => {
                                 whileTap={{ scale: 0.9 }}
                                 value={task}
                                 onDragStart={(event, info) => {
-                                        dragableElement = event.target;
-                                        dragableElement.style.pointerEvents =
-                                                "none";
                                         playSound("/sounds/dragStart.mp3");
                                 }}
                                 onDragEnd={(event, info) => {
-                                        dragableElement.style.removeProperty(
-                                                "pointer-events"
-                                        );
                                         playSound("/sounds/dragEnd.mp3");
                                 }}
                                 exit={{
@@ -108,20 +102,16 @@ const Tndex = ({ task, Type, index, callBack }) => {
                                                 {task.Description}
                                         </label>
                                 )}
-                                <div
-                                        className='reorder-handle'
-                                        onPointerDown={(e) =>
-                                                controlsDrag.start(e)
-                                        }>
+                                <div className='reorder-handle'>
                                         <svg
                                                 xmlns='http://www.w3.org/2000/svg'
                                                 viewBox='0 0 39 39'
                                                 className='svgDrag'
-                                                onPointerDown={(event) =>
-                                                        dragControls.start(
+                                                onPointerDown={(event) => {
+                                                        controlsDrag.start(
                                                                 event
-                                                        )
-                                                }>
+                                                        );
+                                                }}>
                                                 <path
                                                         d='M 5 0 C 7.761 0 10 2.239 10 5 C 10 7.761 7.761 10 5 10 C 2.239 10 0 7.761 0 5 C 0 2.239 2.239 0 5 0 Z'
                                                         className='svgDragPoint'></path>
