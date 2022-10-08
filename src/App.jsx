@@ -17,7 +17,8 @@ const App = () => {
         const refDarkModeButton = useRef();
         const mainPostion = useElementPosition(refMain);
         const darkModeButtonPosition = useElementPosition(refDarkModeButton);
-// TODO? Get the footer position  and use it as condition for hiding the cursor  and login button and main button
+// TODO? Get the footer position  and use it as condition for hiding the cursor  and login button and main button 
+//FIXME? fix the dark mode position 
         return (
                 <FocusedInputContextProvider>
                         <ThemeProvider theme={themeMode}>
@@ -46,7 +47,6 @@ const App = () => {
 };
 
 export default App;
-//FIXME? make the input the add button and the chechbox a little bit smaler in th mobile devices specially the android ones
 //FIXME? create a drag area in the items
 
 //TODO? login firebase

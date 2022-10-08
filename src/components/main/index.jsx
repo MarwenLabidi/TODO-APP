@@ -21,8 +21,8 @@ import { useUpdateEffect } from "react-use";
 import { motion } from "framer-motion";
 import { isMobile } from "react-device-detect";
 const variants = {
-        desktop: { y: -115 },
-        mobile: { y:-120 },
+        desktop: { y: -128 },
+        mobile: { y:-145 },
 };
 
 const Main = ({ theme }, ref) => {

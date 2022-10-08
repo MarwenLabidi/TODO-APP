@@ -33,10 +33,14 @@ export const StyledHeader = styled(motion.div)`
         height: 250px;
         transition: all 0.5s ease-in-out;
         header {
-                /* padding-top: -30px; */
-                @media (max-width: 650px) {
-                        padding-top: 5px;
+                padding-top: 20px;
+                @media (max-width: 450px) {
+                        padding-top:25px!important;
                 }
+                @media (max-width: 890px) {
+                        padding-top:30px;
+                }
+             
                 h1 {
                         font-family: var(--ff_Josefin);
                         letter-spacing: 8px;
@@ -61,6 +65,9 @@ export const StyledHeader = styled(motion.div)`
                 height: 60px;
                 width: 60px;
                 margin: 0;
+                @media (max-width: 890px) {
+                        margin-right:65px;
+                }
         }
         button {
                 transition: all 0.5s ease-in-out;
@@ -124,11 +131,11 @@ export const StyledBody = styled(motion.div)`
         text-align: center;
         width: 100%;
         .note {
-                margin-top: -100px;
+                margin-top: -115px;
         }
         @media (max-width: 650px) {
                 .note {
-                        margin-top:-45px;
+                        margin-top:-65px;
                 }
         }
         /* cursor: none; */
@@ -147,6 +154,9 @@ export const StyledMainInputSectionOne = styled(motion.div)`
         input {
                 width: 100%;
                 height: 63px;
+                @media (max-width: 650px) {
+                        height: 53px;
+                }
                 border-radius: 10px;
                 font-size: 1.5rem;
                 font-family: var(--ff_Josefin);
@@ -191,6 +201,9 @@ export const StyledMainListSection = styled(motion.div)`
                 scroll-snap-align: start;
 
                 padding: 10px;
+                @media (max-width: 650px) {
+                        padding: 5px;
+                }
                 border-top: 1px solid ${({ theme }) => theme.text};
                 background-color: ${({ theme }) => theme.input};
                 display: flex;
@@ -203,10 +216,14 @@ export const StyledMainListSection = styled(motion.div)`
         li > input[type="checkbox"] {
                 appearance: none;
                 position: relative;
-                width: 10px;
-                height: 10px;
-                min-width: 45px;
-                min-height: 45px;
+                width: 40px;
+                height: 40px;
+                /* min-width: 45px; */
+                /* min-height: 45px; */
+                @media (max-width: 550px) {
+                        width: 30px;
+                height: 30px;
+                }
                 border-radius: 50%;
                 background: #f8f7f7;
                 border: 2px solid #fff;
@@ -235,7 +252,7 @@ export const StyledMainListSection = styled(motion.div)`
         }
 
         li > label {
-                font-size: 3vw;
+                font-size: 2.4vw;
                 font-family: var(--ff_Josefin);
                 display: block;
                 width: 90%;
