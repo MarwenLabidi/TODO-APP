@@ -35,12 +35,12 @@ export const StyledHeader = styled(motion.div)`
         header {
                 padding-top: 20px;
                 @media (max-width: 450px) {
-                        padding-top:25px!important;
+                        padding-top: 25px !important;
                 }
                 @media (max-width: 890px) {
-                        padding-top:30px;
+                        padding-top: 30px;
                 }
-             
+
                 h1 {
                         font-family: var(--ff_Josefin);
                         letter-spacing: 8px;
@@ -66,7 +66,7 @@ export const StyledHeader = styled(motion.div)`
                 width: 60px;
                 margin: 0;
                 @media (max-width: 890px) {
-                        margin-right:65px;
+                        margin-right: 65px;
                 }
         }
         button {
@@ -135,7 +135,7 @@ export const StyledBody = styled(motion.div)`
         }
         @media (max-width: 650px) {
                 .note {
-                        margin-top:-65px;
+                        margin-top: -65px;
                 }
         }
         /* cursor: none; */
@@ -189,6 +189,32 @@ export const StyledMainListSection = styled(motion.div)`
         scroll-behavior: smooth;
         margin: 10px 0;
         scroll-snap-type: y mandatory;
+        .reorder-handle {
+                /* background-color:red; */
+                position: fixed;
+                height: 30px;
+                width: 50px;
+                right: 5px;
+                &:hover {
+                        cursor: pointer;
+                }
+                &:active {
+                        cursor: grabbing;
+                }
+                .svgDragPoint {
+                        fill: ${({ theme }) => theme.text};
+                }
+                .svgDrag {
+                        /* background-color:green; */
+                        /* margin-bottom:20px; */
+                        width: 35px;
+                        height: 35px;
+                        @media (max-width: 650px) {
+                                width: 25px;
+                                height: 25px;
+                        }
+                }
+        }
 
         ul {
                 padding: 0;
@@ -198,12 +224,9 @@ export const StyledMainListSection = styled(motion.div)`
                 }
         }
         li {
+                user-select: none;
                 scroll-snap-align: start;
-
-                padding: 10px;
-                @media (max-width: 650px) {
-                        padding: 5px;
-                }
+                position: relative;
                 border-top: 1px solid ${({ theme }) => theme.text};
                 background-color: ${({ theme }) => theme.input};
                 display: flex;
@@ -211,6 +234,8 @@ export const StyledMainListSection = styled(motion.div)`
                 align-items: center;
                 margin-bottom: 5px;
                 border-radius: 10px;
+                /* background-color:green; */
+                padding: 8px;
         }
         //on drag css selector
         li > input[type="checkbox"] {
@@ -218,11 +243,13 @@ export const StyledMainListSection = styled(motion.div)`
                 position: relative;
                 width: 40px;
                 height: 40px;
-                /* min-width: 45px; */
-                /* min-height: 45px; */
+                min-width: 40px;
+                min-height: 40px;
                 @media (max-width: 550px) {
                         width: 30px;
-                height: 30px;
+                        height: 30px;
+                        min-width: 30px;
+                        min-height: 30px;
                 }
                 border-radius: 50%;
                 background: #f8f7f7;
@@ -255,20 +282,20 @@ export const StyledMainListSection = styled(motion.div)`
                 font-size: 2.4vw;
                 font-family: var(--ff_Josefin);
                 display: block;
-                width: 90%;
+                width: 80%;
                 overflow-wrap: break-word;
                 align-self: center;
                 &:hover {
                         cursor: pointer;
                 }
-                &:active {
-                        cursor: grabbing;
-                }
                 @media (max-width: 700px) {
-                        width: 70%;
+                        width: 65%;
                         font-size: 5vw;
-                        padding: 10px;
+                        /* padding: 10px; */
                 }
+                /* background-color:blue; */
+                /* height:100%; */
+                /* margin:0; */
         }
 
         /* costomize scrollbar */

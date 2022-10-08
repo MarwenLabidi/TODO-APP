@@ -18,7 +18,6 @@ const App = () => {
         const mainPostion = useElementPosition(refMain);
         const darkModeButtonPosition = useElementPosition(refDarkModeButton);
 // TODO? Get the footer position  and use it as condition for hiding the cursor  and login button and main button 
-//FIXME? fix the dark mode position 
         return (
                 <FocusedInputContextProvider>
                         <ThemeProvider theme={themeMode}>
@@ -47,7 +46,6 @@ const App = () => {
 };
 
 export default App;
-//FIXME? create a drag area in the items
 
 //TODO? login firebase
 //-[]when you first enter a pop up showed to you tell you to log in and the benifits or using local storage
