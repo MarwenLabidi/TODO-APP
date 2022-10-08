@@ -26,6 +26,8 @@ const moonAnimation = keyframes`
 `;
 
 export const StyledHeader = styled(motion.div)`
+        user-select: none; // fix text selection
+        touch-action: none;
         background: ${({ theme }) => theme.backgroundImageHeader};
         color: var(--clr_Very_Light_Gray);
         backface-visibility: hidden;
@@ -70,6 +72,8 @@ export const StyledHeader = styled(motion.div)`
                 }
         }
         button {
+                user-select: none; // fix text selection
+                touch-action: none;
                 transition: all 0.5s ease-in-out;
                 outline: none;
                 height: 40px;
@@ -130,6 +134,7 @@ export const StyledBody = styled(motion.div)`
         height: 68vh;
         text-align: center;
         width: 100%;
+
         .note {
                 margin-top: -115px;
         }
@@ -144,6 +149,8 @@ export const StyledBody = styled(motion.div)`
 export const StyledMain = styled(motion.div)`
         width: 60vw;
         margin: 0 auto;
+        user-select: none; // fix text selection
+        touch-action: none;
         @media (max-width: 900px) {
                 width: 85vw;
         }
@@ -207,6 +214,8 @@ export const StyledMainListSection = styled(motion.div)`
                 .svgDrag {
                         /* background-color:green; */
                         /* margin-bottom:20px; */
+                        user-select: none; // fix text selection
+                        touch-action: none;
                         width: 35px;
                         height: 35px;
                         @media (max-width: 650px) {
@@ -279,6 +288,7 @@ export const StyledMainListSection = styled(motion.div)`
         }
 
         li > label {
+                 user-select: none; // fix text selection
                 font-size: 2.4vw;
                 font-family: var(--ff_Josefin);
                 display: block;
@@ -302,7 +312,7 @@ export const StyledMainListSection = styled(motion.div)`
         &::-webkit-scrollbar {
                 width: 4px; /* width of the entire scrollbar */
                 @media (max-width: 900px) {
-                        width:1px;
+                        width: 1px;
                 }
         }
         &::-webkit-scrollbar-track {
@@ -313,7 +323,6 @@ export const StyledMainListSection = styled(motion.div)`
                         theme.gradiant}; /* color of the scroll thumb */
                 border-radius: 20px; /* roundness of the scroll thumb */
                 /* border: 3px solid white; /* creates padding around scroll thumb */
-             
         }
 `;
 export const StyledMainFooterSection = styled(motion.div)`
@@ -391,6 +400,8 @@ export const StyledCursor = styled(motion.div).attrs({
 `;
 
 export const StyledContainerMenuButtonSectionbuttons = styled(motion.div)`
+ user-select: none; // fix text selection
+                        touch-action: none;
         position: absolute;
         display: flex;
         bottom: 30px;
@@ -474,4 +485,6 @@ export const StyledLoginButton = styled(motion.button)`
         }
         z-index: 9999;
         transition: none !important;
+        user-select: none; // fix text selection
+        touch-action: none;
 `;
