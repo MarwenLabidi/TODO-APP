@@ -300,7 +300,10 @@ export const StyledMainListSection = styled(motion.div)`
 
         /* costomize scrollbar */
         &::-webkit-scrollbar {
-                width: 12px; /* width of the entire scrollbar */
+                width: 4px; /* width of the entire scrollbar */
+                @media (max-width: 900px) {
+                        width:1px;
+                }
         }
         &::-webkit-scrollbar-track {
                 background: none; /* color of the tracking area */
@@ -309,7 +312,8 @@ export const StyledMainListSection = styled(motion.div)`
                 background: ${({ theme }) =>
                         theme.gradiant}; /* color of the scroll thumb */
                 border-radius: 20px; /* roundness of the scroll thumb */
-                border: 3px solid white; /* creates padding around scroll thumb */
+                /* border: 3px solid white; /* creates padding around scroll thumb */
+             
         }
 `;
 export const StyledMainFooterSection = styled(motion.div)`

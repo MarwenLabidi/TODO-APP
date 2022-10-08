@@ -32,12 +32,15 @@ const Tndex = ({ task, Type, index, callBack }) => {
                                 variants={list}
                                 initial='hidden'
                                 animate='visible'
-                                whileTap={{ scale: 0.9 }}
+                                // whileTap={{ scale: 0.9 }}
                                 value={task}
                                 onDragStart={(event, info) => {
+                                        // dragableElement=event.target
+                                        // dragableElement.style.pointerEvents = "none";
                                         playSound("/sounds/dragStart.mp3");
                                 }}
                                 onDragEnd={(event, info) => {
+                                        // dragableElement.style.removeProperty("pointer-events");
                                         playSound("/sounds/dragEnd.mp3");
                                 }}
                                 exit={{
