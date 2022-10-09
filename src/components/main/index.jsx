@@ -7,7 +7,12 @@ import {
         StyledMainFooterSection,
         StyledMainListSection,
 } from "../../setup/styled_components/styled_component";
-import { handelBlurInput, handelFocusedInput, handlePosition, playSound } from "../../utils/utils";
+import {
+        handelBlurInput,
+        handelFocusedInput,
+        handlePosition,
+        playSound,
+} from "../../utils/utils";
 import {
         saveTask,
         clearCompletedTasks,
@@ -22,10 +27,10 @@ import { motion } from "framer-motion";
 import { isMobile } from "react-device-detect";
 const variants = {
         desktop: { y: -128 },
-        mobile: { y:-145 },
+        mobile: { y: -145 },
 };
 
-const Main = ({ theme ,setMainPostion}, ref) => {
+const Main = ({ theme, setMainPostion }, ref) => {
         const [Tasks, setTask] = useState([]); // [{ID,Description,Completed}]
         const [typeOfTask, setTypeOfTask] = useState("All"); //All,Active,Completed
         const [itemsNumbers, setItemsNumbers] = useState(Tasks.length);
@@ -35,8 +40,6 @@ const Main = ({ theme ,setMainPostion}, ref) => {
         const StyledMainListSectionRef = useRef();
         const previousTasks = useRef(Tasks);
         const { refMain, refFooter } = ref.current;
-        
-
 
         // callback function to update the state of the checkbox
         const changeTaskStatus = (taskInfo) => {
@@ -65,8 +68,16 @@ const Main = ({ theme ,setMainPostion}, ref) => {
                                 StyledMainListSectionRef.current.scrollHeight;
                 }
                 previousTasks.current = Tasks;
-                handlePosition(refMain,setMainPostion);
         }, [Tasks]);
+        useEffect(() => {
+                let timer1 = setTimeout(
+                        () => handlePosition(refMain, setMainPostion),
+                        2000
+                );
+                return () => {
+                        clearTimeout(timer1);
+                };
+        }, [Tasks, typeOfTask]);
         useEffect(() => {
                 getDataFromFirebase().then((data) => {
                         setTask(data[1][0]);
@@ -74,8 +85,8 @@ const Main = ({ theme ,setMainPostion}, ref) => {
         }, []);
         return (
                 <StyledMain
-                variants={variants}
-                        initial={isMobile?"mobile":"desktop" }
+                        variants={variants}
+                        initial={isMobile ? "mobile" : "desktop"}
                         transition={{ duration: 2 }}
                         ref={refMain}>
                         <StyledMainInputSectionOne
@@ -110,15 +121,17 @@ const Main = ({ theme ,setMainPostion}, ref) => {
                                                 stiffness: 400,
                                                 damping: 17,
                                         }}
-                                        onClick={(e) =>{
+                                        onClick={(e) => {
                                                 saveTask(
                                                         setTask,
                                                         setInput,
                                                         input,
                                                         Tasks
                                                 );
-                                                playSound('/sounds/buttons.mp3')}
-                                        }>
+                                                playSound(
+                                                        "/sounds/buttons.mp3"
+                                                );
+                                        }}>
                                         ADD
                                 </motion.button>
                         </StyledMainInputSectionOne>
@@ -135,54 +148,64 @@ const Main = ({ theme ,setMainPostion}, ref) => {
                         </StyledMainListSection>
 
                         <StyledMainFooterSection
-                        ref={refFooter}
+                                ref={refFooter}
                                 width={focusedInput === false ? 8 : 11}>
                                 <p>{itemsNumbers} items</p>
                                 <div className='allActiveComplete'>
                                         <button
-                                                onClick={() =>{
+                                                onClick={() => {
                                                         handelStateButtons(
                                                                 "All",
                                                                 setTypeOfTask,
                                                                 Tasks,
                                                                 setItemsNumbers
                                                         );
-                                                        playSound('/sounds/buttons.mp3');}
-                                                }>
+                                                        playSound(
+                                                                "/sounds/buttons.mp3"
+                                                        );
+                                                }}>
                                                 All
                                         </button>
                                         <button
-                                                onClick={() =>{
+                                                onClick={() => {
                                                         handelStateButtons(
                                                                 "Active",
                                                                 setTypeOfTask,
                                                                 Tasks,
                                                                 setItemsNumbers
                                                         );
-                                                        playSound('/sounds/buttons.mp3');}
-                                                }>
+                                                        playSound(
+                                                                "/sounds/buttons.mp3"
+                                                        );
+                                                }}>
                                                 Active
                                         </button>
                                         <button
-                                                onClick={() =>{
+                                                onClick={() => {
                                                         handelStateButtons(
                                                                 "Completed",
                                                                 setTypeOfTask,
                                                                 Tasks,
                                                                 setItemsNumbers
                                                         );
-                                                        playSound('/sounds/buttons.mp3');}
-                                                }>
+                                                        playSound(
+                                                                "/sounds/buttons.mp3"
+                                                        );
+                                                }}>
                                                 Completed
                                         </button>
                                 </div>
                                 <button
-                                        onClick={() =>{
-                                                clearCompletedTasks(
-                                                        Tasks,
-                                                        setTask
-                                                );
-                                                playSound('/sounds/buttons.mp3');}
+                                        onClick={
+                                                () => {
+                                                        clearCompletedTasks(
+                                                                Tasks,
+                                                                setTask
+                                                        );
+                                                        playSound(
+                                                                "/sounds/buttons.mp3"
+                                                        );
+                                                }
                                                 //TODO? loop over a tasks and make a condition and add a sound effect of deleting
                                         }>
                                         Clear completed
