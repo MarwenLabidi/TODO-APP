@@ -17,13 +17,15 @@ export const showTasksInTheList = (
         if (type === "Active") {
                 return (
                         <motion.div
-                        layout 
+                                layout
                                 exit={{
-                                       
                                         opacity: 0,
                                 }}
                                 transition={{
-                                        layout: { type: "spring", stiffness: 500 },
+                                        layout: {
+                                                type: "spring",
+                                                stiffness: 500,
+                                        },
                                 }}>
                                 <Component
                                         tasks={tasks}
@@ -36,15 +38,17 @@ export const showTasksInTheList = (
         } else if (type === "Completed") {
                 return (
                         <motion.div
-                        layout
+                                layout
                                 exit={{
-                                       
                                         opacity: 0,
                                 }}
                                 transition={{
                                         ease: "easeOut",
                                         duration: 1.5,
-                                        layout:{ type: "spring", stiffness: 500 },
+                                        layout: {
+                                                type: "spring",
+                                                stiffness: 500,
+                                        },
                                 }}>
                                 <Component
                                         tasks={tasks}
@@ -57,15 +61,17 @@ export const showTasksInTheList = (
         } else {
                 return (
                         <motion.div
-                        layout
+                                layout
                                 exit={{
-                                       
                                         opacity: 0,
                                 }}
                                 transition={{
                                         ease: "easeOut",
                                         duration: 1.5,
-                                        layout:{ type: "spring", stiffness: 500 },
+                                        layout: {
+                                                type: "spring",
+                                                stiffness: 500,
+                                        },
                                 }}>
                                 <Component
                                         tasks={tasks}
@@ -152,13 +158,22 @@ export const handelBlurInput = (setFocusedInput) => {
 };
 
 //function to play sound with the click of the button
-export const playSound = (sound,sound2=null) => {
+export const playSound = (sound, sound2 = null) => {
         let audio = new Audio(sound);
         audio.play();
-        if(sound2){
-                setTimeout(()=>{
+        if (sound2) {
+                setTimeout(() => {
                         let audio2 = new Audio(sound2);
                         audio2.play();
-                },1000)
+                }, 1000);
         }
-}
+};
+
+export const handlePosition = (elementRef, setState) => {
+        let element = elementRef.current;
+        let x = element.getBoundingClientRect().left;
+        let y = element.getBoundingClientRect().top;
+        let bottom = element.getBoundingClientRect().bottom;
+        let right = element.getBoundingClientRect().right;
+        setState({ x, y, bottom, right });
+};

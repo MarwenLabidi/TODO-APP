@@ -7,7 +7,7 @@ import {
         StyledMainFooterSection,
         StyledMainListSection,
 } from "../../setup/styled_components/styled_component";
-import { handelBlurInput, handelFocusedInput, playSound } from "../../utils/utils";
+import { handelBlurInput, handelFocusedInput, handlePosition, playSound } from "../../utils/utils";
 import {
         saveTask,
         clearCompletedTasks,
@@ -25,7 +25,7 @@ const variants = {
         mobile: { y:-145 },
 };
 
-const Main = ({ theme }, ref) => {
+const Main = ({ theme ,setMainPostion}, ref) => {
         const [Tasks, setTask] = useState([]); // [{ID,Description,Completed}]
         const [typeOfTask, setTypeOfTask] = useState("All"); //All,Active,Completed
         const [itemsNumbers, setItemsNumbers] = useState(Tasks.length);
@@ -35,6 +35,7 @@ const Main = ({ theme }, ref) => {
         const StyledMainListSectionRef = useRef();
         const previousTasks = useRef(Tasks);
         const { refMain, refFooter } = ref.current;
+        
 
 
         // callback function to update the state of the checkbox
@@ -64,7 +65,7 @@ const Main = ({ theme }, ref) => {
                                 StyledMainListSectionRef.current.scrollHeight;
                 }
                 previousTasks.current = Tasks;
-                // FIXME? make the main position update here 
+                handlePosition(refMain,setMainPostion);
         }, [Tasks]);
         useEffect(() => {
                 getDataFromFirebase().then((data) => {

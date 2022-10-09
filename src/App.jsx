@@ -9,13 +9,15 @@ import Cursor from "./components/cursor/index";
 import { useRef } from "react";
 import useElementPosition from "./setup/Hooks/useElemetPosition";
 import { isBrowser } from "react-device-detect";
+import { useState } from "react";
 
 const App = () => {
         const [theme, toggleTheme] = useDarkMode();
         const themeMode = theme === "light" ? lightTheme() : darkTheme();
         const refMain = useRef();
         const refDarkModeButton = useRef();
-        const mainPostion = useElementPosition(refMain);
+        const startMainPostion = useElementPosition(refMain);
+        const[mainPostion,setMainPostion]=useState(startMainPostion)
         const darkModeButtonPosition = useElementPosition(refDarkModeButton);
         const refFooter = useRef();
         const refLoginButton = useRef();
@@ -61,6 +63,7 @@ const App = () => {
                                         <Body
                                                 theme={theme}
                                                 ref={refContainerForMainFooter}
+                                                setMainPostion={setMainPostion}
                                         />
                                 </>
                         </ThemeProvider>

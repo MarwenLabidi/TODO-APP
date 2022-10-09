@@ -16,7 +16,7 @@ const variants = {
         mobile: { x: 220 },
 };
 
-const Body = ({ theme }, ref) => {
+const Body = ({ theme,setMainPostion }, ref) => {
         const [isMenuOpen, setIsMenuOpen] = useState(false);
         const controls = useAnimationControls();
         const { refMenuButton } = ref.current;
@@ -30,7 +30,7 @@ const Body = ({ theme }, ref) => {
         }, [isMenuOpen]);
         return (
                 <StyledBody>
-                        <Main theme={theme} ref={ref} />
+                        <Main setMainPostion={setMainPostion} theme={theme} ref={ref} />
                         <p className='note'>Drag and drop to reorder list</p>
                         <StyledContainerMenuButtonSectionbuttons
                                 ref={refMenuButton}
