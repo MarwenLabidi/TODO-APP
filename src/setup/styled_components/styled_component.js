@@ -404,7 +404,7 @@ export const StyledContainerMenuButtonSectionbuttons = styled(motion.div)`
                         touch-action: none;
         position: absolute;
         display: flex;
-        bottom: 30px;
+        bottom: 100px;
         right: 0px;
         width: 200px;
         height: 100px;

@@ -38,6 +38,8 @@ body{
   height:100vh;
   overflow:hidden;
   width:100%;
+  position: fixed;
+
   };
   #root{
     overflow:hidden;
