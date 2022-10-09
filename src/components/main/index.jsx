@@ -64,6 +64,7 @@ const Main = ({ theme }, ref) => {
                                 StyledMainListSectionRef.current.scrollHeight;
                 }
                 previousTasks.current = Tasks;
+                // FIXME? make the main position update here 
         }, [Tasks]);
         useEffect(() => {
                 getDataFromFirebase().then((data) => {

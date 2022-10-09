@@ -483,7 +483,7 @@ export const StyledLoginButton = styled(motion.button)`
                 width: 64px !important;
                 height: 40px !important;
         }
-        z-index: 9999;
+        /* z-index: 9999; */
         transition: none !important;
         user-select: none; // fix text selection
         touch-action: none;
