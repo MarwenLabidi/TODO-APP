@@ -34,6 +34,8 @@ const Main = ({ theme }, ref) => {
         const [getDataFromFirebase, setDataToFirebase] = useFirebase();
         const StyledMainListSectionRef = useRef();
         const previousTasks = useRef(Tasks);
+        const { refMain, refFooter } = ref.current;
+
 
         // callback function to update the state of the checkbox
         const changeTaskStatus = (taskInfo) => {
@@ -73,7 +75,7 @@ const Main = ({ theme }, ref) => {
                 variants={variants}
                         initial={isMobile?"mobile":"desktop" }
                         transition={{ duration: 2 }}
-                        ref={ref}>
+                        ref={refMain}>
                         <StyledMainInputSectionOne
                                 width={focusedInput === false ? 8 : 11}>
                                 <input
@@ -131,6 +133,7 @@ const Main = ({ theme }, ref) => {
                         </StyledMainListSection>
 
                         <StyledMainFooterSection
+                        ref={refFooter}
                                 width={focusedInput === false ? 8 : 11}>
                                 <p>{itemsNumbers} items</p>
                                 <div className='allActiveComplete'>

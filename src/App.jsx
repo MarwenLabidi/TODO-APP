@@ -17,7 +17,22 @@ const App = () => {
         const refDarkModeButton = useRef();
         const mainPostion = useElementPosition(refMain);
         const darkModeButtonPosition = useElementPosition(refDarkModeButton);
-// TODO? Get the footer position  and use it as condition for hiding the cursor  and login button and main button 
+        const refFooter = useRef();
+        const refLoginButton = useRef();
+        const refMenuButton = useRef();
+        const refContainerForMainFooter = useRef({
+                refMain,
+                refFooter,
+                refMenuButton,
+        });
+        const refContainerForLoginDarkModeButton = useRef({
+                refDarkModeButton,
+                refLoginButton,
+        });
+        const footerPosition = useElementPosition(refFooter);
+        const loginButtonPosition = useElementPosition(refLoginButton);
+        const menuButtonPosition = useElementPosition(refMenuButton);
+
         return (
                 <FocusedInputContextProvider>
                         <ThemeProvider theme={themeMode}>
@@ -31,14 +46,22 @@ const App = () => {
                                                         darkModeButtonPosition={
                                                                 darkModeButtonPosition
                                                         }
+                                                        footerPosition={footerPosition}
+                                                        loginButtonPosition={loginButtonPosition}
+                                                        menuButtonPosition={menuButtonPosition}
                                                 />
                                         )}
                                         <Header
                                                 icon={theme}
                                                 toggleTheme={toggleTheme}
-                                                ref={refDarkModeButton}
+                                                ref={
+                                                        refContainerForLoginDarkModeButton
+                                                }
                                         />
-                                        <Body theme={theme} ref={refMain} />
+                                        <Body
+                                                theme={theme}
+                                                ref={refContainerForMainFooter}
+                                        />
                                 </>
                         </ThemeProvider>
                 </FocusedInputContextProvider>
@@ -49,23 +72,23 @@ export default App;
 
 //TODO? login firebase
 //-[]when you first enter a pop up showed to you tell you to log in and the benifits or using local storage
-//-[]when you click log in pop up showen to u and log in google github 
+//-[]when you click log in pop up showen to u and log in google github
 //-[]when you log in the log in butto change to log out
 //-[]when you log in and there is data in the app pop up showed to you if you wanna move the data to firestore to the account
 //-[]create the security rules of fire
-//TODO? voice controll feature 
-//-[]search about checkbox button button when you click it it still clicking until you click it again and change the style and active style  tandhe sound of the button to switch and Search how to use audio to read text look for a hook or something 
+//TODO? voice controll feature
+//-[]search about checkbox button button when you click it it still clicking until you click it again and change the style and active style  tandhe sound of the button to switch and Search how to use audio to read text look for a hook or something
 //-[]Use speech recognition hooks
-//-[]After 2 second op mic and add text to state 
-//-[]Useeffect on that state side the useeffect split the text in a table 
+//-[]After 2 second op mic and add text to state
+//-[]Useeffect on that state side the useeffect split the text in a table
 //-[]Create array of labels rank one and lane rank two
 //-[]Rank one : switch ,write,add, check ,all, complete,active,delete, show menu
 //-[]Rank two: theme ,task,task,taskcontent,menu
 //-[]When you execute write note the app tell you what is your note please use speech api to make text sound
 //-[]Use sound effect when you start recording and when you stop
-//-[]Inside the use effect check if there is a word from the rank ne array::( if there is check the second rank :: if there is execute action else return 
-//-[]Create amd action function you just tell her the name of the acttion that's it 
-//-[]Create every action in a function 
+//-[]Inside the use effect check if there is a word from the rank ne array::( if there is check the second rank :: if there is execute action else return
+//-[]Create amd action function you just tell her the name of the acttion that's it
+//-[]Create every action in a function
 //-[]At the end of the use effect rart record again and make the app said task done
 //TODO? do unit test and component test with Playwright
 //TODO? use github action for ci cd pipeline
@@ -73,7 +96,6 @@ export default App;
 //TODO? enable offline cache firestore : https://cloud.google.com/firestore/docs/manage-data/enable-offline#:~:text=Firestore%20supports%20offline%20data%20persistence,and%20query%20the%20cached%20data.
 //TODO? accesibility
 //-[] Add hiden Link to go to the tasks
-
 
 //TODO? add linter and eslint by using the extention vscode
 

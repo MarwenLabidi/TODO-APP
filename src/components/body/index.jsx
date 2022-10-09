@@ -6,34 +6,47 @@ import {
         StyledMenuButton,
         StyledMenuButtonSection,
 } from "../../setup/styled_components/styled_component";
-import {motion, useAnimationControls } from "framer-motion";
+import { motion, useAnimationControls } from "framer-motion";
 import { playSound } from "../../utils/utils";
 import { isMobile } from "react-device-detect";
 const variants = {
-        desktopfirst: { x:30 },
-        mobilefirst: { x:40 },
+        desktopfirst: { x: 30 },
+        mobilefirst: { x: 40 },
         desktop: { x: 200 },
-        mobile: { x:220 },
+        mobile: { x: 220 },
 };
 
 const Body = ({ theme }, ref) => {
         const [isMenuOpen, setIsMenuOpen] = useState(false);
         const controls = useAnimationControls();
+        const { refMenuButton } = ref.current;
 
         useEffect(() => {
-                (isMenuOpen === true)
-                        ? controls.start(isMobile?"mobilefirst":"desktopfirst" )
-                        : controls.start(isMobile?"mobile":"desktop" );
+                isMenuOpen === true
+                        ? controls.start(
+                                  isMobile ? "mobilefirst" : "desktopfirst"
+                          )
+                        : controls.start(isMobile ? "mobile" : "desktop");
         }, [isMenuOpen]);
         return (
                 <StyledBody>
                         <Main theme={theme} ref={ref} />
                         <p className='note'>Drag and drop to reorder list</p>
                         <StyledContainerMenuButtonSectionbuttons
-                                        variants={variants}
+                                ref={refMenuButton}
+                                variants={variants}
                                 animate={controls}
-                                onClick={(e) =>{if(e.target.textContent!="install"&&e.target.textContent!=" voice controll"){setIsMenuOpen(!isMenuOpen);playSound('/sounds/menu.mp3');}}}
-                                >
+                                onClick={(e) => {
+                                        if (
+                                                e.target.textContent !=
+                                                        "install" &&
+                                                e.target.textContent !=
+                                                        " voice controll"
+                                        ) {
+                                                setIsMenuOpen(!isMenuOpen);
+                                                playSound("/sounds/menu.mp3");
+                                        }
+                                }}>
                                 <StyledMenuButton>
                                         <svg
                                                 xmlns='http://www.w3.org/2000/svg'
@@ -50,8 +63,25 @@ const Body = ({ theme }, ref) => {
                                         </svg>
                                 </StyledMenuButton>
                                 <StyledMenuButtonSection>
-                                        <motion.button onClick={()=>playSound('/sounds/buttons.mp3')} whileTap={{ scale: 0.9 }}> voice controll</motion.button>
-                                        <motion.button onClick={()=>playSound('/sounds/buttons.mp3')} whileTap={{ scale: 0.9 }}>install</motion.button>
+                                        <motion.button
+                                                onClick={() =>
+                                                        playSound(
+                                                                "/sounds/buttons.mp3"
+                                                        )
+                                                }
+                                                whileTap={{ scale: 0.9 }}>
+                                                {" "}
+                                                voice controll
+                                        </motion.button>
+                                        <motion.button
+                                                onClick={() =>
+                                                        playSound(
+                                                                "/sounds/buttons.mp3"
+                                                        )
+                                                }
+                                                whileTap={{ scale: 0.9 }}>
+                                                install
+                                        </motion.button>
                                 </StyledMenuButtonSection>
                         </StyledContainerMenuButtonSectionbuttons>
                 </StyledBody>
