@@ -21,7 +21,6 @@ const Tndex = ({ task, Type, index, callBack }) => {
         const controls = useAnimationControls();
         const controlsDrag = useDragControls();
 
-        //TODO? useeffect on tasks and create function to know everytime the task change the order play a sound
         return (
                 task.Completed === eval(Type) && (
                         <Reorder.Item

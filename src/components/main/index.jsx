@@ -67,6 +67,22 @@ const Main = ({ theme, setMainPostion }, ref) => {
                         StyledMainListSectionRef.current.scrollTop =
                                 StyledMainListSectionRef.current.scrollHeight;
                 }
+        (function playSoundOfreorderTasks(){
+                let previousTasksarr = [...previousTasks.current];
+                let newTasks = [...Tasks];
+                if(previousTasksarr.length < 1||newTasks.length<1){return}
+                let isReorder = false;
+                let minLength=newTasks.length>previousTasksarr.length?previousTasksarr.length:newTasks.length
+                for(let i=0;i<minLength;i++){
+                        if(previousTasksarr[i].ID!==newTasks[i].ID){
+                                isReorder=true;
+                                break;
+                        }
+                }
+                if(isReorder){
+                        playSound("/sounds/reorder.mp3");
+                }
+        })()
                 previousTasks.current = Tasks;
         }, [Tasks]);
         useEffect(() => {
@@ -83,6 +99,8 @@ const Main = ({ theme, setMainPostion }, ref) => {
                         setTask(data[1][0]);
                 });
         }, []);
+      
+
         return (
                 <StyledMain
                         variants={variants}
@@ -196,18 +214,36 @@ const Main = ({ theme, setMainPostion }, ref) => {
                                         </button>
                                 </div>
                                 <button
-                                        onClick={
-                                                () => {
-                                                        clearCompletedTasks(
-                                                                Tasks,
-                                                                setTask
-                                                        );
-                                                        playSound(
-                                                                "/sounds/buttons.mp3"
-                                                        );
-                                                }
-                                                //TODO? loop over a tasks and make a condition and add a sound effect of deleting
-                                        }>
+                                        onClick={() => {
+                                                playSound(
+                                                        "/sounds/buttons.mp3"
+                                                );
+                                                (function playDeleteSound() {
+                                                        setTimeout(() => {
+                                                                console.log(
+                                                                        `deleted`
+                                                                );
+                                                                Tasks.forEach(
+                                                                        (
+                                                                                task
+                                                                        ) => {
+                                                                                if (
+                                                                                        task.Completed ===
+                                                                                        true
+                                                                                ) {
+                                                                                        playSound(
+                                                                                                "/sounds/delete.mp3"
+                                                                                        );
+                                                                                }
+                                                                        }
+                                                                );
+                                                        }, 500);
+                                                })();
+                                                clearCompletedTasks(
+                                                        Tasks,
+                                                        setTask
+                                                );
+                                        }}>
                                         Clear completed
                                 </button>
                         </StyledMainFooterSection>
