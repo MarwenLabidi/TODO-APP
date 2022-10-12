@@ -3,6 +3,7 @@
 ### - Fast ⚡️ 
 ### - controled by voice
 ### - work offline
+### - google and web3(MetaMask) authentication
 
 
 #### you can install it or use it directly from the link bellow
@@ -13,6 +14,6 @@
 ## Tech Stack:
 - Vite , React , Styled component,FramerMotion,React Aria
 - Web Speech API
-- FireBase
+- FireBase ,Dexie.js(indexDb lib)
 - Git , Github , Github Actions
-- Playwright
+- Playwright (unit test && components test)
