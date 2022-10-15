@@ -415,7 +415,6 @@ export const StyledContainerMenuButtonSectionbuttons = styled(motion.div)`
         @media (max-width: 650px) {
                 padding-left: 10px;
         }
-        box-shadow: 0 4px 20px blue;
 `;
 
 export const StyledMenuButton = styled(motion.button)`
@@ -460,6 +459,29 @@ export const StyledMenuButtonSection = styled(motion.div)`
                         cursor: pointer;
                 }
                 margin-left: 10px;
+        }
+        #soundControll{
+                position:relative;
+                input{
+                        position:absolute;
+                        top:-3px;left:-10px;
+                        height:100%;
+                        width:120%;
+                        opacity:0;
+                        &:hover{
+                                cursor:pointer;
+                        }
+                        /* &:checked{
+                        } */
+                }
+                /* change the background-color of the parent #soundControll if input is checked */
+                &:has(input:checked){
+                        scale:0.9;
+                        background-color:hsla(150, 100%, 42%, 1);
+  color:${({ theme }) => theme.invertText};
+
+                }
+                
         }
 `;
 

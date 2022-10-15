@@ -85,7 +85,7 @@ export default App;
 //-[]create the security rules of firebase
 //-[] meta  mask auth but you should use costom auth to make it interact with firestore https://firebase.google.com/docs/auth/web/custom-auth                           run the admin sdk in a cloud function firebase https://www.youtube.com/watch?v=8JVmWtJLqNU                                             https://firebase.google.com/products/functions?gclid=CjwKCAjwqJSaBhBUEiwAg5W9pw9BM1wdVvmwYFPrW1nA1yayekAP57gM2TTalfNNb-bCiUIgv1l4yBoCxMgQAvD_BwE&gclsrc=aw.ds
 //TODO? voice controll feature
-//-[]search about checkbox button button when you click it it still clicking until you click it again and change the style and active style  tandhe sound of the button to switch and Search how to use audio to read text look for a hook or something
+//-[]Search how to use audio to read text look for a hook or something
 //-[]Use speech recognition hooks
 //-[]After 2 second op mic and add text to state
 //-[]Useeffect on that state side the useeffect split the text in a table

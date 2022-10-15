@@ -16,7 +16,7 @@ const variants = {
         mobile: { x: 220 },
 };
 
-const Body = ({ theme,setMainPostion }, ref) => {
+const Body = ({ theme, setMainPostion }, ref) => {
         const [isMenuOpen, setIsMenuOpen] = useState(false);
         const controls = useAnimationControls();
         const { refMenuButton } = ref.current;
@@ -30,7 +30,11 @@ const Body = ({ theme,setMainPostion }, ref) => {
         }, [isMenuOpen]);
         return (
                 <StyledBody>
-                        <Main setMainPostion={setMainPostion} theme={theme} ref={ref} />
+                        <Main
+                                setMainPostion={setMainPostion}
+                                theme={theme}
+                                ref={ref}
+                        />
                         <p className='note'>Drag and drop to reorder list</p>
                         <StyledContainerMenuButtonSectionbuttons
                                 ref={refMenuButton}
@@ -40,8 +44,8 @@ const Body = ({ theme,setMainPostion }, ref) => {
                                         if (
                                                 e.target.textContent !=
                                                         "install" &&
-                                                e.target.textContent !=
-                                                        " voice controll"
+                                                e.target.type !=
+                                                        "checkbox"
                                         ) {
                                                 setIsMenuOpen(!isMenuOpen);
                                                 playSound("/sounds/menu.mp3");
@@ -64,14 +68,21 @@ const Body = ({ theme,setMainPostion }, ref) => {
                                 </StyledMenuButton>
                                 <StyledMenuButtonSection>
                                         <motion.button
-                                                onClick={() =>
-                                                        playSound(
-                                                                "/sounds/buttons.mp3"
-                                                        )
-                                                }
+                                        id='soundControll'
                                                 whileTap={{ scale: 0.9 }}>
                                                 {" "}
                                                 voice controll
+                                                <input
+                                                        type='checkbox'
+                                                        name='soundControll'
+                                                        onChange={
+                                                                (e) =>{
+                                                                        playSound(
+                                                                                "/sounds/buttons.mp3"
+                                                                        )
+                                                                }
+                                                        }
+                                                />
                                         </motion.button>
                                         <motion.button
                                                 onClick={() =>
