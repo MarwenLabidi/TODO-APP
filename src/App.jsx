@@ -72,7 +72,8 @@ const App = () => {
 };
 
 export default App;
-
+//TODO? know the prefers-color-scheme with js and set it in the beggining
+//FIXME? Search how to scroll to the direction of dragging 
 //TODO? login firebase
 //-[]when you first enter a pop up showed to you tell you to log in and the benifits or using local storage
 //-[] there is an overlay when you show the pop up or the modal and it depent on the theme the color of overlay

@@ -179,3 +179,7 @@ export const handlePosition = (elementRef, setState) => {
         let right = element.getBoundingClientRect().right;
         setState({ x, y, bottom, right });
 };
+
+export const loginFunction = (ref) => {
+ref.current.showModal()
+}
