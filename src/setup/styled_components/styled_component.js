@@ -288,7 +288,7 @@ export const StyledMainListSection = styled(motion.div)`
         }
 
         li > label {
-                 user-select: none; // fix text selection
+                user-select: none; // fix text selection
                 font-size: 2.4vw;
                 font-family: var(--ff_Josefin);
                 display: block;
@@ -400,8 +400,8 @@ export const StyledCursor = styled(motion.div).attrs({
 `;
 
 export const StyledContainerMenuButtonSectionbuttons = styled(motion.div)`
- user-select: none; // fix text selection
-                        touch-action: none;
+        user-select: none; // fix text selection
+        touch-action: none;
         position: absolute;
         display: flex;
         bottom: 100px;
@@ -460,34 +460,32 @@ export const StyledMenuButtonSection = styled(motion.div)`
                 }
                 margin-left: 10px;
         }
-        #soundControll{
-                position:relative;
-                input{
-                        position:absolute;
-                        top:-3px;left:-10px;
-                        height:100%;
-                        width:120%;
-                        opacity:0;
-                        &:hover{
-                                cursor:pointer;
+        #soundControll {
+                position: relative;
+                input {
+                        position: absolute;
+                        top: -3px;
+                        left: -10px;
+                        height: 100%;
+                        width: 120%;
+                        opacity: 0;
+                        &:hover {
+                                cursor: pointer;
                         }
                         /* &:checked{
                         } */
                 }
                 /* change the background-color of the parent #soundControll if input is checked */
-                &:has(input:checked){
-                        scale:0.9;
-                        background-color:hsla(150, 100%, 42%, 1);
-  color:${({ theme }) => theme.invertText};
-
+                &:has(input:checked) {
+                        scale: 0.9;
+                        background-color: hsla(150, 100%, 42%, 1);
+                        color: ${({ theme }) => theme.invertText};
                 }
-                
         }
 `;
 
 export const StyledLoginButton = styled(motion.button)`
         background-color: ${({ theme }) => theme.invertText};
-        position: relative;
         right: 0;
         color: ${({ theme }) => theme.text};
         border-radius: 10px;
@@ -509,4 +507,18 @@ export const StyledLoginButton = styled(motion.button)`
         transition: none !important;
         user-select: none; // fix text selection
         touch-action: none;
+`;
+
+export const StyledProfileSection = styled.span`
+        position: absolute;
+        right: 0;
+        width: 70px !important;
+        height: 50px !important;
+        background-color:red;
+        @media (max-width: 650px) {
+                margin-right: 10px;
+                width: 64px !important;
+                height: 40px !important;
+                top:30px;
+        }
 `;

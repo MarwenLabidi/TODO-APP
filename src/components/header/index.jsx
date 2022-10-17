@@ -1,5 +1,5 @@
 import {useContext,forwardRef} from "react";
-import { StyledHeader, StyledLoginButton } from "../../setup/styled_components/styled_component";
+import { StyledHeader, StyledLoginButton, StyledProfileSection } from "../../setup/styled_components/styled_component";
 import { FocusedInputContext } from "../../setup/context/focusedInputContext.jsx";
 import { loginFunction, playSound } from "../../utils/utils";
 import Dialogue from "../dialogue";
@@ -19,6 +19,7 @@ const Header = ({ toggleTheme,icon },ref) => {
                                 <button className="Sun"  onClick={()=>{playSound('/sounds/switch-darkmode.mp3','/sounds/night.mp3');toggleTheme();}}></button>
                                 </div>
                                 {/* <StyledLoginButton ref={refLoginButton} animate={{y:20, opacity: 1, transition: { duration: 1, delay: 1 } }} initial={{y:-35, opacity: 0 }}  onClick={()=>{playSound('/sounds/buttons.mp3');loginFunction(dialogueRef)}} whileTap={{ scale: 0.9 }} >Login</StyledLoginButton> */}
+                                <StyledProfileSection></StyledProfileSection>
                                 <Dialogue ref={dialogueRef}/>
 
                         </header>
