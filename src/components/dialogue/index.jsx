@@ -2,16 +2,17 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import { createPortal } from "react-dom";
 import { forwardRef } from "react";
+import { playSound } from "../../utils/utils";
 
 const Dialogue = ({}, ref) => {
         return createPortal(
                 <StyledDialogue ref={ref}>
                         <section>
                                 <div className='header'>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="38"><path fill="#494C6B" fill-rule="evenodd" d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"/></svg>
+                                <svg onClick={()=>{playSound('/sounds/buttons.mp3');}} className='closeIcon' xmlns="http://www.w3.org/2000/svg" ><path  fill-rule="evenodd" d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"/></svg>
                                 </div>
                                 <div className='buttonSection'>
-                                        <button>
+                                        <motion.button onClick={()=>{playSound('/sounds/buttons.mp3');}} whileTap={{ scale: 0.9 }} >
                                                 <svg
                                                         width='50'
                                                         height='50'
@@ -44,8 +45,8 @@ const Dialogue = ({}, ref) => {
                                                         />
                                                 </svg>
                                                 <p>Login via Google</p>
-                                        </button>
-                                        <button>
+                                        </motion.button>
+                                        <motion.button className='buttonMeta'onClick={()=>{playSound('/sounds/buttons.mp3');}} whileTap={{ scale: 0.9 }} >
                                                 <svg
                                                         width='40'
                                                         height='40'
@@ -286,7 +287,7 @@ const Dialogue = ({}, ref) => {
                                                         />
                                                 </svg>
                                                 <p>Login via MetaMask</p>
-                                        </button>
+                                        </motion.button>
                                 </div>
                         </section>
                 </StyledDialogue>,
@@ -297,7 +298,7 @@ const Dialogue = ({}, ref) => {
 export default forwardRef(Dialogue);
 
 const StyledDialogue = styled(motion.dialog)`
-        width: 300px;
+        width: 400px;
         height: 400px;
         margin: auto;
         padding: 0;
@@ -312,6 +313,15 @@ const StyledDialogue = styled(motion.dialog)`
                 .header {
                         display: flex;
                         justify-content: end;
+                        .closeIcon{
+                                width: 30px;
+                                height: 30px;
+                                fill:${({ theme }) => theme.text};
+                                padding-top:10px;
+                                &:hover{
+                                        cursor:pointer;
+                                }
+                        }
                 }
                 .buttonSection {
                         height: 100%;
@@ -333,12 +343,27 @@ const StyledDialogue = styled(motion.dialog)`
                                 /* gap: 8px; */
 
                                 width: 250px;
-                                height: 88px;
+                                height: 60px;
 
-                                background: #ffffff;
+                                background: ${({ theme }) => theme.body};
+                                color:${({ theme }) => theme.text};
                                 border: 1px solid #4285f4;
-                                box-shadow: 0px 4px 0px #000000;
+                                box-shadow: 0px 4px 0px #4285f4;
                                 border-radius: 4px;
+                                &:hover{
+                                        cursor:pointer;
+                                }
+                                &:active{
+                                        cursor:pointer;
+                                        box-shadow: 0px 4px 0px transparent;
+
+                                }
+                        }
+                        .buttonMeta{
+                                border-color: orange;
+                                box-shadow: 0px 4px 0px orange;
+
+
                         }
                 }
         }
