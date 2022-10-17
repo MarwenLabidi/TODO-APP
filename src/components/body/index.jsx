@@ -44,8 +44,7 @@ const Body = ({ theme, setMainPostion }, ref) => {
                                         if (
                                                 e.target.textContent !=
                                                         "install" &&
-                                                e.target.type !=
-                                                        "checkbox"
+                                                e.target.type != "checkbox"
                                         ) {
                                                 setIsMenuOpen(!isMenuOpen);
                                                 playSound("/sounds/menu.mp3");
@@ -56,7 +55,7 @@ const Body = ({ theme, setMainPostion }, ref) => {
                                                 xmlns='http://www.w3.org/2000/svg'
                                                 fill='none'
                                                 viewBox='0 0 24 24'
-                                                strokeWidth={1.5}
+                                                h={1.5}
                                                 stroke='currentColor'
                                                 className='menuIcon'>
                                                 <path
@@ -68,20 +67,18 @@ const Body = ({ theme, setMainPostion }, ref) => {
                                 </StyledMenuButton>
                                 <StyledMenuButtonSection>
                                         <motion.button
-                                        id='soundControll'
+                                                id='soundControll'
                                                 whileTap={{ scale: 0.9 }}>
                                                 {" "}
                                                 voice controll
                                                 <input
                                                         type='checkbox'
                                                         name='soundControll'
-                                                        onChange={
-                                                                (e) =>{
-                                                                        playSound(
-                                                                                "/sounds/buttons.mp3"
-                                                                        )
-                                                                }
-                                                        }
+                                                        onChange={(e) => {
+                                                                playSound(
+                                                                        "/sounds/buttons.mp3"
+                                                                );
+                                                        }}
                                                 />
                                         </motion.button>
                                         <motion.button

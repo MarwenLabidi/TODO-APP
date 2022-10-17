@@ -105,9 +105,7 @@ export const saveTask = (setTask, setInput, input, Tasks) => {
                 { ID: uuidv4(), Description: content, Completed: false },
         ]);
         setInput("");
-        playSound(
-                "/sounds/addTask.mp3"
-        );
+        playSound("/sounds/addTask.mp3");
 };
 export const clearCompletedTasks = (Tasks, setTask) => {
         let allTasks = [...Tasks];
@@ -181,5 +179,21 @@ export const handlePosition = (elementRef, setState) => {
 };
 
 export const loginFunction = (ref) => {
-ref.current.showModal()
-}
+        ref.current.showModal();
+};
+
+export const hideDialogueAnimation = (dialog) => {
+        const hide = () => {
+                dialog.classList.remove("hide");
+                dialog.close();
+                dialog.removeEventListener("animationend", hide);
+        };
+        return () => {
+                dialog.classList.add("hide");
+                dialog.addEventListener(
+                        "animationend",
+                        hide,
+                        false
+                );
+        };
+};
