@@ -2,6 +2,7 @@ import { useLayoutEffect, useRef } from "react";
 
 import { StyledCursor } from "../../setup/styled_components/styled_component";
 const Cursor = ({darkModeButtonPosition,mainPostion,footerPosition,loginButtonPosition,menuButtonPosition}) => {
+        
         const cursorRef = useRef(null);
         const onMouseMove = (event) => {
                 const { clientX, clientY } = event;

@@ -1,6 +1,7 @@
 import { useState, useLayoutEffect } from "react";
 
 export default function useElementPosition(el) {
+        // if el is undefined, return null
         function getElement(x, y,bottom,right) {
                 return {
                         x: x,
@@ -15,6 +16,7 @@ export default function useElementPosition(el) {
         useLayoutEffect(() => {
                 function handlePosition() {
                         let element = el.current;
+                        if(!element){ return};
                         let x = element.getBoundingClientRect().left
                         let y = element.getBoundingClientRect().top
 			let bottom =element.getBoundingClientRect().bottom

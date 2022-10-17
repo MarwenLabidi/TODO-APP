@@ -20,7 +20,7 @@ const App = () => {
         const[mainPostion,setMainPostion]=useState(startMainPostion)
         const darkModeButtonPosition = useElementPosition(refDarkModeButton);
         const refFooter = useRef();
-        const refLoginButton = useRef();
+        const refLoginButton = useRef();//FIXME?
         const refMenuButton = useRef();
         const refContainerForMainFooter = useRef({
                 refMain,
