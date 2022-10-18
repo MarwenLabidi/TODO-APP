@@ -548,5 +548,37 @@ export const StyledProfileSection = styled.span`
                         background-position: center;
                 }
         }
-        z-index:99999999999;
+        z-index: 99999999999;
+`;
+
+export const StyledProfileMenu = styled.div`
+        position: absolute;
+        top:0;
+        right:0;
+        height:100%;
+        width:250px;
+        @media (max-width: 450px) {
+                width:200px;
+
+        }
+        background-color: ${({ theme }) => theme.input};
+        z-index:9999;
+        text-align: center; 
+        img{
+                /* background-color:red; */
+                height:30%;
+                margin-bottom:20px;
+        }
+        h3{
+                color: ${({ theme }) => theme.text};
+        }
+        button{
+                width:90%!important;
+                position:absolute;
+                bottom:15px;
+    left: 50%; 
+    transform: translate(-50%, -50%);
+        }
+
+
 `;

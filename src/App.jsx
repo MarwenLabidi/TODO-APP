@@ -10,6 +10,7 @@ import { useRef } from "react";
 import useElementPosition from "./setup/Hooks/useElemetPosition";
 import { isBrowser } from "react-device-detect";
 import { useState } from "react";
+import { StyledProfileMenu,StyledLoginButton } from "./setup/styled_components/styled_component";
 
 const App = () => {
         const [theme, toggleTheme] = useDarkMode();
@@ -17,10 +18,10 @@ const App = () => {
         const refMain = useRef();
         const refDarkModeButton = useRef();
         const startMainPostion = useElementPosition(refMain);
-        const[mainPostion,setMainPostion]=useState(startMainPostion)
+        const [mainPostion, setMainPostion] = useState(startMainPostion);
         const darkModeButtonPosition = useElementPosition(refDarkModeButton);
         const refFooter = useRef();
-        const refLoginButton = useRef();//FIXME?
+        const refLoginButton = useRef();
         const refMenuButton = useRef();
         const refContainerForMainFooter = useRef({
                 refMain,
@@ -48,9 +49,15 @@ const App = () => {
                                                         darkModeButtonPosition={
                                                                 darkModeButtonPosition
                                                         }
-                                                        footerPosition={footerPosition}
-                                                        loginButtonPosition={loginButtonPosition}
-                                                        menuButtonPosition={menuButtonPosition}
+                                                        footerPosition={
+                                                                footerPosition
+                                                        }
+                                                        loginButtonPosition={
+                                                                loginButtonPosition
+                                                        }
+                                                        menuButtonPosition={
+                                                                menuButtonPosition
+                                                        }
                                                 />
                                         )}
                                         <Header
@@ -65,6 +72,20 @@ const App = () => {
                                                 ref={refContainerForMainFooter}
                                                 setMainPostion={setMainPostion}
                                         />
+                                        <StyledProfileMenu>
+                                                <img
+                                                        src=''
+                                                        alt='profile-photo'
+                                                        srcset=''
+                                                />
+                                                <h3>Name</h3>
+                                                <StyledLoginButton
+                                                        whileTap={{
+                                                                scale: 0.9,
+                                                        }}>
+                                                        Logout
+                                                </StyledLoginButton>
+                                        </StyledProfileMenu>
                                 </>
                         </ThemeProvider>
                 </FocusedInputContextProvider>
@@ -73,7 +94,7 @@ const App = () => {
 
 export default App;
 //TODO? know the prefers-color-scheme with js and set it in the beggining
-//FIXME? Search how to scroll to the direction of dragging 
+//FIXME? Search how to scroll to the direction of dragging
 //TODO? login firebase
 //-[]when you first enter a pop up showed to you tell you to log in and the benifits or using local storage
 //-[] there is an overlay when you show the pop up or the modal and it depent on the theme the color of overlay
@@ -81,7 +102,7 @@ export default App;
 //-[] look at the figma button the copy css
 //-[]add a condition on the login button to show only if your not loged in the profile photo vice versa
 //-[]when you click log in pop up showen to u and log in google metamask
-//-[]when you log in the log in butto change to photo a name than log out for mobile its only photo and when youclick it it show you a name and log out 
+//-[]when you log in the log in butto change to photo a name than log out for mobile its only photo and when youclick it it show you a name and log out
 //-[]when you log in and there is data in the app pop up showed to you if you wanna move the data to firestore to the account
 //-[]create the security rules of firebase
 //-[] meta  mask auth but you should use costom auth to make it interact with firestore https://firebase.google.com/docs/auth/web/custom-auth                           run the admin sdk in a cloud function firebase https://www.youtube.com/watch?v=8JVmWtJLqNU                                             https://firebase.google.com/products/functions?gclid=CjwKCAjwqJSaBhBUEiwAg5W9pw9BM1wdVvmwYFPrW1nA1yayekAP57gM2TTalfNNb-bCiUIgv1l4yBoCxMgQAvD_BwE&gclsrc=aw.ds
