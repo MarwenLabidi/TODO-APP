@@ -511,14 +511,42 @@ export const StyledLoginButton = styled(motion.button)`
 
 export const StyledProfileSection = styled.span`
         position: absolute;
-        right: 0;
-        width: 70px !important;
+        right: 15px;
+        width: 50px !important;
         height: 50px !important;
-        background-color:red;
-        @media (max-width: 650px) {
+        @media (max-width: 850px) {
                 margin-right: 10px;
-                width: 64px !important;
+                width: 40px !important;
                 height: 40px !important;
-                top:30px;
+                top: 35px;
         }
+        @media (max-width: 450px) {
+                top: 30px !important;
+        }
+        button {
+                width: 100%;
+                position: absolute;
+                -webkit-transition: none;
+                transition: none;
+                top: 0;
+                height: 100%;
+                input {
+                        opacity: 0;
+                        width: 130%;
+                        height: 110%;
+                        transform: translate(-20%, -10%);
+                        &:hover {
+                                cursor: pointer;
+                        }
+                }
+                background: url(/images/Menu.svg) no-repeat;
+                background-size: contain;
+                background-position: center;
+                &:has(input:checked) {
+                        background: url(/images/closeMenu.svg) no-repeat;
+                        background-size: contain;
+                        background-position: center;
+                }
+        }
+        z-index:99999999999;
 `;
