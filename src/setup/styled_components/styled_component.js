@@ -553,32 +553,30 @@ export const StyledProfileSection = styled.span`
 
 export const StyledProfileMenu = styled.div`
         position: absolute;
-        top:0;
-        right:0;
-        height:100%;
-        width:250px;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 0px;
         @media (max-width: 450px) {
-                width:200px;
-
+                width: 0px;
         }
         background-color: ${({ theme }) => theme.input};
-        z-index:9999;
-        text-align: center; 
-        img{
+        z-index: 9999;
+        text-align: center;
+        img {
                 /* background-color:red; */
-                height:30%;
-                margin-bottom:20px;
+                height: 30%;
+                margin-bottom: 20px;
         }
-        h3{
+        h3 {
                 color: ${({ theme }) => theme.text};
         }
-        button{
-                width:90%!important;
-                position:absolute;
-                bottom:15px;
-    left: 50%; 
-    transform: translate(-50%, -50%);
+        button {
+                width: 90% !important;
+                position: absolute;
+                bottom: 15px;
+                left: 50%;
+                transform: translate(-50%, -50%);
         }
-
-
+        transition: width 0.3s ease-in-out;
 `;

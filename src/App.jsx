@@ -35,6 +35,7 @@ const App = () => {
         const footerPosition = useElementPosition(refFooter);
         const loginButtonPosition = useElementPosition(refLoginButton);
         const menuButtonPosition = useElementPosition(refMenuButton);
+        const refProfileMenu=useRef()
 
         return (
                 <FocusedInputContextProvider>
@@ -66,17 +67,18 @@ const App = () => {
                                                 ref={
                                                         refContainerForLoginDarkModeButton
                                                 }
+                                                refProfileMenu={refProfileMenu}
                                         />
                                         <Body
                                                 theme={theme}
                                                 ref={refContainerForMainFooter}
                                                 setMainPostion={setMainPostion}
                                         />
-                                        <StyledProfileMenu>
+                                        <StyledProfileMenu ref={refProfileMenu}>
                                                 <img
                                                         src=''
                                                         alt='profile-photo'
-                                                        srcset=''
+                                                       
                                                 />
                                                 <h3>Name</h3>
                                                 <StyledLoginButton
