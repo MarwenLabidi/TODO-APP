@@ -18,8 +18,6 @@ import { FocusedInputContextProvider } from "./setup/context/focusedInputContext
 import { useFirebase } from "./setup/Hooks/useFirebase";
 import { playSound } from "./utils/utils";
 
-
-
 const App = () => {
         const [theme, toggleTheme] = useDarkMode();
         const [currentUser, setCurrentUser] = useContext(authFireBaseContext);
@@ -104,9 +102,14 @@ const App = () => {
                                                                         playSound(
                                                                                 "/sounds/buttons.mp3"
                                                                         );
-                                                                        signOutF();
+                                                                        setTimeout(() => {
+                                                                                
+                                                                                signOutF();
+                                                                        }, 400);
                                                                 }}
-                                                               >
+                                                                whileTap={{
+                                                                        scale: 0.9,
+                                                                }}>
                                                                 Logout
                                                         </StyledLoginButton>
                                                 </StyledProfileMenu>
@@ -118,11 +121,7 @@ const App = () => {
 };
 
 export default App;
-//FIXME? adjust the positionof e log out button : make the photo the title the buton in the center 
-//FIXME? add animation t the log out button and use a spinner to wait for the log out 
-//FIXME?? stop the content from shinking in the side bar chane the widht property let position property and change it 
 //FIXME?ADD animationPresene  llside bar lmenu button and ll login button
-//FIXME? AADD LOADER WHEN YOU LOG IN AND WHEN Y OU USE ASYNC FUNCTION AND WHEN U LOG OUT
 //TODO? know the prefers-color-scheme with js and set it in the beggining
 //FIXME? Search how to scroll to the direction of dragging
 //TODO? login firebase

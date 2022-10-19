@@ -5,16 +5,15 @@ import {
         StyledProfileSection,
 } from "../../setup/styled_components/styled_component";
 import { FocusedInputContext } from "../../setup/context/focusedInputContext.jsx";
-import{authFireBaseContext} from '../../setup/context/authFireBaseContext';
+import { authFireBaseContext } from "../../setup/context/authFireBaseContext";
 import { loginFunction, playSound } from "../../utils/utils";
 import Dialogue from "../dialogue";
 import { useRef } from "react";
 import { useState } from "react";
 
-const Header = ({ toggleTheme, icon, refProfileMenu, }, ref) => {
+const Header = ({ toggleTheme, icon, refProfileMenu }, ref) => {
         const [focusedInput, setFocusedInput] = useContext(FocusedInputContext);
         const [currentUser, setCurrentUser] = useContext(authFireBaseContext);
-
 
         const { refDarkModeButton, refLoginButton } = ref.current;
         const dialogueRef = useRef();
@@ -82,6 +81,9 @@ const Header = ({ toggleTheme, icon, refProfileMenu, }, ref) => {
                                                                                         .currentTarget
                                                                                         .checked
                                                                         ) {
+                                                                                refProfileMenu.current.style.right =
+                                                                                        "0px";
+                                                                        } else {
                                                                                 //change the width to 250px
                                                                                 if (
                                                                                         window.matchMedia(
@@ -89,15 +91,12 @@ const Header = ({ toggleTheme, icon, refProfileMenu, }, ref) => {
                                                                                         )
                                                                                                 .matches
                                                                                 ) {
-                                                                                        refProfileMenu.current.style.width =
-                                                                                                "200px";
+                                                                                        refProfileMenu.current.style.right =
+                                                                                                "-200px";
                                                                                 } else {
-                                                                                        refProfileMenu.current.style.width =
-                                                                                                "250px";
+                                                                                        refProfileMenu.current.style.right =
+                                                                                                "-250px";
                                                                                 }
-                                                                        } else {
-                                                                                refProfileMenu.current.style.width =
-                                                                                        "0px";
                                                                         }
                                                                         playSound(
                                                                                 "/sounds/buttons.mp3"

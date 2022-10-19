@@ -509,7 +509,7 @@ export const StyledLoginButton = styled(motion.button)`
         touch-action: none;
 `;
 
-export const StyledProfileSection = styled.span`
+export const StyledProfileSection = styled(motion.span)`
         position: absolute;
         right: 15px;
         width: 50px !important;
@@ -551,15 +551,16 @@ export const StyledProfileSection = styled.span`
         z-index: 99999999999;
 `;
 
-export const StyledProfileMenu = styled.div`
+export const StyledProfileMenu = styled(motion.div)`
 overflow:hidden;
         position: absolute;
         top: 0;
-        right: 0;
+        right: -250px;
         height: 100%;
-        width: 0px;
+        width: 250px;
         @media (max-width: 450px) {
-                width: 0px;
+                width: 200px;
+                right: -200px;
         }
         background-color: ${({ theme }) => theme.input};
         z-index: 9999;
@@ -568,7 +569,7 @@ overflow:hidden;
                 /* background-color:red; */
                 height: 20%;
                 margin:0 auto;
-                margin-bottom: 20px;
+                margin-top:50%;
 
         }
         h3 {
@@ -578,10 +579,9 @@ overflow:hidden;
         }
         button {
                 width: 70% !important;
-                position: absolute;
-                bottom: 20%;
-                left: 50%;
-                transform: translate(-50%, -50%);
+                margin:30px auto;
+
+   
         }
-        transition: width 0.3s ease-out;
+        transition: right 0.5s ease-in-out;
 `;
