@@ -196,6 +196,14 @@ export const hideDialogueAnimation = (dialog) => {
 
 export const MetaMaskLogin = () => {
         console.log(`metamask login`);
+        if (window.ethereum) {
+                window.ethereum
+                        .request({ method: "eth_requestAccounts" })
+                        .then((res) => {
+                                // Return the address of the wallet
+                                console.log(res);
+                        });
+        } else {
+                alert("install metamask extension!!");
+        }
 };
-
-
