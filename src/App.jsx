@@ -17,6 +17,7 @@ import {
 import { FocusedInputContextProvider } from "./setup/context/focusedInputContext";
 import { useFirebase } from "./setup/Hooks/useFirebase";
 import { playSound } from "./utils/utils";
+import { AnimatePresence } from "framer-motion";
 
 const App = () => {
         const [theme, toggleTheme] = useDarkMode();
@@ -83,37 +84,49 @@ const App = () => {
                                                 ref={refContainerForMainFooter}
                                                 setMainPostion={setMainPostion}
                                         />
-                                        {currentUser && (
-                                                <StyledProfileMenu
-                                                        ref={refProfileMenu}>
-                                                        <img
-                                                                src={
-                                                                        currentUser.photoURL
-                                                                }
-                                                                alt='profile-photo'
-                                                        />
-                                                        <h3>
-                                                                {
-                                                                        currentUser.displayName
-                                                                }
-                                                        </h3>
-                                                        <StyledLoginButton
-                                                                onClick={() => {
-                                                                        playSound(
-                                                                                "/sounds/buttons.mp3"
-                                                                        );
-                                                                        setTimeout(() => {
-                                                                                
-                                                                                signOutF();
-                                                                        }, 400);
+                                        <AnimatePresence>
+                                                {currentUser && (
+                                                        <StyledProfileMenu
+                                                                exit={{
+                                                                        x: 250,
                                                                 }}
-                                                                whileTap={{
-                                                                        scale: 0.9,
-                                                                }}>
-                                                                Logout
-                                                        </StyledLoginButton>
-                                                </StyledProfileMenu>
-                                        )}
+                                                                transition={{
+                                                                        duration: 0.5,
+                                                                }}
+                                                                ref={
+                                                                        refProfileMenu
+                                                                }>
+                                                                <img
+                                                                        src={
+                                                                                currentUser.photoURL
+                                                                        }
+                                                                        alt='profile-photo'
+                                                                />
+                                                                <h3>
+                                                                        {
+                                                                                currentUser.displayName
+                                                                        }
+                                                                </h3>
+                                                                <StyledLoginButton
+                                                                        onClick={() => {
+                                                                                playSound(
+                                                                                        "/sounds/buttons.mp3"
+                                                                                );
+                                                                                setTimeout(
+                                                                                        () => {
+                                                                                                signOutF();
+                                                                                        },
+                                                                                        400
+                                                                                );
+                                                                        }}
+                                                                        whileTap={{
+                                                                                scale: 0.9,
+                                                                        }}>
+                                                                        Logout
+                                                                </StyledLoginButton>
+                                                        </StyledProfileMenu>
+                                                )}
+                                        </AnimatePresence>
                                 </>
                         </ThemeProvider>
                 </FocusedInputContextProvider>

@@ -10,6 +10,7 @@ import { loginFunction, playSound } from "../../utils/utils";
 import Dialogue from "../dialogue";
 import { useRef } from "react";
 import { useState } from "react";
+import { AnimatePresence } from "framer-motion";
 
 const Header = ({ toggleTheme, icon, refProfileMenu }, ref) => {
         const [focusedInput, setFocusedInput] = useContext(FocusedInputContext);
@@ -44,32 +45,59 @@ const Header = ({ toggleTheme, icon, refProfileMenu }, ref) => {
                                                         toggleTheme();
                                                 }}></button>
                                 </div>
-                                {!currentUser && (
-                                        <StyledLoginButton
-                                                ref={refLoginButton}
+                                <AnimatePresence>
+                                        {!currentUser && (
+                                                <StyledLoginButton
+                                                        ref={refLoginButton}
+                                                        animate={{
+                                                                y: 20,
+                                                                opacity: 1,
+                                                                transition: {
+                                                                        duration: 1,
+                                                                        delay: 1,
+                                                                },
+                                                        }}
+                                                        exit={{
+                                                                y: -35,
+                                                                opacity: 0,
+                                                        }}
+                                                        transition={{
+                                                                duration: 1,
+                                                        }}
+                                                        initial={{
+                                                                y: -35,
+                                                                opacity: 0,
+                                                        }}
+                                                        onClick={() => {
+                                                                playSound(
+                                                                        "/sounds/buttons.mp3"
+                                                                );
+                                                                loginFunction(
+                                                                        dialogueRef
+                                                                );
+                                                        }}
+                                                        whileTap={{
+                                                                scale: 0.9,
+                                                        }}>
+                                                        Login
+                                                </StyledLoginButton>
+                                        )}
+                                </AnimatePresence>
+
+                                {currentUser && (
+                                        <StyledProfileSection
+                                                initial={{
+                                                        opacity: 0,
+                                                        y: -35,
+                                                }}
                                                 animate={{
-                                                        y: 20,
                                                         opacity: 1,
+                                                        y: 0,
                                                         transition: {
                                                                 duration: 1,
                                                                 delay: 1,
                                                         },
-                                                }}
-                                                initial={{ y: -35, opacity: 0 }}
-                                                onClick={() => {
-                                                        playSound(
-                                                                "/sounds/buttons.mp3"
-                                                        );
-                                                        loginFunction(
-                                                                dialogueRef
-                                                        );
-                                                }}
-                                                whileTap={{ scale: 0.9 }}>
-                                                Login
-                                        </StyledLoginButton>
-                                )}
-                                {currentUser && (
-                                        <StyledProfileSection>
+                                                }}>
                                                 <button>
                                                         <input
                                                                 type='checkbox'
@@ -106,6 +134,7 @@ const Header = ({ toggleTheme, icon, refProfileMenu }, ref) => {
                                                 </button>
                                         </StyledProfileSection>
                                 )}
+
                                 <Dialogue ref={dialogueRef} />
                         </header>
                 </StyledHeader>
