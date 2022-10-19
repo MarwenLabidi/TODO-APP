@@ -10,10 +10,14 @@ import { useRef } from "react";
 import useElementPosition from "./setup/Hooks/useElemetPosition";
 import { isBrowser } from "react-device-detect";
 import { useState } from "react";
-import { StyledProfileMenu,StyledLoginButton } from "./setup/styled_components/styled_component";
+import {
+        StyledProfileMenu,
+        StyledLoginButton,
+} from "./setup/styled_components/styled_component";
 
 const App = () => {
         const [theme, toggleTheme] = useDarkMode();
+        const [isLoggedIn, setIsLoggedIn] = useState(false);
         const themeMode = theme === "light" ? lightTheme() : darkTheme();
         const refMain = useRef();
         const refDarkModeButton = useRef();
@@ -35,7 +39,7 @@ const App = () => {
         const footerPosition = useElementPosition(refFooter);
         const loginButtonPosition = useElementPosition(refLoginButton);
         const menuButtonPosition = useElementPosition(refMenuButton);
-        const refProfileMenu=useRef()
+        const refProfileMenu = useRef();
 
         return (
                 <FocusedInputContextProvider>
@@ -68,26 +72,29 @@ const App = () => {
                                                         refContainerForLoginDarkModeButton
                                                 }
                                                 refProfileMenu={refProfileMenu}
+                                                isLoggedIn={isLoggedIn}
                                         />
                                         <Body
                                                 theme={theme}
                                                 ref={refContainerForMainFooter}
                                                 setMainPostion={setMainPostion}
                                         />
-                                        <StyledProfileMenu ref={refProfileMenu}>
-                                                <img
-                                                        src=''
-                                                        alt='profile-photo'
-                                                       
-                                                />
-                                                <h3>Name</h3>
-                                                <StyledLoginButton
-                                                        whileTap={{
-                                                                scale: 0.9,
-                                                        }}>
-                                                        Logout
-                                                </StyledLoginButton>
-                                        </StyledProfileMenu>
+                                        {isLoggedIn && (
+                                                <StyledProfileMenu
+                                                        ref={refProfileMenu}>
+                                                        <img
+                                                                src=''
+                                                                alt='profile-photo'
+                                                        />
+                                                        <h3>Name</h3>
+                                                        <StyledLoginButton
+                                                                whileTap={{
+                                                                        scale: 0.9,
+                                                                }}>
+                                                                Logout
+                                                        </StyledLoginButton>
+                                                </StyledProfileMenu>
+                                        )}
                                 </>
                         </ThemeProvider>
                 </FocusedInputContextProvider>

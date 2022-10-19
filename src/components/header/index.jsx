@@ -9,7 +9,7 @@ import { loginFunction, playSound } from "../../utils/utils";
 import Dialogue from "../dialogue";
 import { useRef } from "react";
 
-const Header = ({ toggleTheme, icon, refProfileMenu }, ref) => {
+const Header = ({ toggleTheme, icon, refProfileMenu, isLoggedIn }, ref) => {
         const [focusedInput, setFocusedInput] = useContext(FocusedInputContext);
         const { refDarkModeButton, refLoginButton } = ref.current;
         const dialogueRef = useRef();
@@ -40,38 +40,65 @@ const Header = ({ toggleTheme, icon, refProfileMenu }, ref) => {
                                                         toggleTheme();
                                                 }}></button>
                                 </div>
-                                {/* <StyledLoginButton ref={refLoginButton} animate={{y:20, opacity: 1, transition: { duration: 1, delay: 1 } }} initial={{y:-35, opacity: 0 }}  onClick={()=>{playSound('/sounds/buttons.mp3');loginFunction(dialogueRef)}} whileTap={{ scale: 0.9 }} >Login</StyledLoginButton> */}
-                                <StyledProfileSection>
-                                        <button>
-                                                <input
-                                                        type='checkbox'
-                                                        onChange={(e) => {
-                                                                if (
+                                {!isLoggedIn && (
+                                        <StyledLoginButton
+                                                ref={refLoginButton}
+                                                animate={{
+                                                        y: 20,
+                                                        opacity: 1,
+                                                        transition: {
+                                                                duration: 1,
+                                                                delay: 1,
+                                                        },
+                                                }}
+                                                initial={{ y: -35, opacity: 0 }}
+                                                onClick={() => {
+                                                        playSound(
+                                                                "/sounds/buttons.mp3"
+                                                        );
+                                                        loginFunction(
+                                                                dialogueRef
+                                                        );
+                                                }}
+                                                whileTap={{ scale: 0.9 }}>
+                                                Login
+                                        </StyledLoginButton>
+                                )}
+                                {isLoggedIn && (
+                                        <StyledProfileSection>
+                                                <button>
+                                                        <input
+                                                                type='checkbox'
+                                                                onChange={(
                                                                         e
-                                                                                .currentTarget
-                                                                                .checked
-                                                                ) {
-                                                                        //change the width to 250px
+                                                                ) => {
                                                                         if (
-                                                                                window.matchMedia(
-                                                                                        "(max-width: 450px)"
-                                                                                )
-                                                                                        .matches
+                                                                                e
+                                                                                        .currentTarget
+                                                                                        .checked
                                                                         ) {
-                                                                                refProfileMenu.current.style.width =
-                                                                                        "200px";
+                                                                                //change the width to 250px
+                                                                                if (
+                                                                                        window.matchMedia(
+                                                                                                "(max-width: 450px)"
+                                                                                        )
+                                                                                                .matches
+                                                                                ) {
+                                                                                        refProfileMenu.current.style.width =
+                                                                                                "200px";
+                                                                                } else {
+                                                                                        refProfileMenu.current.style.width =
+                                                                                                "250px";
+                                                                                }
                                                                         } else {
                                                                                 refProfileMenu.current.style.width =
-                                                                                        "250px";
+                                                                                        "0px";
                                                                         }
-                                                                } else {
-                                                                        refProfileMenu.current.style.width =
-                                                                                "0px";
-                                                                }
-                                                        }}
-                                                />
-                                        </button>
-                                </StyledProfileSection>
+                                                                }}
+                                                        />
+                                                </button>
+                                        </StyledProfileSection>
+                                )}
                                 <Dialogue ref={dialogueRef} />
                         </header>
                 </StyledHeader>
