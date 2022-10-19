@@ -5,12 +5,17 @@ import {
         StyledProfileSection,
 } from "../../setup/styled_components/styled_component";
 import { FocusedInputContext } from "../../setup/context/focusedInputContext.jsx";
+import{authFireBaseContext} from '../../setup/context/authFireBaseContext';
 import { loginFunction, playSound } from "../../utils/utils";
 import Dialogue from "../dialogue";
 import { useRef } from "react";
+import { useState } from "react";
 
-const Header = ({ toggleTheme, icon, refProfileMenu, isLoggedIn }, ref) => {
+const Header = ({ toggleTheme, icon, refProfileMenu, }, ref) => {
         const [focusedInput, setFocusedInput] = useContext(FocusedInputContext);
+        const [currentUser, setCurrentUser] = useContext(authFireBaseContext);
+
+
         const { refDarkModeButton, refLoginButton } = ref.current;
         const dialogueRef = useRef();
 
@@ -40,7 +45,7 @@ const Header = ({ toggleTheme, icon, refProfileMenu, isLoggedIn }, ref) => {
                                                         toggleTheme();
                                                 }}></button>
                                 </div>
-                                {!isLoggedIn && (
+                                {!currentUser && (
                                         <StyledLoginButton
                                                 ref={refLoginButton}
                                                 animate={{
@@ -64,7 +69,7 @@ const Header = ({ toggleTheme, icon, refProfileMenu, isLoggedIn }, ref) => {
                                                 Login
                                         </StyledLoginButton>
                                 )}
-                                {isLoggedIn && (
+                                {currentUser && (
                                         <StyledProfileSection>
                                                 <button>
                                                         <input

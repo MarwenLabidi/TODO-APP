@@ -51,7 +51,7 @@ export const useFirebase = () => {
                 await setTasksData(tasks);
                 await setThemeData(value);
         };
-        const singInWithGoogle = async (setIsLoggedIn) => {
+        const singInWithGoogle = async () => {
                 signInWithPopup(auth, provider)
                         .then((result) => {
                                 // This gives you a Google Access Token. You can use it to access the Google API.
@@ -78,7 +78,7 @@ export const useFirebase = () => {
                                 // ...
                         });
         };
-        const signOut = async (setIsLoggedIn) => {
+        const signOut = async () => {
                 signOut(auth)
                         .then(() => {
                                 // Sign-out successful.

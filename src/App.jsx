@@ -4,20 +4,23 @@ import GlobalStyle from "./setup/styled_components/GlobalStyle";
 import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "./setup/styled_components/theme.js";
 import { useDarkMode } from "./setup/Hooks/useDarkMode.js";
-import { FocusedInputContextProvider } from "./setup/context/focusedInputContext";
+import{authFireBaseContext} from './setup/context/authFireBaseContext';
 import Cursor from "./components/cursor/index";
 import { useRef } from "react";
 import useElementPosition from "./setup/Hooks/useElemetPosition";
 import { isBrowser } from "react-device-detect";
-import { useState } from "react";
+import { useState,useContext } from "react";
 import {
         StyledProfileMenu,
         StyledLoginButton,
 } from "./setup/styled_components/styled_component";
+import { FocusedInputContextProvider } from "./setup/context/focusedInputContext";
 
 const App = () => {
         const [theme, toggleTheme] = useDarkMode();
-        const [isLoggedIn, setIsLoggedIn] = useState(false);
+        const [currentUser, setCurrentUser] = useContext(authFireBaseContext);
+
+
         const themeMode = theme === "light" ? lightTheme() : darkTheme();
         const refMain = useRef();
         const refDarkModeButton = useRef();
@@ -42,62 +45,71 @@ const App = () => {
         const refProfileMenu = useRef();
 
         return (
-                <FocusedInputContextProvider>
-                        <ThemeProvider theme={themeMode}>
-                                <>
-                                        <GlobalStyle />
-                                        {isBrowser && (
-                                                <Cursor
-                                                        mainPostion={
-                                                                mainPostion
+                        <FocusedInputContextProvider>
+                                <ThemeProvider theme={themeMode}>
+                                        <>
+                                                <GlobalStyle />
+                                                {isBrowser && (
+                                                        <Cursor
+                                                                mainPostion={
+                                                                        mainPostion
+                                                                }
+                                                                darkModeButtonPosition={
+                                                                        darkModeButtonPosition
+                                                                }
+                                                                footerPosition={
+                                                                        footerPosition
+                                                                }
+                                                                loginButtonPosition={
+                                                                        loginButtonPosition
+                                                                }
+                                                                menuButtonPosition={
+                                                                        menuButtonPosition
+                                                                }
+                                                        />
+                                                )}
+                                                <Header
+                                                        icon={theme}
+                                                        toggleTheme={
+                                                                toggleTheme
                                                         }
-                                                        darkModeButtonPosition={
-                                                                darkModeButtonPosition
+                                                        ref={
+                                                                refContainerForLoginDarkModeButton
                                                         }
-                                                        footerPosition={
-                                                                footerPosition
-                                                        }
-                                                        loginButtonPosition={
-                                                                loginButtonPosition
-                                                        }
-                                                        menuButtonPosition={
-                                                                menuButtonPosition
+                                                        refProfileMenu={
+                                                                refProfileMenu
                                                         }
                                                 />
-                                        )}
-                                        <Header
-                                                icon={theme}
-                                                toggleTheme={toggleTheme}
-                                                ref={
-                                                        refContainerForLoginDarkModeButton
-                                                }
-                                                refProfileMenu={refProfileMenu}
-                                                isLoggedIn={isLoggedIn}
-                                        />
-                                        <Body
-                                                theme={theme}
-                                                ref={refContainerForMainFooter}
-                                                setMainPostion={setMainPostion}
-                                        />
-                                        {isLoggedIn && (
-                                                <StyledProfileMenu
-                                                        ref={refProfileMenu}>
-                                                        <img
-                                                                src=''
-                                                                alt='profile-photo'
-                                                        />
-                                                        <h3>Name</h3>
-                                                        <StyledLoginButton
-                                                                whileTap={{
-                                                                        scale: 0.9,
-                                                                }}>
-                                                                Logout
-                                                        </StyledLoginButton>
-                                                </StyledProfileMenu>
-                                        )}
-                                </>
-                        </ThemeProvider>
-                </FocusedInputContextProvider>
+                                                <Body
+                                                        theme={theme}
+                                                        ref={
+                                                                refContainerForMainFooter
+                                                        }
+                                                        setMainPostion={
+                                                                setMainPostion
+                                                        }
+                                                />
+                                                {currentUser && (
+                                                        <StyledProfileMenu
+                                                                ref={
+                                                                        refProfileMenu
+                                                                }>
+                                                                <img
+                                                                        src=''
+                                                                        alt='profile-photo'
+                                                                />
+                                                                <h3>Name</h3>
+                                                                <StyledLoginButton
+                                                                        whileTap={{
+                                                                                scale: 0.9,
+                                                                        }}>
+                                                                        Logout
+                                                                </StyledLoginButton>
+                                                        </StyledProfileMenu>
+                                                )}
+                                        </>
+                                </ThemeProvider>
+                        </FocusedInputContextProvider>
         );
 };
 
