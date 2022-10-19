@@ -4,22 +4,26 @@ import GlobalStyle from "./setup/styled_components/GlobalStyle";
 import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "./setup/styled_components/theme.js";
 import { useDarkMode } from "./setup/Hooks/useDarkMode.js";
-import{authFireBaseContext} from './setup/context/authFireBaseContext';
+import { authFireBaseContext } from "./setup/context/authFireBaseContext";
 import Cursor from "./components/cursor/index";
 import { useRef } from "react";
 import useElementPosition from "./setup/Hooks/useElemetPosition";
 import { isBrowser } from "react-device-detect";
-import { useState,useContext } from "react";
+import { useState, useContext } from "react";
 import {
         StyledProfileMenu,
         StyledLoginButton,
 } from "./setup/styled_components/styled_component";
 import { FocusedInputContextProvider } from "./setup/context/focusedInputContext";
+import { useFirebase } from "./setup/Hooks/useFirebase";
+import { playSound } from "./utils/utils";
+
+
 
 const App = () => {
         const [theme, toggleTheme] = useDarkMode();
         const [currentUser, setCurrentUser] = useContext(authFireBaseContext);
-
+        const [, , , signOutF] = useFirebase();
 
         const themeMode = theme === "light" ? lightTheme() : darkTheme();
         const refMain = useRef();
@@ -45,75 +49,80 @@ const App = () => {
         const refProfileMenu = useRef();
 
         return (
-                        <FocusedInputContextProvider>
-                                <ThemeProvider theme={themeMode}>
-                                        <>
-                                                <GlobalStyle />
-                                                {isBrowser && (
-                                                        <Cursor
-                                                                mainPostion={
-                                                                        mainPostion
+                <FocusedInputContextProvider>
+                        <ThemeProvider theme={themeMode}>
+                                <>
+                                        <GlobalStyle />
+                                        {isBrowser && (
+                                                <Cursor
+                                                        mainPostion={
+                                                                mainPostion
+                                                        }
+                                                        darkModeButtonPosition={
+                                                                darkModeButtonPosition
+                                                        }
+                                                        footerPosition={
+                                                                footerPosition
+                                                        }
+                                                        loginButtonPosition={
+                                                                loginButtonPosition
+                                                        }
+                                                        menuButtonPosition={
+                                                                menuButtonPosition
+                                                        }
+                                                />
+                                        )}
+                                        <Header
+                                                icon={theme}
+                                                toggleTheme={toggleTheme}
+                                                ref={
+                                                        refContainerForLoginDarkModeButton
+                                                }
+                                                refProfileMenu={refProfileMenu}
+                                        />
+                                        <Body
+                                                theme={theme}
+                                                ref={refContainerForMainFooter}
+                                                setMainPostion={setMainPostion}
+                                        />
+                                        {currentUser && (
+                                                <StyledProfileMenu
+                                                        ref={refProfileMenu}>
+                                                        <img
+                                                                src={
+                                                                        currentUser.photoURL
                                                                 }
-                                                                darkModeButtonPosition={
-                                                                        darkModeButtonPosition
-                                                                }
-                                                                footerPosition={
-                                                                        footerPosition
-                                                                }
-                                                                loginButtonPosition={
-                                                                        loginButtonPosition
-                                                                }
-                                                                menuButtonPosition={
-                                                                        menuButtonPosition
-                                                                }
+                                                                alt='profile-photo'
                                                         />
-                                                )}
-                                                <Header
-                                                        icon={theme}
-                                                        toggleTheme={
-                                                                toggleTheme
-                                                        }
-                                                        ref={
-                                                                refContainerForLoginDarkModeButton
-                                                        }
-                                                        refProfileMenu={
-                                                                refProfileMenu
-                                                        }
-                                                />
-                                                <Body
-                                                        theme={theme}
-                                                        ref={
-                                                                refContainerForMainFooter
-                                                        }
-                                                        setMainPostion={
-                                                                setMainPostion
-                                                        }
-                                                />
-                                                {currentUser && (
-                                                        <StyledProfileMenu
-                                                                ref={
-                                                                        refProfileMenu
-                                                                }>
-                                                                <img
-                                                                        src=''
-                                                                        alt='profile-photo'
-                                                                />
-                                                                <h3>Name</h3>
-                                                                <StyledLoginButton
-                                                                        whileTap={{
-                                                                                scale: 0.9,
-                                                                        }}>
-                                                                        Logout
-                                                                </StyledLoginButton>
-                                                        </StyledProfileMenu>
-                                                )}
-                                        </>
-                                </ThemeProvider>
-                        </FocusedInputContextProvider>
+                                                        <h3>
+                                                                {
+                                                                        currentUser.displayName
+                                                                }
+                                                        </h3>
+                                                        <StyledLoginButton
+                                                                onClick={() => {
+                                                                        playSound(
+                                                                                "/sounds/buttons.mp3"
+                                                                        );
+                                                                        signOutF();
+                                                                }}
+                                                               >
+                                                                Logout
+                                                        </StyledLoginButton>
+                                                </StyledProfileMenu>
+                                        )}
+                                </>
+                        </ThemeProvider>
+                </FocusedInputContextProvider>
         );
 };
 
 export default App;
+//FIXME? adjust the positionof e log out button : make the photo the title the buton in the center 
+//FIXME? add animation t the log out button and use a spinner to wait for the log out 
+//FIXME?? stop the content from shinking in the side bar chane the widht property let position property and change it 
+//FIXME?ADD animationPresene  llside bar lmenu button and ll login button
+//FIXME? AADD LOADER WHEN YOU LOG IN AND WHEN Y OU USE ASYNC FUNCTION AND WHEN U LOG OUT
 //TODO? know the prefers-color-scheme with js and set it in the beggining
 //FIXME? Search how to scroll to the direction of dragging
 //TODO? login firebase

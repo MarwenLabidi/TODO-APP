@@ -19,7 +19,7 @@ export const AuthFireBaseContextProvider = ({ children }) => {
                                 setCurrentUser(null);
                         }
                 });
-        });
+        },[]);
         return (
                 <authFireBaseContext.Provider value={[currentUser, setCurrentUser]}>
                         {children}

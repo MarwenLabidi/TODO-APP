@@ -190,10 +190,12 @@ export const hideDialogueAnimation = (dialog) => {
         };
         return () => {
                 dialog.classList.add("hide");
-                dialog.addEventListener(
-                        "animationend",
-                        hide,
-                        false
-                );
+                dialog.addEventListener("animationend", hide, false);
         };
 };
+
+export const MetaMaskLogin = () => {
+        console.log(`metamask login`);
+};
+
+

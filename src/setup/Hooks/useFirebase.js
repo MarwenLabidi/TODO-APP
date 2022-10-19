@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { db, provider, auth } from "../../utils/firebase";
 import { collection, getDocs, doc, setDoc } from "firebase/firestore";
-import { signInWithPopup, signOut } from "firebase/auth";
+import { GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth";
 
 export const useFirebase = () => {
         const getDataFromFirebase = async () => {
@@ -78,12 +78,14 @@ export const useFirebase = () => {
                                 // ...
                         });
         };
-        const signOut = async () => {
+        const signOutF = async () => {
                 signOut(auth)
                         .then(() => {
                                 // Sign-out successful.
+                                console.log(`you signed out`);
                         })
                         .catch((error) => {
+                                console.log('error: ', error);
                                 // An error happened.
                         });
         };
@@ -92,6 +94,6 @@ export const useFirebase = () => {
                 getDataFromFirebase,
                 setDataToFirebase,
                 singInWithGoogle,
-                signOut,
+                signOutF,
         ];
 };

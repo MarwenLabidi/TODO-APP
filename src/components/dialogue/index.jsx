@@ -2,9 +2,12 @@ import styled, { keyframes } from "styled-components";
 import { motion } from "framer-motion";
 import { createPortal } from "react-dom";
 import { forwardRef } from "react";
-import { hideDialogueAnimation, playSound } from "../../utils/utils";
+import {  hideDialogueAnimation, MetaMaskLogin, playSound } from "../../utils/utils";
+import { useFirebase } from "../../setup/Hooks/useFirebase";
 
 const Dialogue = ({}, ref) => {
+        const [, ,singInWithGoogle] = useFirebase();
+
         return createPortal(
                 <StyledDialogue
                         onClick={(e) => {
@@ -37,6 +40,10 @@ const Dialogue = ({}, ref) => {
                                                         playSound(
                                                                 "/sounds/buttons.mp3"
                                                         );
+                                                        singInWithGoogle();
+                                                        hideDialogueAnimation(
+                                                                ref.current
+                                                        )();
                                                 }}
                                                 whileTap={{ scale: 0.9 }}>
                                                 <svg
@@ -78,6 +85,7 @@ const Dialogue = ({}, ref) => {
                                                         playSound(
                                                                 "/sounds/buttons.mp3"
                                                         );
+                                                        MetaMaskLogin();
                                                 }}
                                                 whileTap={{ scale: 0.9 }}>
                                                 <svg

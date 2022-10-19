@@ -552,6 +552,7 @@ export const StyledProfileSection = styled.span`
 `;
 
 export const StyledProfileMenu = styled.div`
+overflow:hidden;
         position: absolute;
         top: 0;
         right: 0;
@@ -565,18 +566,22 @@ export const StyledProfileMenu = styled.div`
         text-align: center;
         img {
                 /* background-color:red; */
-                height: 30%;
+                height: 20%;
+                margin:0 auto;
                 margin-bottom: 20px;
+
         }
         h3 {
                 color: ${({ theme }) => theme.text};
+                /* inline-size: 200px;  */
+
         }
         button {
-                width: 90% !important;
+                width: 70% !important;
                 position: absolute;
-                bottom: 15px;
+                bottom: 20%;
                 left: 50%;
                 transform: translate(-50%, -50%);
         }
-        transition: width 0.3s ease-in-out;
+        transition: width 0.3s ease-out;
 `;

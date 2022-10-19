@@ -99,6 +99,9 @@ const Header = ({ toggleTheme, icon, refProfileMenu, }, ref) => {
                                                                                 refProfileMenu.current.style.width =
                                                                                         "0px";
                                                                         }
+                                                                        playSound(
+                                                                                "/sounds/buttons.mp3"
+                                                                        );
                                                                 }}
                                                         />
                                                 </button>
