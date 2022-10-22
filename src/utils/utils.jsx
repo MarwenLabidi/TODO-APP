@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from "uuid";
+import { isBrowser } from "react-device-detect";
 
 export const showTasksInTheList = (
         tasks,
@@ -248,6 +249,8 @@ export const MetaMaskLogin = (auth, signInWithCustomToken) => {
                                         .catch((err) => console.error(err));
                         });
         } else {
-                alert("install metamask extension!!");
+                isBrowser
+                        ? alert("install metamask extension!!")
+                        : alert("use metamask app browser!!");
         }
 };
