@@ -99,13 +99,15 @@ const App = () => {
                                                                 <img
                                                                         src={
                                                                                 currentUser.photoURL
+                                                                                        ? currentUser.photoURL
+                                                                                        : "/logos/metamask.svg"
                                                                         }
                                                                         alt='profile-photo'
                                                                 />
                                                                 <h3>
-                                                                        {
-                                                                                currentUser.displayName
-                                                                        }
+                                                                        {currentUser.displayName
+                                                                                ? currentUser.displayName
+                                                                                : "..."}
                                                                 </h3>
                                                                 <StyledLoginButton
                                                                         onClick={() => {
@@ -134,20 +136,10 @@ const App = () => {
 };
 
 export default App;
-//FIXME?ADD animationPresene  llside bar lmenu button and ll login button
 //TODO? know the prefers-color-scheme with js and set it in the beggining
 //FIXME? Search how to scroll to the direction of dragging
 //TODO? login firebase
-//-[]when you first enter a pop up showed to you tell you to log in and the benifits or using local storage
-//-[] there is an overlay when you show the pop up or the modal and it depent on the theme the color of overlay
-//-[] FIXME : firebase make the document of Tasks Collection Depend of the userName or userId
-//-[] look at the figma button the copy css
-//-[]add a condition on the login button to show only if your not loged in the profile photo vice versa
-//-[]when you click log in pop up showen to u and log in google metamask
-//-[]when you log in the log in butto change to photo a name than log out for mobile its only photo and when youclick it it show you a name and log out
-//-[]when you log in and there is data in the app pop up showed to you if you wanna move the data to firestore to the account
-//-[]create the security rules of firebase
-//-[] meta  mask auth but you should use costom auth to make it interact with firestore https://firebase.google.com/docs/auth/web/custom-auth                           run the admin sdk in a cloud function firebase https://www.youtube.com/watch?v=8JVmWtJLqNU                                             https://firebase.google.com/products/functions?gclid=CjwKCAjwqJSaBhBUEiwAg5W9pw9BM1wdVvmwYFPrW1nA1yayekAP57gM2TTalfNNb-bCiUIgv1l4yBoCxMgQAvD_BwE&gclsrc=aw.ds
+//-[]create the security rules of firebase and use index db if your not loged in to save the data and show pop up to  move data from index db when you log in
 //TODO? voice controll feature
 //-[]Search how to use audio to read text look for a hook or something
 //-[]Use speech recognition hooks

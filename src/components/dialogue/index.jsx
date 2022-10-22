@@ -4,6 +4,8 @@ import { createPortal } from "react-dom";
 import { forwardRef } from "react";
 import {  hideDialogueAnimation, MetaMaskLogin, playSound } from "../../utils/utils";
 import { useFirebase } from "../../setup/Hooks/useFirebase";
+import { getAuth, signInWithCustomToken } from "firebase/auth";
+const auth = getAuth();
 
 const Dialogue = ({}, ref) => {
         const [, ,singInWithGoogle] = useFirebase();
@@ -85,7 +87,10 @@ const Dialogue = ({}, ref) => {
                                                         playSound(
                                                                 "/sounds/buttons.mp3"
                                                         );
-                                                        MetaMaskLogin();
+                                                        MetaMaskLogin(auth,signInWithCustomToken);
+                                                        hideDialogueAnimation(
+                                                                ref.current
+                                                        )();
                                                 }}
                                                 whileTap={{ scale: 0.9 }}>
                                                 <svg

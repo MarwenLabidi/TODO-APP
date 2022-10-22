@@ -194,14 +194,58 @@ export const hideDialogueAnimation = (dialog) => {
         };
 };
 
-export const MetaMaskLogin = () => {
+export const MetaMaskLogin = (auth, signInWithCustomToken) => {
         console.log(`metamask login`);
+        const url = new URL("http://localhost:3000");
+
         if (window.ethereum) {
                 window.ethereum
                         .request({ method: "eth_requestAccounts" })
                         .then((res) => {
                                 // Return the address of the wallet
                                 console.log(res);
+                                fetch(url)
+                                        .then((response) => {
+                                                response.json().then(
+                                                        (token) => {
+                                                                signInWithCustomToken(
+                                                                        auth,
+                                                                        token
+                                                                )
+                                                                        .then(
+                                                                                (
+                                                                                        userCredential
+                                                                                ) => {
+                                                                                        // Signed in
+                                                                                        const user =
+                                                                                                userCredential.user;
+                                                                                        console.log(
+                                                                                                "user: ",
+                                                                                                user
+                                                                                        );
+                                                                                        // ...
+                                                                                }
+                                                                        )
+                                                                        .catch(
+                                                                                (
+                                                                                        error
+                                                                                ) => {
+                                                                                        console.log(
+                                                                                                "error: ",
+                                                                                                error
+                                                                                        );
+                                                                                        const errorCode =
+                                                                                                error.code;
+                                                                                        const errorMessage =
+                                                                                                error.message;
+                                                                                        // ...
+                                                                                }
+                                                                        );
+                                                        }
+                                                );
+                                        })
+                                        .then((data) => console.log(data))
+                                        .catch((err) => console.error(err));
                         });
         } else {
                 alert("install metamask extension!!");
