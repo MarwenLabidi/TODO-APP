@@ -1,0 +1,3 @@
+[submodule "customTokenServerForCustomAuth"]
+	path = customTokenServerForCustomAuth
+	url = https://github.com/MarwenLabidi/customTokenServerForCustomAuth
