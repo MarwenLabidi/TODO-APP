@@ -136,6 +136,8 @@ const App = () => {
 };
 
 export default App;
+//TODO? make server url in env varriable and change github action to add url
+//TODO? add a custom loader until you log in or until you log out
 //TODO? know the prefers-color-scheme with js and set it in the beggining
 //FIXME? Search how to scroll to the direction of dragging
 //TODO? login firebase

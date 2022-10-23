@@ -25,13 +25,16 @@ import { useFirebase } from "../../setup/Hooks/useFirebase.js";
 import { useUpdateEffect } from "react-use";
 import { motion } from "framer-motion";
 import { isMobile } from "react-device-detect";
+import { TasksContext } from "../../setup/context/tasksContext";
 const variants = {
         desktop: { y: -128 },
         mobile: { y: -145 },
 };
+import { authFireBaseContext } from "../../setup/context/authFireBaseContext";
+
 
 const Main = ({ theme, setMainPostion }, ref) => {
-        const [Tasks, setTask] = useState([]); // [{ID,Description,Completed}]
+        const [Tasks, setTask] = useContext(TasksContext); // [{ID,Description,Completed}]
         const [typeOfTask, setTypeOfTask] = useState("All"); //All,Active,Completed
         const [itemsNumbers, setItemsNumbers] = useState(Tasks.length);
         const [input, setInput] = useState("");
@@ -40,6 +43,8 @@ const Main = ({ theme, setMainPostion }, ref) => {
         const StyledMainListSectionRef = useRef();
         const previousTasks = useRef(Tasks);
         const { refMain, refFooter } = ref.current;
+const [currentUser, setCurrentUser] = useContext(authFireBaseContext);
+
 
         // callback function to update the state of the checkbox
         const changeTaskStatus = (taskInfo) => {
@@ -62,7 +67,18 @@ const Main = ({ theme, setMainPostion }, ref) => {
         };
         useUpdateEffect(() => {
                 getItemsNumbers("All", Tasks, setItemsNumbers);
-                setDataToFirebase(Tasks, theme);
+                if (currentUser) {
+                        //FIXME? pass the user to setDatatofirebase and modiy it by addin uui to the name of the user in the firestore
+                        console.log('user: ', currentUser);
+                        // User is signed in, see docs for a list of available properties
+                        // https://firebase.google.com/docs/reference/js/firebase.User
+                        setDataToFirebase(Tasks, theme);
+                        // ...
+                      } else {
+                        //TODO?add to the loca storage the data
+                        console.log('No user: ');
+                      }
+                
                 if (Tasks.length > previousTasks.current.length) {
                         StyledMainListSectionRef.current.scrollTop =
                                 StyledMainListSectionRef.current.scrollHeight;
@@ -95,10 +111,24 @@ const Main = ({ theme, setMainPostion }, ref) => {
                 };
         }, [Tasks, typeOfTask]);
         useEffect(() => {
-                getDataFromFirebase().then((data) => {
-                        setTask(data[1][0]);
-                });
-        }, []);
+                //--->get data from firebase
+                if (currentUser) {
+                       //FIXME? pass the user to setDatatofirebase and modiy it by addin uui to the name of the user in the firestore
+
+                        console.log('user: ', currentUser);
+                        getDataFromFirebase().then((data) => {
+                                setTask(data[1][0]);
+                        });
+                        // ...
+                      } else {
+                        // No user is signed in.
+                        setTask([])// delete the task whe you log out
+                        console.log('No user: ');
+                        //TODO?get to the datato  local storage 
+
+                      }
+              
+        }, [currentUser]);
       
 
         return (

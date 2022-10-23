@@ -254,3 +254,5 @@ export const MetaMaskLogin = (auth, signInWithCustomToken) => {
                         : alert("use metamask app browser!!");
         }
 };
+
+//TODO? add the add and delete function from th index db using dexie
