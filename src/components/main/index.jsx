@@ -32,7 +32,6 @@ const variants = {
 };
 import { authFireBaseContext } from "../../setup/context/authFireBaseContext";
 
-
 const Main = ({ theme, setMainPostion }, ref) => {
         const [Tasks, setTask] = useContext(TasksContext); // [{ID,Description,Completed}]
         const [typeOfTask, setTypeOfTask] = useState("All"); //All,Active,Completed
@@ -43,8 +42,7 @@ const Main = ({ theme, setMainPostion }, ref) => {
         const StyledMainListSectionRef = useRef();
         const previousTasks = useRef(Tasks);
         const { refMain, refFooter } = ref.current;
-const [currentUser, setCurrentUser] = useContext(authFireBaseContext);
-
+        const [currentUser, setCurrentUser] = useContext(authFireBaseContext);
 
         // callback function to update the state of the checkbox
         const changeTaskStatus = (taskInfo) => {
@@ -69,35 +67,46 @@ const [currentUser, setCurrentUser] = useContext(authFireBaseContext);
                 getItemsNumbers("All", Tasks, setItemsNumbers);
                 if (currentUser) {
                         //FIXME? pass the user to setDatatofirebase and modiy it by addin uui to the name of the user in the firestore
-                        console.log('user: ', currentUser);
+                        console.log("user: ", currentUser);
                         // User is signed in, see docs for a list of available properties
-                        setDataToFirebase(Tasks, theme);
+                        setDataToFirebase(Tasks, theme, currentUser);
                         // ...
-                      } else {
-                        console.log('No user: ');
-                        localStorage.setItem('TasksOffline', JSON.stringify(Tasks));
-                      }
-                
+                } else {
+                        console.log("No user: ");
+                        localStorage.setItem(
+                                "TasksOffline",
+                                JSON.stringify(Tasks)
+                        );
+                }
+
                 if (Tasks.length > previousTasks.current.length) {
                         StyledMainListSectionRef.current.scrollTop =
                                 StyledMainListSectionRef.current.scrollHeight;
                 }
-        (function playSoundOfreorderTasks(){
-                let previousTasksarr = [...previousTasks.current];
-                let newTasks = [...Tasks];
-                if(previousTasksarr.length < 1||newTasks.length<1){return}
-                let isReorder = false;
-                let minLength=newTasks.length>previousTasksarr.length?previousTasksarr.length:newTasks.length
-                for(let i=0;i<minLength;i++){
-                        if(previousTasksarr[i].ID!==newTasks[i].ID){
-                                isReorder=true;
-                                break;
+                (function playSoundOfreorderTasks() {
+                        let previousTasksarr = [...previousTasks.current];
+                        let newTasks = [...Tasks];
+                        if (
+                                previousTasksarr.length < 1 ||
+                                newTasks.length < 1
+                        ) {
+                                return;
                         }
-                }
-                if(isReorder){
-                        playSound("/sounds/reorder.mp3");
-                }
-        })()
+                        let isReorder = false;
+                        let minLength =
+                                newTasks.length > previousTasksarr.length
+                                        ? previousTasksarr.length
+                                        : newTasks.length;
+                        for (let i = 0; i < minLength; i++) {
+                                if (previousTasksarr[i].ID !== newTasks[i].ID) {
+                                        isReorder = true;
+                                        break;
+                                }
+                        }
+                        if (isReorder) {
+                                playSound("/sounds/reorder.mp3");
+                        }
+                })();
                 previousTasks.current = Tasks;
         }, [Tasks]);
         useEffect(() => {
@@ -111,25 +120,26 @@ const [currentUser, setCurrentUser] = useContext(authFireBaseContext);
         }, [Tasks, typeOfTask]);
         useEffect(() => {
                 if (currentUser) {
-                       //FIXME? pass the user to setDatatofirebase and modiy it by addin uui to the name of the user in the firestore
+                        //FIXME? pass the user to setDatatofirebase and modiy it by addin uui to the name of the user in the firestore
 
-                        console.log('user: ', currentUser);
-                        getDataFromFirebase().then((data) => {
-                                setTask(data[1][0]);
+                        console.log("user: ", currentUser);
+                        getDataFromFirebase(currentUser).then((data) => {
+                                console.log("data: ", data);
+                                // setTask([]);
+                                if (data[1][0]) {
+                                        setTask(data[1][0]);
+                                }
                         });
                         // ...
-                      } else {
+                } else {
                         // No user is signed in.
-                        setTask([])// delete the task whe you log out
-                        console.log('No user: ');
-                        const textFromStorage = localStorage.getItem('TasksOffline');
+                        setTask([]); // delete the task whe you log out
+                        console.log("No user: ");
+                        const textFromStorage =
+                                localStorage.getItem("TasksOffline");
                         setTask(JSON.parse(textFromStorage));
-
-
-                      }
-              
+                }
         }, [currentUser]);
-      
 
         return (
                 <StyledMain

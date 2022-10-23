@@ -4,7 +4,7 @@ import { collection, getDocs, doc, setDoc } from "firebase/firestore";
 import { GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth";
 
 export const useFirebase = () => {
-        const getDataFromFirebase = async () => {
+        const getDataFromFirebase = async (currentUser) => {
                 const result = [];
                 const collectionRef = collection(db, "DATA-COLLECTION");
                 const docSnap = await getDocs(collectionRef);
@@ -16,22 +16,32 @@ export const useFirebase = () => {
                 );
                 const qSnap = await getDocs(subColRef);
                 docSnap.forEach((doc) => {
+                        // console.log('doc1: ', doc);
                         result.push(doc.data());
                 });
                 qSnap.forEach((doc) => {
-                        result.push(Object.values(doc.data()));
+                        // console.log("doc2: ", doc);
+                        //FIXME? change currentUsr.uid by email
+                        console.log('currentUser.uid: ', currentUser.uid);
+                        if (doc.id === currentUser.uid) {
+                                result.push(Object.values(doc.data()));
+                                // console.log('result: ', result);
+                        }
                 });
                 return result;
         };
-        const setTasksData = async (tasks) => {
+        const setTasksData = async (tasks, currentUser) => {
                 // Add a new document in collection "cities"
+                                        //FIXME? change currentUsr.uid by email
+
+                
                 await setDoc(
                         doc(
                                 db,
                                 "DATA-COLLECTION",
                                 "dZk8lNLGnOXQYnBVEeqG",
                                 "TASKS",
-                                "ikSuf7C2BtzgQzgQkSBj"
+                                currentUser.uid 
                         ),
                         {
                                 0: tasks, // array
@@ -47,8 +57,8 @@ export const useFirebase = () => {
                         }
                 );
         };
-        const setDataToFirebase = async (tasks, value) => {
-                await setTasksData(tasks);
+        const setDataToFirebase = async (tasks, value, currentUser) => {
+                await setTasksData(tasks, currentUser);
                 await setThemeData(value);
         };
         const singInWithGoogle = async () => {
@@ -85,7 +95,7 @@ export const useFirebase = () => {
                                 console.log(`you signed out`);
                         })
                         .catch((error) => {
-                                console.log('error: ', error);
+                                console.log("error: ", error);
                                 // An error happened.
                         });
         };

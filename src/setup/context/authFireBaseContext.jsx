@@ -9,10 +9,12 @@ export const AuthFireBaseContextProvider = ({ children }) => {
         useEffect(() => {
                 onAuthStateChanged(auth, (user) => {
                         if (user) {
+                                console.log('user: ', user);
                                 // User is signed in,
                                 setCurrentUser({
                                         displayName: user.displayName,
                                         photoURL: user.photoURL,
+                                        uid:user.uid
                                 });
                         } else {
                                 // User is signed out
