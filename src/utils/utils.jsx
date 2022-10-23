@@ -197,7 +197,7 @@ export const hideDialogueAnimation = (dialog) => {
 
 export const MetaMaskLogin = (auth, signInWithCustomToken) => {
         console.log(`metamask login`);
-        const url = new URL("http://localhost:3000");
+        const url = new URL("https://server-custom-auth-todo-app.vercel.app/");
 
         if (window.ethereum) {
                 window.ethereum
