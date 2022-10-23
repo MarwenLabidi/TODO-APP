@@ -255,4 +255,3 @@ export const MetaMaskLogin = (auth, signInWithCustomToken) => {
         }
 };
 
-//TODO? add the add and delete function from th index db using dexie

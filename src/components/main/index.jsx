@@ -71,12 +71,11 @@ const [currentUser, setCurrentUser] = useContext(authFireBaseContext);
                         //FIXME? pass the user to setDatatofirebase and modiy it by addin uui to the name of the user in the firestore
                         console.log('user: ', currentUser);
                         // User is signed in, see docs for a list of available properties
-                        // https://firebase.google.com/docs/reference/js/firebase.User
                         setDataToFirebase(Tasks, theme);
                         // ...
                       } else {
-                        //TODO?add to the loca storage the data
                         console.log('No user: ');
+                        localStorage.setItem('TasksOffline', JSON.stringify(Tasks));
                       }
                 
                 if (Tasks.length > previousTasks.current.length) {
@@ -111,7 +110,6 @@ const [currentUser, setCurrentUser] = useContext(authFireBaseContext);
                 };
         }, [Tasks, typeOfTask]);
         useEffect(() => {
-                //--->get data from firebase
                 if (currentUser) {
                        //FIXME? pass the user to setDatatofirebase and modiy it by addin uui to the name of the user in the firestore
 
@@ -124,7 +122,9 @@ const [currentUser, setCurrentUser] = useContext(authFireBaseContext);
                         // No user is signed in.
                         setTask([])// delete the task whe you log out
                         console.log('No user: ');
-                        //TODO?get to the datato  local storage 
+                        const textFromStorage = localStorage.getItem('TasksOffline');
+                        setTask(JSON.parse(textFromStorage));
+
 
                       }
               

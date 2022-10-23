@@ -14,6 +14,6 @@
 ## Tech Stack:
 - Vite , React , Styled component,FramerMotion,React Aria
 - Web Speech API
-- FireBase ,Dexie.js(indexDb lib)
+- FireBase 
 - Git , Github , Github Actions
 - Playwright (unit test && components test)
