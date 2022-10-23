@@ -10,6 +10,7 @@ export const AuthFireBaseContextProvider = ({ children }) => {
                 onAuthStateChanged(auth, (user) => {
                         if (user) {
                                 console.log('user: ', user);
+                                //FIXME? add emil and use it in store if its null get firestore account : use state here and add it in the login button
                                 // User is signed in,
                                 setCurrentUser({
                                         displayName: user.displayName,
