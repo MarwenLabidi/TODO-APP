@@ -137,12 +137,9 @@ const App = () => {
 
 export default App;
 
-//TODO? make server url in env varriable and change github action to add url
 //TODO? add a custom loader until you log in or until you log out
 //TODO? know the prefers-color-scheme with js and set it in the beggining
 //FIXME? Search how to scroll to the direction of dragging
-//TODO? login firebase
-//-[]create the security rules of firebase and use index db if your not loged in to save the data and show pop up to  move data from index db when you log in
 //TODO? voice controll feature
 //-[]Search how to use audio to read text look for a hook or something
 //-[]Use speech recognition hooks
