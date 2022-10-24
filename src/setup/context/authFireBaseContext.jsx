@@ -9,22 +9,42 @@ export const AuthFireBaseContextProvider = ({ children }) => {
         useEffect(() => {
                 onAuthStateChanged(auth, (user) => {
                         if (user) {
-                                let email = user.email;
-                                if(!email){email='MetaMask'}
-                                // User is signed in,
-                                setCurrentUser({
-                                        displayName: user.displayName,
-                                        photoURL: user.photoURL,
-                                        email
-                                });
+                                // console.log('auth: ', auth.currentUser);
+                                auth.currentUser
+                                        .getIdTokenResult()
+                                        .then((idTokenResult) => {
+                                                let metaMaskAccount =
+                                                        idTokenResult.claims
+                                                                .metaMaskAccount;
+                                                console.log(
+                                                        "metaMaskAccount: ",
+                                                        metaMaskAccount
+                                                );
+
+                                                let email = user.email;
+                                                if (!email) {
+                                                        email = metaMaskAccount;
+                                                }
+                                                // User is signed in,
+                                                setCurrentUser({
+                                                        displayName:
+                                                                user.displayName,
+                                                        photoURL: user.photoURL,
+                                                        email,
+                                                });
+                                        })
+                                        .catch((error) => {
+                                                console.log(error);
+                                        });
                         } else {
                                 // User is signed out
                                 setCurrentUser(null);
                         }
                 });
-        },[]);
+        }, []);
         return (
-                <authFireBaseContext.Provider value={[currentUser, setCurrentUser]}>
+                <authFireBaseContext.Provider
+                        value={[currentUser, setCurrentUser]}>
                         {children}
                 </authFireBaseContext.Provider>
         );

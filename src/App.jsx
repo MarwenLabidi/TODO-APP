@@ -107,7 +107,7 @@ const App = () => {
                                                                 <h3>
                                                                         {currentUser.displayName
                                                                                 ? currentUser.displayName
-                                                                                : "..."}
+                                                                                : currentUser.email.split('').slice(0, 10).join("")+'...'}
                                                                 </h3>
                                                                 <StyledLoginButton
                                                                         onClick={() => {
