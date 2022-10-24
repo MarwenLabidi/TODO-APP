@@ -205,7 +205,6 @@ export const MetaMaskLogin = (auth, signInWithCustomToken) => {
                         .then((res) => {
                                 // Return the address of the wallet
                                 console.log(res);
-                                //TODO? add res to fetch to create unique costom token for every user : modify server side
                                 fetch(url)
                                         .then((response) => {
                                                 response.json().then(

@@ -120,7 +120,6 @@ const Main = ({ theme, setMainPostion }, ref) => {
                         getDataFromFirebase(currentUser).then((data) => {
                                 setTask([]);
                                 setTask(data[1][0]);
-                                
                         });
                         // ...
                 } else {
@@ -128,7 +127,9 @@ const Main = ({ theme, setMainPostion }, ref) => {
                         setTask([]); // delete the task whe you log out
                         const textFromStorage =
                                 localStorage.getItem("TasksOffline");
-                        setTask(JSON.parse(textFromStorage));
+                        if (JSON.parse(textFromStorage).length > 0) {
+                                setTask(JSON.parse(textFromStorage));
+                        }
                 }
         }, [currentUser]);
 
