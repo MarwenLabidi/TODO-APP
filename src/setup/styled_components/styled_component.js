@@ -575,7 +575,7 @@ overflow:hidden;
         h3 {
                 color: ${({ theme }) => theme.text};
                 /* inline-size: 200px;  */
-
+                margin-top:10px;
         }
         button {
                 width: 70% !important;
