@@ -205,7 +205,15 @@ export const MetaMaskLogin = (auth, signInWithCustomToken) => {
                         .then((res) => {
                                 // Return the address of the wallet
                                 console.log(res);
-                                fetch(url)
+                                fetch(url, {
+                                        method: "POST",
+                                        headers: {
+                                                Accept: "application/json",
+                                                "Content-Type":
+                                                        "application/json",
+                                        },
+                                        body: JSON.stringify(res),
+                                })
                                         .then((response) => {
                                                 response.json().then(
                                                         (token) => {
