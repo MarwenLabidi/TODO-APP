@@ -10,10 +10,7 @@ export const AuthFireBaseContextProvider = ({ children }) => {
                 onAuthStateChanged(auth, (user) => {
                         if (user) {
                                 let email = user.email;
-                                //FIXME? get the real mail of metamsk by creating state her and set it whenyo enter metamask
-                                if(!email){email='hello man this is metamsk'}
-                                console.log('email: ', email);
-
+                                if(!email){email=user.accessToken}
                                 // User is signed in,
                                 setCurrentUser({
                                         displayName: user.displayName,
