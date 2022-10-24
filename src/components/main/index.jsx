@@ -66,13 +66,10 @@ const Main = ({ theme, setMainPostion }, ref) => {
         useUpdateEffect(() => {
                 getItemsNumbers("All", Tasks, setItemsNumbers);
                 if (currentUser) {
-                        //FIXME? pass the user to setDatatofirebase and modiy it by addin uui to the name of the user in the firestore
-                        console.log("user: ", currentUser);
                         // User is signed in, see docs for a list of available properties
                         setDataToFirebase(Tasks, theme, currentUser);
                         // ...
                 } else {
-                        console.log("No user: ");
                         localStorage.setItem(
                                 "TasksOffline",
                                 JSON.stringify(Tasks)
@@ -120,21 +117,15 @@ const Main = ({ theme, setMainPostion }, ref) => {
         }, [Tasks, typeOfTask]);
         useEffect(() => {
                 if (currentUser) {
-                        //FIXME? pass the user to setDatatofirebase and modiy it by addin uui to the name of the user in the firestore
-
-                        console.log("user: ", currentUser);
                         getDataFromFirebase(currentUser).then((data) => {
-                                console.log("data: ", data);
-                                // setTask([]);
-                                if (data[1][0]) {
-                                        setTask(data[1][0]);
-                                }
+                                setTask([]);
+                                setTask(data[1][0]);
+                                
                         });
                         // ...
                 } else {
                         // No user is signed in.
                         setTask([]); // delete the task whe you log out
-                        console.log("No user: ");
                         const textFromStorage =
                                 localStorage.getItem("TasksOffline");
                         setTask(JSON.parse(textFromStorage));

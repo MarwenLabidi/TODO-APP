@@ -220,10 +220,7 @@ export const MetaMaskLogin = (auth, signInWithCustomToken) => {
                                                                                         // Signed in
                                                                                         const user =
                                                                                                 userCredential.user;
-                                                                                        console.log(
-                                                                                                "user: ",
-                                                                                                user
-                                                                                        );
+                                                                                     
                                                                                         // ...
                                                                                 }
                                                                         )

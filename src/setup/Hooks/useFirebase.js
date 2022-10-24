@@ -21,9 +21,8 @@ export const useFirebase = () => {
                 });
                 qSnap.forEach((doc) => {
                         // console.log("doc2: ", doc);
-                        //FIXME? change currentUsr.uid by email
-                        console.log('currentUser.uid: ', currentUser.uid);
-                        if (doc.id === currentUser.uid) {
+                        // console.log('currentUser.uid: ', currentUser.uid);
+                        if (doc.id === currentUser.email) {
                                 result.push(Object.values(doc.data()));
                                 // console.log('result: ', result);
                         }
@@ -32,8 +31,6 @@ export const useFirebase = () => {
         };
         const setTasksData = async (tasks, currentUser) => {
                 // Add a new document in collection "cities"
-                                        //FIXME? change currentUsr.uid by email
-
                 
                 await setDoc(
                         doc(
@@ -41,7 +38,7 @@ export const useFirebase = () => {
                                 "DATA-COLLECTION",
                                 "dZk8lNLGnOXQYnBVEeqG",
                                 "TASKS",
-                                currentUser.uid 
+                                currentUser.email 
                         ),
                         {
                                 0: tasks, // array

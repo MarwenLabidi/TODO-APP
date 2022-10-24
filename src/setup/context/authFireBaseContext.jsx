@@ -9,13 +9,16 @@ export const AuthFireBaseContextProvider = ({ children }) => {
         useEffect(() => {
                 onAuthStateChanged(auth, (user) => {
                         if (user) {
-                                console.log('user: ', user);
-                                //FIXME? add emil and use it in store if its null get firestore account : use state here and add it in the login button
+                                let email = user.email;
+                                //FIXME? get the real mail of metamsk by creating state her and set it whenyo enter metamask
+                                if(!email){email='hello man this is metamsk'}
+                                console.log('email: ', email);
+
                                 // User is signed in,
                                 setCurrentUser({
                                         displayName: user.displayName,
                                         photoURL: user.photoURL,
-                                        uid:user.uid
+                                        email
                                 });
                         } else {
                                 // User is signed out
