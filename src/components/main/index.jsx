@@ -125,9 +125,10 @@ const Main = ({ theme, setMainPostion }, ref) => {
                 } else {
                         // No user is signed in.
                         setTask([]); // delete the task whe you log out
-                        const textFromStorage =
+                        if (localStorage.getItem("TasksOffline") ) {
+                                //...
+                                const textFromStorage =
                                 localStorage.getItem("TasksOffline");
-                        if (JSON.parse(textFromStorage).length > 0) {
                                 setTask(JSON.parse(textFromStorage));
                         }
                 }
