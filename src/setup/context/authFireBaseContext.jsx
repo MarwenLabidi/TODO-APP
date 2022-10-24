@@ -10,7 +10,7 @@ export const AuthFireBaseContextProvider = ({ children }) => {
                 onAuthStateChanged(auth, (user) => {
                         if (user) {
                                 let email = user.email;
-                                if(!email){email=user.accessToken}
+                                if(!email){email='MetaMask'}
                                 // User is signed in,
                                 setCurrentUser({
                                         displayName: user.displayName,
