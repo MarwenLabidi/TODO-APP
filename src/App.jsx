@@ -137,9 +137,6 @@ const App = () => {
 
 export default App;
 
-//TODO? add a custom loader until you log in or until you log out
-//TODO? know the prefers-color-scheme with js and set it in the beggining
-//FIXME? Search how to scroll to the direction of dragging
 //TODO? voice controll feature
 //-[]Search how to use audio to read text look for a hook or something
 //-[]Use speech recognition hooks
