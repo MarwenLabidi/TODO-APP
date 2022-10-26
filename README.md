@@ -11,7 +11,7 @@
 # [APP link](https://todo-app-97ae2.firebaseapp.com/)
 
 ## Tech Stack:
-- Vite , React , Styled component,FramerMotion
+- Vite , React , Styled component,FramerMotion , React Area ,react helmet
 - FireBase 
 - Git , Github , Github Actions
 - Playwright (Unit Testing && Components Testing  && Accessibility Testing)
