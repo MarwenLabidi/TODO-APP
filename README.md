@@ -11,7 +11,7 @@
 # [APP link](https://todo-app-97ae2.firebaseapp.com/)
 
 ## Tech Stack:
-- Vite , React , Styled component,FramerMotion,React Aria
+- Vite , React , Styled component,FramerMotion
 - FireBase 
 - Git , Github , Github Actions
-- Playwright (unit test && components test)
+- Playwright (Unit Testing && Components Testing  && Accessibility Testing)
