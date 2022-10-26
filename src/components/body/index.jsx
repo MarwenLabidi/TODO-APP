@@ -12,8 +12,8 @@ import { isMobile } from "react-device-detect";
 const variants = {
         desktopfirst: { x: 30 },
         mobilefirst: { x: 40 },
-        desktop: { x: 200 },
-        mobile: { x: 220 },
+        desktop: { x: 120 },
+        mobile: { x: 138 },
 };
 
 const Body = ({ theme, setMainPostion }, ref) => {
@@ -66,21 +66,6 @@ const Body = ({ theme, setMainPostion }, ref) => {
                                         </svg>
                                 </StyledMenuButton>
                                 <StyledMenuButtonSection>
-                                        <motion.button
-                                                id='soundControll'
-                                                whileTap={{ scale: 0.9 }}>
-                                                {" "}
-                                                voice controll
-                                                <input
-                                                        type='checkbox'
-                                                        name='soundControll'
-                                                        onChange={(e) => {
-                                                                playSound(
-                                                                        "/sounds/buttons.mp3"
-                                                                );
-                                                        }}
-                                                />
-                                        </motion.button>
                                         <motion.button
                                                 onClick={() =>
                                                         playSound(

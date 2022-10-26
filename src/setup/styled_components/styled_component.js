@@ -406,15 +406,16 @@ export const StyledContainerMenuButtonSectionbuttons = styled(motion.div)`
         display: flex;
         bottom: 100px;
         right: 0px;
-        width: 200px;
+        width: 150px;
         height: 100px;
         border-radius: 10px 0 0 10px;
         background-color: ${({ theme }) => theme.text};
         z-index: 9999;
-        padding-right: 230px;
+        padding-right: 150px;
         @media (max-width: 650px) {
                 padding-left: 10px;
         }
+
 `;
 
 export const StyledMenuButton = styled(motion.button)`
@@ -441,6 +442,7 @@ export const StyledMenuButton = styled(motion.button)`
                         margin-left: -14px;
                 }
         }
+
 `;
 export const StyledMenuButtonSection = styled(motion.div)`
         display: flex;
@@ -459,28 +461,8 @@ export const StyledMenuButtonSection = styled(motion.div)`
                         cursor: pointer;
                 }
                 margin-left: 10px;
-        }
-        #soundControll {
-                position: relative;
-                input {
-                        position: absolute;
-                        top: -3px;
-                        left: -10px;
-                        height: 100%;
-                        width: 120%;
-                        opacity: 0;
-                        &:hover {
-                                cursor: pointer;
-                        }
-                        /* &:checked{
-                        } */
-                }
-                /* change the background-color of the parent #soundControll if input is checked */
-                &:has(input:checked) {
-                        scale: 0.9;
-                        background-color: hsla(150, 100%, 42%, 1);
-                        color: ${({ theme }) => theme.invertText};
-                }
+         
+
         }
 `;
 

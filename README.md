@@ -1,7 +1,6 @@
 ## Welcome To  TODO-APP
 ### Progressive Web  APP
 ### - Fast ⚡️ 
-### - controled by voice
 ### - work offline
 ### - google and web3(MetaMask) authentication
 
@@ -13,7 +12,6 @@
 
 ## Tech Stack:
 - Vite , React , Styled component,FramerMotion,React Aria
-- Web Speech API
 - FireBase 
 - Git , Github , Github Actions
 - Playwright (unit test && components test)

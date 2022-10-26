@@ -137,20 +137,6 @@ const App = () => {
 
 export default App;
 
-//TODO? voice controll feature
-//-[]Search how to use audio to read text look for a hook or something
-//-[]Use speech recognition hooks
-//-[]After 2 second op mic and add text to state
-//-[]Useeffect on that state side the useeffect split the text in a table
-//-[]Create array of labels rank one and lane rank two
-//-[]Rank one : switch ,write,add, check ,all, complete,active,delete, show menu
-//-[]Rank two: theme ,task,task,taskcontent,menu
-//-[]When you execute write note the app tell you what is your note please use speech api to make text sound
-//-[]Use sound effect when you start recording and when you stop
-//-[]Inside the use effect check if there is a word from the rank ne array::( if there is check the second rank :: if there is execute action else return
-//-[]Create amd action function you just tell her the name of the acttion that's it
-//-[]Create every action in a function
-//-[]At the end of the use effect rart record again and make the app said task done
 //TODO? do unit test and component test with Playwright
 //TODO? use github action for ci cd pipeline
 //TODO? make it a progressive web apppp and add instal button
