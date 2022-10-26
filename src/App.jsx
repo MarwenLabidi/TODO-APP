@@ -137,12 +137,12 @@ const App = () => {
 
 export default App;
 
+//TODO? accesibility
+//-[] Add hiden Link to go to the tasks
 //TODO? do unit test and component test with Playwright
 //TODO? use github action for ci cd pipeline
 //TODO? make it a progressive web apppp and add instal button
 //TODO? enable offline cache firestore : https://cloud.google.com/firestore/docs/manage-data/enable-offline#:~:text=Firestore%20supports%20offline%20data%20persistence,and%20query%20the%20cached%20data.
-//TODO? accesibility
-//-[] Add hiden Link to go to the tasks
 
 //TODO? add linter and eslint by using the extention vscode
 
