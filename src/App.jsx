@@ -137,16 +137,18 @@ const App = () => {
 
 export default App;
 
-//TODO? accesibility
-//-[] Add hiden Link to go to the tasks
-//TODO? do unit test and component test with Playwright
-//TODO? use github action for ci cd pipeline
-//TODO? make it a progressive web apppp and add instal button
+//TODO? testing
+// -[] unit test
+// -[] components test
+// -[] accessability test
+
+//TODO? use github action to run those test before build
+
+//TODO? make it a progressive web app 
+//-[] add instal button and delete after instalation
 //TODO? enable offline cache firestore : https://cloud.google.com/firestore/docs/manage-data/enable-offline#:~:text=Firestore%20supports%20offline%20data%20persistence,and%20query%20the%20cached%20data.
 
 //TODO? add linter and eslint by using the extention vscode
 
-//TODO? use lihthosuse to make it faster
-//TODO? use mesure Measure page quality tools to make it faster too
-//TODO? add gif  mobile version and laptop version to README
+//TODO? add gifs for app laptop and  mobile version to README
 //TODO? add screenshot from light house and mesure page to README
