@@ -163,6 +163,7 @@ const Main = ({ theme, setMainPostion }, ref) => {
                                         onBlur={handelBlurInput(
                                                 setFocusedInput
                                         )}
+                                        aria-label='input'
                                 />
                                 <motion.button
                                         //  whileHover={{ scale: 1.2 }}

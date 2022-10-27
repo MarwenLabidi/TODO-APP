@@ -415,10 +415,10 @@ export const StyledContainerMenuButtonSectionbuttons = styled(motion.div)`
         @media (max-width: 650px) {
                 padding-left: 10px;
         }
-
 `;
 
 export const StyledMenuButton = styled(motion.button)`
+
         width: 30px;
         height: 100px;
         background-color: ${({ theme }) => theme.text};
@@ -442,7 +442,6 @@ export const StyledMenuButton = styled(motion.button)`
                         margin-left: -14px;
                 }
         }
-
 `;
 export const StyledMenuButtonSection = styled(motion.div)`
         display: flex;
@@ -461,8 +460,6 @@ export const StyledMenuButtonSection = styled(motion.div)`
                         cursor: pointer;
                 }
                 margin-left: 10px;
-         
-
         }
 `;
 
@@ -534,7 +531,7 @@ export const StyledProfileSection = styled(motion.span)`
 `;
 
 export const StyledProfileMenu = styled(motion.div)`
-overflow:hidden;
+        overflow: hidden;
         position: absolute;
         top: 0;
         right: -250px;
@@ -550,20 +547,17 @@ overflow:hidden;
         img {
                 /* background-color:red; */
                 height: 20%;
-                margin:0 auto;
-                margin-top:50%;
-
+                margin: 0 auto;
+                margin-top: 50%;
         }
         h3 {
                 color: ${({ theme }) => theme.text};
                 /* inline-size: 200px;  */
-                margin-top:10px;
+                margin-top: 10px;
         }
         button {
                 width: 70% !important;
-                margin:30px auto;
-
-   
+                margin: 30px auto;
         }
         transition: right 0.5s ease-in-out;
 `;

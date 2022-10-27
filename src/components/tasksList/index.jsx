@@ -5,8 +5,8 @@ import Tasks from "../tasks/index.jsx";
 
 const TasksList = ({ tasks, type, callBack, setTask }) => {
         return (
-                <ul>
                         <Reorder.Group
+                        as='div'
                                 axis='y'
                                 values={tasks}
                                 onReorder={setTask}>
@@ -21,7 +21,6 @@ const TasksList = ({ tasks, type, callBack, setTask }) => {
                                         )}
                                 </AnimatePresence>
                         </Reorder.Group>
-                </ul>
         );
 };
 

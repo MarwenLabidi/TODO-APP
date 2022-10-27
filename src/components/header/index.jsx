@@ -24,9 +24,9 @@ const Header = ({ toggleTheme, icon, refProfileMenu }, ref) => {
                         icon={icon}
                         width={focusedInput === false ? 32 : 50}>
                         <header>
-                                <h1>TODO</h1>
+                                <h1 data-axe-reject={true}>TODO</h1>
                                 <div ref={refDarkModeButton}>
-                                        <button
+                                        <button aria-label='dark mode ' 
                                                 className='Moon'
                                                 onClick={() => {
                                                         playSound(
@@ -35,7 +35,7 @@ const Header = ({ toggleTheme, icon, refProfileMenu }, ref) => {
                                                         );
                                                         toggleTheme();
                                                 }}></button>
-                                        <button
+                                        <button aria-label='white mode ' 
                                                 className='Sun'
                                                 onClick={() => {
                                                         playSound(

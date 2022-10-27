@@ -17,7 +17,7 @@ export const showTasksInTheList = (
         }
         if (type === "Active") {
                 return (
-                        <motion.div
+                        <motion.ul
                                 layout
                                 exit={{
                                         opacity: 0,
@@ -34,11 +34,11 @@ export const showTasksInTheList = (
                                         callBack={callBack}
                                         setTask={setTask}
                                 />
-                        </motion.div>
+                        </motion.ul>
                 );
         } else if (type === "Completed") {
                 return (
-                        <motion.div
+                        <motion.ul
                                 layout
                                 exit={{
                                         opacity: 0,
@@ -57,11 +57,11 @@ export const showTasksInTheList = (
                                         callBack={callBack}
                                         setTask={setTask}
                                 />
-                        </motion.div>
+                        </motion.ul>
                 );
         } else {
                 return (
-                        <motion.div
+                        <motion.ul
                                 layout
                                 exit={{
                                         opacity: 0,
@@ -80,7 +80,7 @@ export const showTasksInTheList = (
                                         callBack={callBack}
                                         setTask={setTask}
                                 />
-                        </motion.div>
+                        </motion.ul>
                 );
         }
 };

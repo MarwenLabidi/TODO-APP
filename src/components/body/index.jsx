@@ -50,7 +50,7 @@ const Body = ({ theme, setMainPostion }, ref) => {
                                                 playSound("/sounds/menu.mp3");
                                         }
                                 }}>
-                                <StyledMenuButton>
+                                <StyledMenuButton aria-label='menu'>
                                         <svg
                                                 xmlns='http://www.w3.org/2000/svg'
                                                 fill='none'
@@ -67,6 +67,7 @@ const Body = ({ theme, setMainPostion }, ref) => {
                                 </StyledMenuButton>
                                 <StyledMenuButtonSection>
                                         <motion.button
+                                        
                                                 onClick={() =>
                                                         playSound(
                                                                 "/sounds/buttons.mp3"
