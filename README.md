@@ -14,4 +14,5 @@
 - Vite , React , Styled component,FramerMotion , React Area ,react helmet
 - FireBase 
 - Git , Github , Github Actions
-- Playwright (Unit Testing && Components Testing  && Accessibility Testing)
+- vitest (Unit Testing)
+- Playwright ( Components Testing  && Accessibility Testing)
