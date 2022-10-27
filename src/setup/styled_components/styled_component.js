@@ -198,7 +198,7 @@ export const StyledMainListSection = styled(motion.div)`
         scroll-snap-type: y mandatory;
         .reorder-handle {
                 /* background-color:red; */
-                position: fixed;
+                position: absolute;
                 height: 30px;
                 width: 50px;
                 right: 5px;
