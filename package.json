@@ -2,13 +2,11 @@
   "name": "todo-app",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
     "testUnit": "vitest run "
-
   },
   "dependencies": {
     "firebase": "^9.9.4",
@@ -21,6 +19,7 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "@playwright/test": "^1.27.1",
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
     "@vitejs/plugin-react": "^2.0.1",
