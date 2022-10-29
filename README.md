@@ -15,4 +15,4 @@
 - FireBase 
 - Git , Github , Github Actions
 - vitest (Unit Testing)
-- Playwright ( Components Testing  && Accessibility Testing)
+- Playwright ( Components Testing  && Accessibility Testing && End To End Testing)
