@@ -8,7 +8,8 @@
     "preview": "vite preview",
     "test-ut": "vitest run ",
     "test-e2e": "npx playwright test tests/E2E.spec.js",
-    "test-a11y": "npx playwright test tests/a11y.spec.js"
+    "test-a11y": "npx playwright test tests/a11y.spec.js",
+    "test-ct": "playwright test -c playwright-ct.config.js"
   },
   "dependencies": {
     "@axe-core/playwright": "^4.5.0",
@@ -22,6 +23,7 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "@playwright/experimental-ct-react": "^1.27.1",
     "@playwright/test": "^1.27.1",
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",

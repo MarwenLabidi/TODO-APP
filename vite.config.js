@@ -7,6 +7,6 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
         plugins: [react()],
         test: {
-                exclude: [...configDefaults.exclude,"**/*.spec.js"],
+                exclude: [...configDefaults.exclude,"**/*.spec.js","**/*.spec.jsx"],
         },
 });
