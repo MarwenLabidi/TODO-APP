@@ -16,7 +16,7 @@ test("App has TODO-APP in title", async ({ page }) => {
 });
 
 test.describe("New Todo", () => {
-        test("should allow me to add todo items", async ({ page }) => {
+        test("should allow me to add todo items and set the task in the local storage", async ({ page }) => {
                 // Create 1st todo.
                 await page
                         .getByRole("textbox", { name: "input" })
