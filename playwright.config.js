@@ -53,12 +53,6 @@ const config = {
       },
     },
 
-    {
-      name: 'firefox',
-      use: {
-        ...devices['Desktop Firefox'],
-      },
-    },
 
 
     /* Test against mobile viewports. */
