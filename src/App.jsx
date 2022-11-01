@@ -137,13 +137,6 @@ const App = () => {
 
 export default App;
 
-//TODO? testing
-// -[] unit test
-// -[] components test
-// -[] accessability test
-
-//TODO? use github action to run those test before build
-
 //TODO? make it a progressive web app 
 //-[] add instal button and delete after instalation
 //TODO? enable offline cache firestore : https://cloud.google.com/firestore/docs/manage-data/enable-offline#:~:text=Firestore%20supports%20offline%20data%20persistence,and%20query%20the%20cached%20data.
