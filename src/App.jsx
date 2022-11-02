@@ -136,12 +136,3 @@ const App = () => {
 };
 
 export default App;
-
-//TODO? make it a progressive web app 
-//-[] add instal button and delete after instalation
-//TODO? enable offline cache firestore : https://cloud.google.com/firestore/docs/manage-data/enable-offline#:~:text=Firestore%20supports%20offline%20data%20persistence,and%20query%20the%20cached%20data.
-
-//TODO? add linter and eslint by using the extention vscode
-
-//TODO? add gifs for app laptop and  mobile version to README
-//TODO? add screenshot from light house and mesure page to README

@@ -57,6 +57,11 @@
                                 "beforeinstallprompt",
                                 (event) => {
                                         installPromptEvent = event;
+                                        let menuInstalButton =
+                                        document.querySelector(
+                                                ".MenuInstallButton"
+                                        );
+                                menuInstalButton.style.display = "flex";
                                 }
                         );
                         window.addEventListener("appinstalled", () => {

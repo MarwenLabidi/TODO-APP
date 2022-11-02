@@ -405,7 +405,7 @@ export const StyledContainerMenuButtonSectionbuttons = styled(motion.div).attrs(
         user-select: none; // fix text selection
         touch-action: none;
         position: absolute;
-        display: flex;
+        display: none;
         bottom: 100px;
         right: 0px;
         width: 150px;

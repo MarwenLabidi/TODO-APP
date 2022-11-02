@@ -17,3 +17,19 @@
 - Git , Github , Github Actions
 - vitest (Unit Testing)
 - Playwright ( Components Testing  && Accessibility Testing && End To End Testing)
+
+## App Quality
+![](./public/lighthouse.png)
+
+## App Preview
+### Desktop
+
+![](./public/desktop.gif)
+&nbsp;
+&nbsp;
+&nbsp;
+
+### Mobile
+<p align="center">
+  <img src="./public/mobile.gif" alt="Sublime's custom image"/>
+</p>
