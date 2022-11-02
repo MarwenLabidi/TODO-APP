@@ -68,10 +68,16 @@ const Body = ({ theme, setMainPostion }, ref) => {
                                 <StyledMenuButtonSection>
                                         <motion.button
                                         
-                                                onClick={() =>
+                                                onClick={() =>{
                                                         playSound(
                                                                 "/sounds/buttons.mp3"
-                                                        )
+                                                        );
+                                                        (function installApp(){
+                                                                console.log('installing');
+                                                                installPromptEvent.prompt();
+
+                                                        })()
+                                                }
                                                 }
                                                 whileTap={{ scale: 0.9 }}>
                                                 install

@@ -399,7 +399,9 @@ export const StyledCursor = styled(motion.div).attrs({
         opacity: 0.7;
 `;
 
-export const StyledContainerMenuButtonSectionbuttons = styled(motion.div)`
+export const StyledContainerMenuButtonSectionbuttons = styled(motion.div).attrs({
+        className: 'MenuInstallButton',
+        })`
         user-select: none; // fix text selection
         touch-action: none;
         position: absolute;

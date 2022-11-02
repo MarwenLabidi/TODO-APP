@@ -2,6 +2,7 @@
 ### Progressive Web  APP
 ### - Fast ⚡️ 
 ### - work offline
+### - Background Sync
 ### - google and web3(MetaMask) authentication
 
 
